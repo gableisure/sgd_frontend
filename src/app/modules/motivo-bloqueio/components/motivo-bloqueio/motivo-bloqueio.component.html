@@ -1,0 +1,80 @@
+<div class="container-title-page">
+  <div class="title-page">
+    <p>{{ titlePage }}</p>
+  </div>
+  <button
+      mat-raised-button
+      (click)="openDialogCreate()"
+      class="create-motivo-bloqueio"
+  >
+      <i class="material-icons add">add</i>
+      Criar motivo
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="table-container">
+    <table mat-table class="full-width-table" [dataSource]="motivoBloqueio">
+      
+      <!-- id_motivo_bloqueio Column -->
+      <ng-container class="ng-container" matColumnDef="id_motivo_bloqueio">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_motivo_bloqueio}}</a>
+        </td>
+      </ng-container>
+
+      <!-- tx_motivo_bloqueio Column -->
+      <ng-container class="ng-container" matColumnDef="tx_motivo_bloqueio">
+        <th mat-header-cell *matHeaderCellDef>Motivo bloqueio</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.tx_motivo_bloqueio}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio Column -->
+      <ng-container class="ng-container" matColumnDef="dt_inicio">
+        <th mat-header-cell *matHeaderCellDef>Data início</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_inicio | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_fim Column -->
+      <ng-container class="ng-container" matColumnDef="dt_fim">
+        <th mat-header-cell *matHeaderCellDef>Data fim</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_fim  | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+       <!-- actions Column -->
+       <ng-container class="ng-container" matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="actions">
+            <button
+              mat-icon-button
+              matTooltip="Editar"
+              (click)="openDialogUpdate(row.id_motivo_bloqueio!)"
+              class="edit"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              matTooltip="Excluir"
+              (click)="openDialogDelete(row.id_motivo_bloqueio!)"
+              class="delete"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

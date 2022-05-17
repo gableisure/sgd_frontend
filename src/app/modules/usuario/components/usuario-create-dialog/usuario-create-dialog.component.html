@@ -1,0 +1,45 @@
+<div class="container">
+    <p class="title-dialog">{{ titleDialog }}</p>
+    <form>
+        <div class="form-row">
+            <div class="container-icon-input">
+                <i class="material-icons">person</i>
+            </div>
+            <input type="text" [(ngModel)]="usuario.nm_usuario" [ngModelOptions]="{standalone: true}" placeholder="Nome">
+        </div>
+        <div class="form-row">
+            <div class="container-icon-input">
+                <i class="material-icons">email</i>
+            </div>
+            <input type="email" [(ngModel)]="usuario.nr_cpf" [ngModelOptions]="{standalone: true}" placeholder="CPF">
+        </div>
+        <div class="form-row-type-user">
+            <label>Tipo de usuário</label>
+            <mat-button-toggle-group name="typeUser" aria-label="Type user" (change)="changeSelectTypeUser($event)">
+                <mat-button-toggle
+                    *ngFor="let perfilUsuario of perfisUsuario"
+                    [value]="perfilUsuario.value"
+                >
+                    {{ perfilUsuario.viewValue }}
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div class="buttons-container">
+            <div mat-dialog-actions class="buttons-group">
+                <button
+                    mat-stroked-button
+                    (click)="cancel()"
+                    class="btn-cancelar"
+                >
+                Cancelar
+                </button>
+                <button
+                    mat-stroked-button
+                    class="btn-salvar"
+                >
+                Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,134 @@
+.container-title-page {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.container-title-page p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #303030;
+}
+
+.title-page {
+    display: flex;
+    align-items: center;
+}
+
+mat-chip-list {
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
+
+.chip {
+    background-color: #e9f3fc;
+    padding: 5px;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+button.create-ted {
+    background-color: #04591A;
+    color: #fff;
+}
+
+.edit {
+    color: #888;
+}
+
+.delete {
+    color: #888;
+}
+
+.container-item-ted {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.avatar-ted {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+}
+
+.avatar-ted a {
+    text-decoration: none;
+    color: #212121;
+}
+
+.ted-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-right: 20px;
+}
+
+.ted-info a {
+    font-size: 1rem;
+    margin: 0;
+    color: #212121;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.ted-info a:hover {
+    text-decoration: underline;
+}
+
+.container-info > p {
+    font-size: .8rem;
+    margin: 0;
+    color: #666;
+}
+
+.container-info {
+    display: flex;
+    flex-direction: column;
+    font-size: .5rem;
+}
+
+.container-info a {
+    font-size: 1rem;
+}
+
+.info i {
+    font-size: medium;
+    color: #666;
+    margin-right: 3px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    margin-left: 2rem;
+}
+
+.info p {
+    color: #666;
+    margin: 0;
+    margin-right: 12px;
+}
+
+.info p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* .actions {
+    width: 14%;
+    margin-left: 20px;
+} */

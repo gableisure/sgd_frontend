@@ -1,0 +1,93 @@
+<app-title-page title="Atividade backlog"></app-title-page>
+<div class="table-container">
+    <table mat-table class="full-width-table" [dataSource]="atividadeBacklog">
+      
+      <!-- id_atividade Column -->
+      <ng-container class="ng-container" matColumnDef="id_atividade">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_atividade}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_atividade_etapa_eap Column -->
+      <ng-container class="ng-container" matColumnDef="id_atividade_etapa_eap">
+        <th mat-header-cell *matHeaderCellDef>ID atividade etapa</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_atividade_etapa_eap}}</a>
+        </td>
+      </ng-container>
+
+      <!-- ds_atividade_etapa Column -->
+      <ng-container class="ng-container" matColumnDef="ds_atividade_etapa">
+        <th mat-header-cell *matHeaderCellDef>Atividade</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.ds_atividade_etapa}}</a>
+        </td>
+      </ng-container>
+      
+      <!-- ds_detalhe_atividade Column -->
+      <ng-container class="ng-container" matColumnDef="ds_detalhe_atividade">
+        <th mat-header-cell *matHeaderCellDef>Detalhe</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.ds_detalhe_atividade}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_situacao_atividade Column -->
+      <ng-container class="ng-container" matColumnDef="id_situacao_atividade">
+        <th mat-header-cell *matHeaderCellDef>ID situacao</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_situacao_atividade}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_prioridade_atividade Column -->
+      <ng-container class="ng-container" matColumnDef="id_prioridade_atividade">
+        <th mat-header-cell *matHeaderCellDef>ID prioridade</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_prioridade_atividade}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_sprint Column -->
+      <ng-container class="ng-container" matColumnDef="id_sprint">
+        <th mat-header-cell *matHeaderCellDef>ID sprint</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_sprint}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_ted Column -->
+      <ng-container class="ng-container" matColumnDef="id_ted">
+        <th mat-header-cell *matHeaderCellDef>ID id_ted</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_ted}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio_atividade Column -->
+      <ng-container class="ng-container" matColumnDef="dt_inicio_atividade">
+        <th mat-header-cell *matHeaderCellDef>Data início</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_inicio_atividade | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_fim_atividade Column -->
+      <ng-container class="ng-container" matColumnDef="dt_fim_atividade">
+        <th mat-header-cell *matHeaderCellDef>Data fim</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_fim_atividade  | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 #paginator
+                 aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

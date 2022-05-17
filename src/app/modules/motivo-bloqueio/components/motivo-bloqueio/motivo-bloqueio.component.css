@@ -1,0 +1,30 @@
+.container-title-page {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.container-title-page p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #303030;
+}
+
+.title-page {
+    display: flex;
+    align-items: center;
+}
+
+button.create-motivo-bloqueio {
+    background-color: #04591A;
+    color: #fff;
+}
+
+.edit {
+    color: #888;
+}
+
+.delete {
+    color: #888;
+}

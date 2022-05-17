@@ -1,0 +1,58 @@
+<div class="container-title-page">
+    <div class="title-page">
+      <p>Usuários</p>
+      <mat-chip-list>
+        <mat-chip class="chip">{{ usuarios.length }}</mat-chip>
+      </mat-chip-list>
+    </div>
+    
+    
+    <button
+        mat-raised-button
+        (click)="openDialogCreate()"
+        class="create-user"
+    >
+        <i class="material-icons add">add</i>
+        Criar usuário
+    </button>
+  </div>
+  
+  <mat-divider></mat-divider>
+  
+  <div *ngFor="let usuario of usuarios; let i = index;">
+    <div class="container-item-user">
+        <div class="avatar-user">
+          <!-- <a href="#">{{user.name[0]}}{{user.name[1]}}</a> -->
+          <a href="#">{{usuario.nm_usuario[0]}}</a>
+        </div>
+        <div class="user-info">
+          <div class="container-info">
+            <div class="username-typeuser">
+              <a href="">
+                {{usuario.nm_usuario}}
+                
+              </a>
+              <span class="chip-type-user">{{usuario.ds_perfil_usuario}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="actions">
+            <button
+              mat-icon-button
+              matTooltip="Editar"
+              class="edit"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              matTooltip="Excluir"
+              class="delete"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+  </div>

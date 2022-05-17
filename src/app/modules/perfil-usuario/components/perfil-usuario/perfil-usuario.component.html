@@ -1,0 +1,83 @@
+<div class="container-title-page">
+  <div class="title-page">
+    <p>{{ titlePage }}</p>
+  </div>
+  <button
+      mat-raised-button
+      (click)="openDialogCreate()"
+      class="create-perfil"
+  >
+      <i class="material-icons add">add</i>
+      Criar perfil
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="table-container">
+    <table mat-table class="full-width-table" [dataSource]="perfilUsuario">
+      
+      <!-- id_perfil_usuario Column -->
+      <ng-container class="ng-container" matColumnDef="id_perfil_usuario">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_perfil_usuario}}</a>
+        </td>
+      </ng-container>
+
+      <!-- ds_perfil_usuario Column -->
+      <ng-container class="ng-container" matColumnDef="ds_perfil_usuario">
+        <th mat-header-cell *matHeaderCellDef>Perfil</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.ds_perfil_usuario}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio_vigencia Column -->
+      <ng-container class="ng-container" matColumnDef="dt_inicio_vigencia">
+        <th mat-header-cell *matHeaderCellDef>Data início vigência</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_fim_vigencia Column -->
+      <ng-container class="ng-container" matColumnDef="dt_fim_vigencia">
+        <th mat-header-cell *matHeaderCellDef>Data fim vigência</th>
+        <td mat-cell *matCellDef="let row">
+            <div>
+              <a>{{row.dt_fim_vigencia  | date : 'dd/MM/yyyy' }}</a>
+            </div>
+        </td>
+      </ng-container>
+
+      <!-- actions Column -->
+      <ng-container class="ng-container" matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="actions">
+            <button
+              mat-icon-button
+              matTooltip="Editar"
+              (click)="openDialogUpdate(row.id_perfil_usuario!)"
+              class="edit"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              matTooltip="Excluir"
+              (click)="openDialogDelete(row.id_perfil_usuario!)"
+              class="delete"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+

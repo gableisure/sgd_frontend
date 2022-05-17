@@ -1,0 +1,156 @@
+.container-title-page {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.container-title-page p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #303030;
+}
+
+.title-page {
+    display: flex;
+    align-items: center;
+}
+
+mat-chip-list {
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
+
+button.create-user {
+    background-color: #04591A;
+    color: #fff;
+}
+
+.chip {
+    background-color: #e9f3fc;
+    padding: 5px;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.edit {
+    color: #888;
+}
+
+.delete {
+    color: #888;
+}
+
+.container-item-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.avatar-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    background-color: #e9f3fc;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2px;
+    text-transform: uppercase;
+    border-radius: 50%;
+    border: none;
+}
+
+.avatar-user a {
+    text-decoration: none;
+    color: #212121;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-right: 20px;
+}
+
+.user-info a {
+    font-size: 1rem;
+    margin: 0;
+    color: #212121;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+.container-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-info > p {
+    font-size: .8rem;
+    margin: 0;
+    color: #666;
+}
+
+.username-typeuser {
+    display: flex;
+    align-items: center;
+}
+
+.username-typeuser a {
+    font-size: 1rem;
+}
+
+.username-typeuser .chip-type-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background-color: #fff;
+    color: #666;
+    padding: 2px;
+    border: 1px solid #cecece;
+    border-radius: 8px;
+    width: 70px;
+    height: 10px;
+    font-size: .6rem;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.info i {
+    font-size: medium;
+    color: #666;
+    margin-right: 3px;
+}
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 3px;
+}
+
+.info p {
+    color: #666;
+    margin: 0;
+    margin-right: 12px;
+}
+
+.info p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.actions {
+    width: 14%;
+    margin-left: 20px;
+}

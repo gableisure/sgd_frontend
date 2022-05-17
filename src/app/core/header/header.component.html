@@ -1,0 +1,91 @@
+<mat-toolbar class="header">
+    <div class="container-left">
+        <mat-icon
+            (click)="opened = !opened"
+        >
+            menu
+        </mat-icon>
+        <span>
+            <a routerLink="/">
+                <img src="assets/img/logo_latitude.png" alt="logo" class="logo">
+            </a>
+        </span>
+    </div>
+    <div class="container-right">
+        <button mat-button [matMenuTriggerFor]="menu">
+            <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/admin">
+                <div class="container-button-menu">
+                    <i class="material-icons">person</i>
+                    <span>Admin</span>
+                </div>
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container
+    class="sidenav-container"
+    fullscreen
+>
+    <mat-sidenav
+        id="sidenav"
+        class="sidenav"
+        mode="push"
+        [(opened)]="opened"
+    >
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/teds" (click)="opened = !opened">
+                <i class="material-icons">dashboard</i>
+                Teds
+            </a>
+            <mat-divider></mat-divider>
+            <a matTooltip="Atividade etapa eap" mat-list-item routerLink="/atividadeetapaeap" (click)="opened = !opened">
+                <i class="material-icons">arrow_forward</i>
+                Atividade etapa eap
+            </a>
+            <mat-divider></mat-divider>
+            <a matTooltip="Atividade backlog" mat-list-item routerLink="/atividadebacklog" (click)="opened = !opened">
+                <i class="material-icons">arrow_forward</i>
+                Atividade backlog
+            </a>
+            <mat-divider></mat-divider>
+            <!-- <a matTooltip="Prioridade atividade" mat-list-item routerLink="/prioridadeatividade">
+                <i class="material-icons">arrow_forward</i>
+                Prioridade atividade
+            </a>
+            <mat-divider></mat-divider>
+            <a matTooltip="Situação atividade" mat-list-item routerLink="/situacaoatividade">
+                <i class="material-icons">arrow_forward</i>
+                Situação atividade
+            </a> -->
+            <!-- <mat-divider></mat-divider>
+            <a matTooltip="Tarefa" mat-list-item routerLink="/tarefa">
+                <i class="material-icons">arrow_forward</i>
+                Tarefas
+            </a>
+            <mat-divider></mat-divider>
+            <a matTooltip="Situação tarefa" mat-list-item routerLink="/situacaotarefa">
+                <i class="material-icons">arrow_forward</i>
+                Situação tarefa
+            </a>
+            <mat-divider></mat-divider>
+            <a matTooltip="Tarefa observador" mat-list-item routerLink="/tarefaobservador">
+                <i class="material-icons">arrow_forward</i>
+                Tarefa observador
+            </a>
+            <mat-divider></mat-divider>
+            <a matTooltip="Sprint" mat-list-item routerLink="/sprint">
+                <i class="material-icons">arrow_forward</i>
+                Sprint
+            </a> -->
+            <mat-divider></mat-divider>
+            
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

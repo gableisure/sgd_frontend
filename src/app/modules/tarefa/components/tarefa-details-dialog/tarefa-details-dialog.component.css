@@ -1,0 +1,141 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-header p {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #303030;
+    line-height: 1.3;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.content .info-tarefa {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.info-tarefa .container-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-tarefa p {
+    font-weight: 500;
+    font-size: .7rem;
+    color: #888;
+}
+
+.content-user {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    background-color: #242739;
+    color: #fff;
+    font-size: 0.7rem;
+    width: 19px;
+    height: 19px;
+    padding: 2px;
+    border-radius: 50%;
+    border: 1px solid #888;
+    text-align: center;
+}
+
+.situacao-tarefa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    padding-left: 5px;
+    border-radius: 3px;
+    font-size: .7rem;
+}
+
+.situacao-tarefa.em-andamento {
+    background-color: #e1ecfc;
+}
+
+.situacao-tarefa.em-andamento:hover {
+    background-color: #4bade8;
+    color: #fff;
+}
+
+.situacao-tarefa.finalizada {
+    background-color: #e3fcef;
+}
+
+.situacao-tarefa.finalizada:hover {
+    background-color: #2b8f5a;
+    color: #fff;
+}
+
+.situacao-tarefa.bloqueada {
+    background-color: #fff3de;
+}
+
+.situacao-tarefa.bloqueada:hover {
+    background-color: #ffa500;
+    color: #fff;
+}
+
+.situacao-tarefa.cancelada {
+    background-color: #ffebeb;
+}
+
+.situacao-tarefa.cancelada:hover {
+    background-color: #e65e5e;
+    color: #fff;
+}
+
+.situacao-tarefa.em-homologacao {
+    background-color: #f0e0ff;
+}
+
+.situacao-tarefa.em-homologacao:hover {
+    background-color: #ac7cec;
+    color: #fff;
+}
+
+.container-detalhes {
+    margin-top: 20px;
+}
+
+.container-detalhes span {
+    font-weight: 500;
+    font-size: .7rem;
+    color: #888;
+    margin: 0; 
+}
+
+.content-detalhes {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.content-detalhes p {
+    font-size: .7rem;
+}

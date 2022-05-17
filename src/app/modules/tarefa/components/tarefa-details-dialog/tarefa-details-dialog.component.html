@@ -1,0 +1,124 @@
+<div class="container">
+    <div class="container-header">
+        <p>{{ tarefa.ds_tarefa }}</p>
+        <button
+              mat-icon-button
+              (click)="closeDialog()"
+            >
+              X
+            </button>
+    </div>
+    <div class="content">
+        <div class="info-tarefa">
+            <div class="container-user">
+                <p>Solicitante</p>
+                <div class="content-user">
+                    <div class="avatar">
+                        {{tarefa.solicitante[0]}}
+                    </div>
+                    <p>{{tarefa.solicitante}}</p>
+                </div>
+            </div>
+            <div class="container-user">
+                <p>Responsavel</p>
+                <div class="content-user">
+                    <div class="avatar">
+                        {{tarefa.responsavel[0]}}
+                    </div>
+                    <p>{{tarefa.responsavel}}</p>
+                </div>
+            </div>
+            <div class="container-situacao-tarefa">
+                <p>Status</p>
+                <div *ngIf="tarefa.ds_situacao_tarefa.toUpperCase() == 'EM ANDAMENTO'" class="situacao-tarefa em-andamento" [matMenuTriggerFor]="menu">
+                    {{tarefa.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(tarefa.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+                <div *ngIf="tarefa.ds_situacao_tarefa.toUpperCase() == 'FINALIZADA'" class="situacao-tarefa finalizada" [matMenuTriggerFor]="menu">
+                    {{tarefa.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(tarefa.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+                <div *ngIf="tarefa.ds_situacao_tarefa.toUpperCase() == 'BLOQUEADA'" class="situacao-tarefa bloqueada" [matMenuTriggerFor]="menu">
+                    {{tarefa.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(tarefa.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+                <div *ngIf="tarefa.ds_situacao_tarefa.toUpperCase() == 'CANCELADA'" class="situacao-tarefa cancelada" [matMenuTriggerFor]="menu">
+                    {{tarefa.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(tarefa.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+                <div *ngIf="tarefa.ds_situacao_tarefa.toUpperCase() == 'EM HOMOLOGAÇÃO'" class="situacao-tarefa em-homologacao" [matMenuTriggerFor]="menu">
+                    {{tarefa.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(tarefa.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-detalhes">
+          <span>Informações</span>
+          <div class="content-detalhes">
+            <div>
+              <span>Etapa</span>
+              <p class="detalhe">{{tarefa.ds_etapa}}</p>
+            </div>
+            <div>
+              <span>Atividade etapa</span>
+              <p class="detalhe">{{tarefa.ds_atividade_etapa}}</p>
+            </div>
+            <div>
+              <span>Atividade backlog</span>
+              <p class="detalhe">{{tarefa.ds_atividade_backlog}}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="rodape">
+          <span>ola</span>
+        </div>
+        
+    </div>
+</div>

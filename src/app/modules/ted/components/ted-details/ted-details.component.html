@@ -1,0 +1,182 @@
+<div class="container-title-page">
+  <div class="avatar-ted">
+    <a>{{tedDetails[0]['ds_ted'][0]}}</a>
+  </div>
+  <p>{{ tedDetails[0]['ds_ted'] }}</p>
+</div>
+<mat-divider></mat-divider>
+
+<mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">assignment</mat-icon>
+        Tarefas
+      </ng-template>
+      <div class="table-container">
+          <table mat-table class="full-width-table" [dataSource]="tedDetails">
+            
+            <!-- ds_tarefa Column -->
+            <ng-container class="ng-container" matColumnDef="ds_tarefa">
+              <th mat-header-cell *matHeaderCellDef>Resumo</th>
+              <td mat-cell *matCellDef="let row">
+                  <a id="ds_tarefa" (click)="openDialogTarefaDetails(row.id_tarefa)">{{row.ds_tarefa}}</a>
+              </td>
+            </ng-container>
+
+            <!-- solicitante Column -->
+            <ng-container class="ng-container" matColumnDef="solicitante">
+              <th mat-header-cell *matHeaderCellDef>Solicitante</th>
+              <td mat-cell *matCellDef="let row">
+                  <div class="user-container">
+                      <div class="avatar">
+                        {{row.solicitante[0]}}
+                      </div>
+                      <p>{{row.solicitante}}</p>
+                  </div>
+              </td>
+            </ng-container>
+
+            <!-- responsavel Column -->
+            <ng-container class="ng-container" matColumnDef="responsavel">
+              <th mat-header-cell *matHeaderCellDef>Responsável</th>
+              <td mat-cell *matCellDef="let row">
+                  <div class="user-container">
+                      <div class="avatar">
+                        {{row.responsavel[0]}}
+                      </div>
+                      <p>{{row.responsavel}}</p>
+                  </div>
+              </td>
+            </ng-container>
+
+            <!-- ds_situacao_tarefa Column -->
+            <ng-container matColumnDef="ds_situacao_tarefa">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let row">
+
+                <div *ngIf="row.ds_situacao_tarefa.toUpperCase() == 'EM ANDAMENTO'" class="situacao-tarefa em-andamento" [matMenuTriggerFor]="menu">
+                  {{row.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(row.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+
+                <div *ngIf="row.ds_situacao_tarefa.toUpperCase() == 'FINALIZADA'" class="situacao-tarefa finalizada" [matMenuTriggerFor]="menu">
+                  {{row.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(row.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+
+                <div *ngIf="row.ds_situacao_tarefa.toUpperCase() == 'EM HOMOLOGAÇÃO'" class="situacao-tarefa em-homologacao" [matMenuTriggerFor]="menu">
+                  {{row.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(row.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+
+                <div *ngIf="row.ds_situacao_tarefa.toUpperCase() == 'BLOQUEADA'" class="situacao-tarefa bloqueada" [matMenuTriggerFor]="menu">
+                  {{row.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(row.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+
+                <div *ngIf="row.ds_situacao_tarefa.toUpperCase() == 'CANCELADA'" class="situacao-tarefa cancelada" [matMenuTriggerFor]="menu">
+                  {{row.ds_situacao_tarefa.toUpperCase()}}
+                  <i class="material-icons">keyboard_arrow_down</i>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      *ngFor="let situacao of situacaoTarefa"
+                      mat-menu-item
+                      (click)="updateSituacaoTarefa(row.id_tarefa, situacao)"
+                    >
+                      {{situacao.ds_situacao_tarefa}}
+                    </button>
+                  </mat-menu>
+                </div>
+                
+              </td>
+            </ng-container>
+            
+            <!-- dt_inicio_tarefa Column -->
+            <ng-container matColumnDef="dt_inicio_tarefa">
+              <th mat-header-cell *matHeaderCellDef>Data início</th>
+              <td mat-cell *matCellDef="let row">
+                  {{ row.dt_inicio_tarefa | date : 'dd/MM/yyyy' }}
+              </td>
+            </ng-container>
+
+            <!-- dt_fim_tarefa Column -->
+            <ng-container matColumnDef="dt_fim_tarefa">
+              <th mat-header-cell *matHeaderCellDef>Data fim</th>
+              <td mat-cell *matCellDef="let row">{{ row.dt_fim_tarefa | date : 'dd/MM/yyyy' }}</td>
+            </ng-container>
+
+            <!-- dt_inclusao Column -->
+            <ng-container matColumnDef="dt_inclusao">
+              <th mat-header-cell *matHeaderCellDef>Data inclusão</th>
+              <td mat-cell *matCellDef="let row">{{ row.dt_inclusao | date : 'dd/MM/yyyy' }}</td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">people</mat-icon>
+        Pesquisadores
+      </ng-template>
+      <div class="container-pesquisadores">
+        <div *ngFor="let usuario of pesquisadoresTed; let i = index;">
+          <div class="container-item-user">
+              <div class="avatar-user">
+                <a href="#">{{usuario.nm_usuario[0]}}</a>
+              </div>
+              <div class="user-info">
+                <div class="container-info">
+                  <div class="username-typeuser">
+                    <a href="">
+                      {{usuario.nm_usuario}}
+                    </a>
+                    <span class="chip-type-user">{{usuario.ds_perfil_usuario}}</span>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+  </mat-tab>
+</mat-tab-group>

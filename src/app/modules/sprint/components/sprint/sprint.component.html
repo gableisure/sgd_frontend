@@ -1,0 +1,48 @@
+<app-title-page title="Sprint"></app-title-page>
+<div class="table-container">
+    <table mat-table class="full-width-table" [dataSource]="sprint">
+        
+      <!-- id_sprint Column -->
+      <ng-container class="ng-container" matColumnDef="id_sprint">
+        <th mat-header-cell *matHeaderCellDef>ID sprint</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_sprint}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_ted Column -->
+      <ng-container class="ng-container" matColumnDef="id_ted">
+        <th mat-header-cell *matHeaderCellDef>ID ted</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_ted}}</a>
+        </td>
+      </ng-container>
+
+      <!-- ds_ted Column -->
+      <ng-container class="ng-container" matColumnDef="ds_ted">
+        <th mat-header-cell *matHeaderCellDef>Ted</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.ds_ted}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio Column -->
+      <ng-container class="ng-container" matColumnDef="dt_inicio">
+        <th mat-header-cell *matHeaderCellDef>Data início</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_inicio | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_fim Column -->
+      <ng-container class="ng-container" matColumnDef="dt_fim">
+        <th mat-header-cell *matHeaderCellDef>Data fim</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_fim | date : 'dd/MM/yyyy' }}</a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <p class="title-dialog">{{ titleDialog }}</p>
+    <form>
+        <div class="form-row">
+            <div class="container-icon-input">
+                <i class="material-icons">description</i>
+            </div>
+            <input type="text" [(ngModel)]="ted.ds_ted" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="buttons-container">
+            <div mat-dialog-actions class="buttons-group">
+                <button
+                    mat-stroked-button
+                    (click)="cancel()"
+                    class="btn-cancelar"
+                >
+                    Cancelar
+                </button>
+                <button
+                    mat-stroked-button
+                    (click)="updateTed()"
+                    class="btn-salvar"
+                >
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+

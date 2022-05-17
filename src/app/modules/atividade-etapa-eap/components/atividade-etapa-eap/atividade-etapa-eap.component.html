@@ -1,0 +1,63 @@
+<app-title-page title="Atividade etapa eap"></app-title-page>
+<div class="table-container">
+    <mat-tab-group>
+      <mat-tab label="Atividade etapa eap">
+        <table mat-table class="full-width-table" [dataSource]="atividadeEtapaEap">
+      
+          <!-- id_atividade_etapa Column -->
+          <ng-container class="ng-container" matColumnDef="id_atividade_etapa">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let row">
+                <a>{{row.id_atividade_etapa}}</a>
+            </td>
+          </ng-container>
+    
+          <!-- id_etapa Column -->
+          <ng-container class="ng-container" matColumnDef="id_etapa">
+            <th mat-header-cell *matHeaderCellDef>ID etapa</th>
+            <td mat-cell *matCellDef="let row">
+                <a>{{row.id_etapa}}</a>
+            </td>
+          </ng-container>
+    
+          <!-- ds_etapa Column -->
+          <ng-container class="ng-container" matColumnDef="ds_etapa">
+            <th mat-header-cell *matHeaderCellDef>Etapa</th>
+            <td mat-cell *matCellDef="let row">
+                <a>{{row.ds_etapa}}</a>
+            </td>
+          </ng-container>
+          
+          <!-- ds_atividade_etapa Column -->
+          <ng-container class="ng-container" matColumnDef="ds_atividade_etapa">
+            <th mat-header-cell *matHeaderCellDef>Atividade etapa</th>
+            <td mat-cell *matCellDef="let row">
+                <a>{{row.ds_atividade_etapa}}</a>
+            </td>
+          </ng-container>
+    
+          <!-- dt_inicio_vigencia Column -->
+          <ng-container class="ng-container" matColumnDef="dt_inicio_vigencia">
+            <th mat-header-cell *matHeaderCellDef>Data início</th>
+            <td mat-cell *matCellDef="let row">
+                <a>{{row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</a>
+            </td>
+          </ng-container>
+    
+          <!-- dt_fim_vigencia Column -->
+          <ng-container class="ng-container" matColumnDef="dt_fim_vigencia">
+            <th mat-header-cell *matHeaderCellDef>Data fim</th>
+            <td mat-cell *matCellDef="let row">
+                <a>{{row.dt_fim_vigencia  | date : 'dd/MM/yyyy' }}</a>
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-tab>
+      <mat-tab label="Second"> Content 2 </mat-tab>
+      
+    </mat-tab-group>
+    
+</div>

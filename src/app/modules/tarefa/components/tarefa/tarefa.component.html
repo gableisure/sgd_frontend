@@ -1,0 +1,128 @@
+<app-title-page title="Tarefa"></app-title-page>
+<div class="table-container">
+    <table mat-table class="full-width-table" [dataSource]="tarefa">
+        
+      <!-- id_tarefa Column -->
+      <ng-container class="ng-container" matColumnDef="id_tarefa">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_tarefa}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_ted Column -->
+      <ng-container class="ng-container" matColumnDef="id_ted">
+        <th mat-header-cell *matHeaderCellDef>ID ted</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_ted}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_etapa Column -->
+      <ng-container class="ng-container" matColumnDef="id_etapa">
+        <th mat-header-cell *matHeaderCellDef>ID etapa</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_etapa}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_atividade_etapa Column -->
+      <ng-container class="ng-container" matColumnDef="id_atividade_etapa">
+        <th mat-header-cell *matHeaderCellDef>ID atividade etapa</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_atividade_etapa}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_atividade_backlog Column -->
+      <ng-container class="ng-container" matColumnDef="id_atividade_backlog">
+        <th mat-header-cell *matHeaderCellDef>ID atividade etapa</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_atividade_backlog}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_tarefa_pai Column -->
+      <ng-container class="ng-container" matColumnDef="id_tarefa_pai">
+        <th mat-header-cell *matHeaderCellDef>ID tarefa pai</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_tarefa_pai}}</a>
+        </td>
+      </ng-container>
+
+      <!-- ds_tarefa Column -->
+      <ng-container class="ng-container" matColumnDef="ds_tarefa">
+        <th mat-header-cell *matHeaderCellDef>Tarefa</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.ds_tarefa}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_solicitante Column -->
+      <ng-container class="ng-container" matColumnDef="id_solicitante">
+        <th mat-header-cell *matHeaderCellDef>ID solicitante</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_solicitante}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_responsavel Column -->
+      <ng-container class="ng-container" matColumnDef="id_responsavel">
+        <th mat-header-cell *matHeaderCellDef>ID responsável</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_responsavel}}</a>
+        </td>
+      </ng-container>
+
+      <!-- id_situacao_tarefa Column -->
+      <ng-container class="ng-container" matColumnDef="id_situacao_tarefa">
+        <th mat-header-cell *matHeaderCellDef>ID situação</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.id_situacao_tarefa}}</a>
+        </td>
+      </ng-container>
+
+      <!-- nr_regra_negocio Column -->
+      <ng-container class="ng-container" matColumnDef="nr_regra_negocio">
+        <th mat-header-cell *matHeaderCellDef>ID situação</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.nr_regra_negocio}}</a>
+        </td>
+      </ng-container>
+
+      <!-- nr_historia_usuario Column -->
+      <ng-container class="ng-container" matColumnDef="nr_historia_usuario">
+        <th mat-header-cell *matHeaderCellDef>ID situação</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.nr_historia_usuario}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio_tarefa Column -->
+      <ng-container matColumnDef="dt_inicio_tarefa">
+        <th mat-header-cell *matHeaderCellDef>Data início</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.dt_inicio_tarefa | date : 'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+
+      <!-- dt_fim_tarefa Column -->
+      <ng-container matColumnDef="dt_fim_tarefa">
+        <th mat-header-cell *matHeaderCellDef>Data fim</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.dt_fim_tarefa | date : 'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+
+      <!-- dt_inclusao Column -->
+      <ng-container matColumnDef="dt_inclusao">
+        <th mat-header-cell *matHeaderCellDef>Data inclusão</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.dt_inclusao | date : 'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
