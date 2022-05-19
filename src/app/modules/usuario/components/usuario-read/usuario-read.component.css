@@ -1,3 +1,7 @@
+.container-card {
+    padding: 20px 50px 50px 50px;
+}
+
 .container-title-page {
     display: flex;
     justify-content: space-between;
@@ -153,4 +157,8 @@ button.create-user {
 .actions {
     width: 14%;
     margin-left: 20px;
+}
+
+.container-users {
+    border-bottom: 1px solid #cecece;
 }

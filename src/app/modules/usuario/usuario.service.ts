@@ -9,7 +9,7 @@ import { Usuario } from './usuario.module';
 })
 export class UsuarioService {
 
-  baseUrl = 'http://localhost:3000/usuarios';
+  baseUrl = 'http://localhost:3000/usuario';
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 

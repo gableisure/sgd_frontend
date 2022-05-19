@@ -40,11 +40,10 @@ export class UsuarioReadComponent implements OnInit {
   }
 
   openDialogCreate(): void {
-    const dialogRef = this.dialog.open(UsuarioCreateDialogComponent, {
-      height: '400px',
+    this.dialog.open(UsuarioCreateDialogComponent, {
+      height: '430px',
       width: '500px',
     });
-
   }
 
   /* 

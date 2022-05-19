@@ -3,4 +3,5 @@ export interface MotivoBloqueio {
     tx_motivo_bloqueio: string;
     dt_inicio: string;
     dt_fim: string | null;
+    status: boolean;
 }

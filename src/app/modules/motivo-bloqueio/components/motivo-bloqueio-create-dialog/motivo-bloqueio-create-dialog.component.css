@@ -12,11 +12,6 @@ form {
     padding: 0 30px;
 }
 
-.container-form-row {
-    display: flex;
-    flex-direction: column;
-}
-
 mat-label {
     margin-bottom: 5px;
     color: #888;
@@ -41,6 +36,11 @@ mat-label {
     border-right: 1px solid #cecece;
     padding: 3px 10px;
     color: #cecece;
+}
+
+.container-form-row {
+    display: flex;
+    flex-direction: column;
 }
 
 .form-row input {

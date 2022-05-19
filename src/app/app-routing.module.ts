@@ -4,7 +4,6 @@ import { AdminComponent } from './modules/admin/components/admin/admin.component
 import { AtividadeBacklogComponent } from './modules/atividade-backlog/components/atividade-backlog/atividade-backlog.component';
 import { AtividadeEtapaEapComponent } from './modules/atividade-etapa-eap/components/atividade-etapa-eap/atividade-etapa-eap.component';
 import { EtapaEapComponent } from './modules/etapa-eap/components/etapa-eap/etapa-eap.component';
-import { TesteComponent } from './modules/etapa-eap/components/teste/teste.component';
 import { MotivoBloqueioComponent } from './modules/motivo-bloqueio/components/motivo-bloqueio/motivo-bloqueio.component';
 import { PerfilUsuarioComponent } from './modules/perfil-usuario/components/perfil-usuario/perfil-usuario.component';
 import { PrioridadeAtividadeComponent } from './modules/prioridade-atividade/components/prioridade-atividade/prioridade-atividade.component';
@@ -75,8 +74,8 @@ const routes: Routes = [
     component: AdminComponent
   },
   {
-    path: "teste",
-    component: TesteComponent
+    path: "usuario",
+    component: UsuarioReadComponent
   },
   
 ];

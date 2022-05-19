@@ -12,50 +12,6 @@
             </div>
         </div>
         
-        <!-- <div class="container-form-row">
-            <mat-label>Data início vigência</mat-label>
-            <div class="form-row">
-                <div class="container-icon-input-date">
-                    <mat-datepicker-toggle matPrefix [for]="pickerInicioVigencia"></mat-datepicker-toggle>
-                </div>
-                <input matInput [matDatepicker]="pickerInicioVigencia" [(ngModel)]="perfilUsuario.dt_inicio_vigencia" [ngModelOptions]="{standalone: true}">
-                <mat-datepicker #pickerInicioVigencia></mat-datepicker>
-            </div>
-        </div> -->
-
-        <div class="container-form-row">
-            <mat-label>Data início vigência</mat-label>
-            <div class="form-row">
-                <div class="container-icon-input">
-                    <i class="material-icons">date_range</i>
-                </div>
-                <input type="text" mask="d0/M0/0000"  [(ngModel)]="perfilUsuario.dt_inicio_vigencia" [ngModelOptions]="{standalone: true}">
-            </div>
-        </div>
-        <!-- mask="d0/M0/0000"  -->
-
-        <!-- <div class="container-form-row">
-            <mat-label>Data fim vigência</mat-label>
-            <div class="form-row">
-                <div class="container-icon-input-date">
-                    <mat-datepicker-toggle matPrefix [for]="pickerFimVigencia"></mat-datepicker-toggle>
-                </div>
-                <input matInput [matDatepicker]="pickerFimVigencia" [(ngModel)]="perfilUsuario.dt_fim_vigencia" [ngModelOptions]="{standalone: true}">
-                <mat-datepicker #pickerFimVigencia></mat-datepicker>
-            </div>
-        </div> -->
-
-        <div class="container-form-row">
-            <mat-label>Data fim vigência</mat-label>
-                <div class="form-row">
-                    <div class="container-icon-input">
-                        <i class="material-icons">date_range</i>
-                    </div>
-                    <input type="text" mask="d0/M0/0000" [(ngModel)]="perfilUsuario.dt_fim_vigencia" [ngModelOptions]="{standalone: true}">
-                    
-                </div>
-        </div>
-
         <div class="buttons-container">
             <div mat-dialog-actions class="buttons-group">
                 <button

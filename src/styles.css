@@ -1,10 +1,49 @@
-html, body { height: 100% !important }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100% !important;
+    
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box;}
 
 table {
     width: 100%;
 }
 
- 
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #04591A;
+}
 
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #07932C;
+}
 
+.mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: #04591A;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #07932C;
+}
+
+.snakbar-msg-success {
+    background-color: #04591A;
+    color: #fff;
+}
+
+.snakbar-success button {
+    color: #fff;
+}
+
+.edit {
+    color: #888;
+}
+
+.container-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cecece;
+}

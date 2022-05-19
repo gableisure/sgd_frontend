@@ -1,28 +1,27 @@
-<div class="container-title-page">
-    <div class="title-page">
-      <p>Usuários</p>
-      <mat-chip-list>
-        <mat-chip class="chip">{{ usuarios.length }}</mat-chip>
-      </mat-chip-list>
-    </div>
-    
-    
-    <button
-        mat-raised-button
-        (click)="openDialogCreate()"
-        class="create-user"
-    >
-        <i class="material-icons add">add</i>
-        Criar usuário
-    </button>
+<mat-card class="container-card">
+  <div class="container-title-page">
+      <div class="title-page">
+        <p>Usuários</p>
+        <mat-chip-list>
+          <mat-chip class="chip">{{ usuarios.length }}</mat-chip>
+        </mat-chip-list>
+      </div>
+      
+      <button
+          mat-raised-button
+          (click)="openDialogCreate()"
+          class="create-user"
+      >
+          <i class="material-icons add">add</i>
+          Criar usuário
+      </button>
   </div>
   
-  <mat-divider></mat-divider>
-  
-  <div *ngFor="let usuario of usuarios; let i = index;">
+  <div class="container-filters"></div>
+    
+  <div class="container-users" *ngFor="let usuario of usuarios; let i = index;">
     <div class="container-item-user">
         <div class="avatar-user">
-          <!-- <a href="#">{{user.name[0]}}{{user.name[1]}}</a> -->
           <a href="#">{{usuario.nm_usuario[0]}}</a>
         </div>
         <div class="user-info">
@@ -54,5 +53,5 @@
             </button>
         </div>
     </div>
-    <mat-divider></mat-divider>
   </div>
+</mat-card>

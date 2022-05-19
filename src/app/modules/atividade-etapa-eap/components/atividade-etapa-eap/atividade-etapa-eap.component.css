@@ -1,3 +1,9 @@
 .mat-cell, .mat-header-cell {
     padding: 8px;
 }
+
+.table-container {
+    background-color: antiquewhite;
+    
+}
+

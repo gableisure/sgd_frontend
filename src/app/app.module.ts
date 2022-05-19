@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { HeaderComponent } from './core/header/header.component';
 import { TitlePageComponent } from './core/title-page/title-page.component';
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
@@ -15,6 +17,8 @@ import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/
 import { UsuarioCreateDialogComponent } from './modules/usuario/components/usuario-create-dialog/usuario-create-dialog.component';
 import { TarefaDetailsDialogComponent } from './modules/tarefa/components/tarefa-details-dialog/tarefa-details-dialog.component';
 import { MotivoBloqueioComponent } from './modules/motivo-bloqueio/components/motivo-bloqueio/motivo-bloqueio.component';
+import { MotivoBloqueioCreateDialogComponent } from './modules/motivo-bloqueio/components/motivo-bloqueio-create-dialog/motivo-bloqueio-create-dialog.component';
+import { MotivoBloqueioUpdateDialogComponent } from './modules/motivo-bloqueio/components/motivo-bloqueio-update-dialog/motivo-bloqueio-update-dialog.component';
 import { PerfilUsuarioComponent } from './modules/perfil-usuario/components/perfil-usuario/perfil-usuario.component';
 import { EtapaEapComponent } from './modules/etapa-eap/components/etapa-eap/etapa-eap.component';
 import { PrioridadeAtividadeComponent } from './modules/prioridade-atividade/components/prioridade-atividade/prioridade-atividade.component';
@@ -26,18 +30,12 @@ import { SituacaoTarefaComponent } from './modules/situacao-tarefa/components/si
 import { TarefaObservadorComponent } from './modules/tarefa-observador/components/tarefa-observador/tarefa-observador.component';
 import { TarefaComponent } from './modules/tarefa/components/tarefa/tarefa.component';
 import { PerfilUsuarioUpdateDialogComponent } from './modules/perfil-usuario/components/perfil-usuario-update-dialog/perfil-usuario-update-dialog.component';
-import { PerfilUsuarioDeleteDialogComponent } from './modules/perfil-usuario/components/perfil-usuario-delete-dialog/perfil-usuario-delete-dialog.component';
 import { PerfilUsuarioCreateDialogComponent } from './modules/perfil-usuario/components/perfil-usuario-create-dialog/perfil-usuario-create-dialog.component';
-import { MotivoBloqueioCreateDialogComponent } from './modules/motivo-bloqueio/components/motivo-bloqueio-create-dialog/motivo-bloqueio-create-dialog.component';
-import { MotivoBloqueioUpdateDialogComponent } from './modules/motivo-bloqueio/components/motivo-bloqueio-update-dialog/motivo-bloqueio-update-dialog.component';
 import { EtapaEapDeleteDialogComponent } from './modules/etapa-eap/components/etapa-eap-delete-dialog/etapa-eap-delete-dialog.component';
 import { EtapaEapUpdateDialogComponent } from './modules/etapa-eap/components/etapa-eap-update-dialog/etapa-eap-update-dialog.component';
 import { EtapaEapCreateDialogComponent } from './modules/etapa-eap/components/etapa-eap-create-dialog/etapa-eap-create-dialog.component';
 import { TesteComponent } from './modules/etapa-eap/components/teste/teste.component';
-
 import { AdminComponent } from './modules/admin/components/admin/admin.component'
-
-
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -64,10 +62,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-
-
-
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -93,7 +89,6 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     TarefaObservadorComponent,
     TarefaComponent,
     PerfilUsuarioUpdateDialogComponent,
-    PerfilUsuarioDeleteDialogComponent,
     PerfilUsuarioCreateDialogComponent,
     AdminComponent,
     MotivoBloqueioCreateDialogComponent,
@@ -133,6 +128,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     MatDatepickerModule,
     MatMomentDateModule,
     NgxMaskModule.forRoot(),
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

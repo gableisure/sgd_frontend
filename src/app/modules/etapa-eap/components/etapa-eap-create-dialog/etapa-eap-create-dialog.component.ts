@@ -10,13 +10,14 @@ import { EtapaEapService } from '../../etapa-eap.service';
 })
 export class EtapaEapCreateDialogComponent implements OnInit {
 
-  titleDialog: string = 'Editar etapa eap';
+  titleDialog: string = 'Criar etapa EAP';
 
   etapaEap: EtapaEap = {
     id_etapa: 0,
     ds_etapa: '',
     dt_inicio_vigencia: '',
-    dt_fim_vigencia: ''
+    dt_fim_vigencia: '',
+    status: true
   }
   
   constructor(private etapaEapService: EtapaEapService, public dialogRef: MatDialogRef<EtapaEapCreateDialogComponent>) { }

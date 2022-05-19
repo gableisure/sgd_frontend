@@ -16,7 +16,8 @@ export class PerfilUsuarioCreateDialogComponent implements OnInit {
     id_perfil_usuario: 0,
     ds_perfil_usuario: '',
     dt_inicio_vigencia: '',
-    dt_fim_vigencia: ''
+    dt_fim_vigencia: '',
+    status: true
   }
   
   constructor(private perfilUsuarioService: PerfilUsuarioService, public dialogRef: MatDialogRef<PerfilUsuarioCreateDialogComponent>) { }

@@ -18,7 +18,8 @@ export class MotivoBloqueioUpdateDialogComponent implements OnInit {
     id_motivo_bloqueio: 0,
     tx_motivo_bloqueio: '',
     dt_inicio: '',
-    dt_fim: ''
+    dt_fim: '',
+    status: true
   }
   
   constructor(private motivoBloqueioService: MotivoBloqueioService, public dialogRef: MatDialogRef<MotivoBloqueioUpdateDialogComponent>) { }

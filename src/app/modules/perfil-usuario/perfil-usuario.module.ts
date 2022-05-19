@@ -3,4 +3,5 @@ export interface PerfilUsuario {
     ds_perfil_usuario: string;
     dt_inicio_vigencia: string;
     dt_fim_vigencia: string | null;
+    status: boolean;
 }

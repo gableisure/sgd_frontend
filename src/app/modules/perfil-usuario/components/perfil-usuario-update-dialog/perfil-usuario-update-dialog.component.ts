@@ -34,7 +34,10 @@ export class PerfilUsuarioUpdateDialogComponent implements OnInit {
     id_perfil_usuario: 0,
     ds_perfil_usuario: '',
     dt_inicio_vigencia: '',
-    dt_fim_vigencia: ''
+    dt_fim_vigencia: '',
+    status: true
+    /* TODO: Testar a ideia da linha debaixo na linha de cima */
+    /* labelPosition: 'before' | 'after' = 'after'; */
   }
  
   constructor(private perfilUsuarioService: PerfilUsuarioService, public dialogRef: MatDialogRef<PerfilUsuarioUpdateDialogComponent>) { }

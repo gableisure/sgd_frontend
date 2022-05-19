@@ -1,15 +1,18 @@
-<div class="container">
-    <div class="content-title">
-        <p>Editar</p>
+<mat-card class="container-card">
+    <div class="container">
+        <div class="content-title">
+            <p>Editar</p>
+        </div>
+        <div class="content-list">
+            <mat-selection-list #tabelasbasicas [multiple]="false">
+                <mat-list-option *ngFor="let option of matListOptions" routerLink={{option.routerLink}}>
+                    <div class="container-list-option">
+                        <i class="material-icons">apps</i>
+                        {{ option.view_label }}
+                    </div>
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
     </div>
-    <mat-divider></mat-divider>
-    <div class="content-list">
-        <mat-selection-list #tabelasbasicas [multiple]="false">
-            <mat-list-option *ngFor="let option of matListOptions" routerLink={{option.routerLink}}>
-                {{ option.view_label }}
-            </mat-list-option>
-        </mat-selection-list>
-    </div>
-</div>
-
+</mat-card>
 

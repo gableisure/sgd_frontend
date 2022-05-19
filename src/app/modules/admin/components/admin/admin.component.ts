@@ -10,7 +10,8 @@ export class AdminComponent implements OnInit {
   matListOptions = [
     { "view_label": "Perfil usuário", "routerLink": "/perfilusuario" },
     { "view_label": "Motivo bloqueio", "routerLink": "/motivobloqueio" },
-    { "view_label": "Etapa eap", "routerLink": "/etapaeap" },
+    { "view_label": "Etapa EAP", "routerLink": "/etapaeap" },
+    { "view_label": "Usuário", "routerLink": "/usuario" },
   ]
 
   constructor() { }
