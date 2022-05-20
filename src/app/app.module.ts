@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from './core/header/header.component';
 import { TitlePageComponent } from './core/title-page/title-page.component';
+import { AdminComponent } from './modules/admin/components/admin/admin.component';
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
 import { TedCreateDialogComponent } from './modules/ted/components/ted-create-dialog/ted-create-dialog.component';
 import { TedUpdateDialogComponent } from './modules/ted/components/ted-update-dialog/ted-update-dialog.component';
@@ -34,8 +35,10 @@ import { PerfilUsuarioCreateDialogComponent } from './modules/perfil-usuario/com
 import { EtapaEapDeleteDialogComponent } from './modules/etapa-eap/components/etapa-eap-delete-dialog/etapa-eap-delete-dialog.component';
 import { EtapaEapUpdateDialogComponent } from './modules/etapa-eap/components/etapa-eap-update-dialog/etapa-eap-update-dialog.component';
 import { EtapaEapCreateDialogComponent } from './modules/etapa-eap/components/etapa-eap-create-dialog/etapa-eap-create-dialog.component';
-import { TesteComponent } from './modules/etapa-eap/components/teste/teste.component';
-import { AdminComponent } from './modules/admin/components/admin/admin.component'
+import { SituacaoAtividadeCreateDialogComponent } from './modules/situacao-atividade/components/situacao-atividade-create-dialog/situacao-atividade-create-dialog.component';
+import { SituacaoAtividadeUpdateDialogComponent } from './modules/situacao-atividade/components/situacao-atividade-update-dialog/situacao-atividade-update-dialog.component';
+import { SituacaoTarefaCreateDialogComponent } from './modules/situacao-tarefa/components/situacao-tarefa-create-dialog/situacao-tarefa-create-dialog.component';
+import { SituacaoTarefaUpdateDialogComponent } from './modules/situacao-tarefa/components/situacao-tarefa-update-dialog/situacao-tarefa-update-dialog.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -64,6 +67,7 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -96,7 +100,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     EtapaEapDeleteDialogComponent,
     EtapaEapUpdateDialogComponent,
     EtapaEapCreateDialogComponent,
-    TesteComponent
+    SituacaoAtividadeCreateDialogComponent,
+    SituacaoAtividadeUpdateDialogComponent,
+    SituacaoTarefaCreateDialogComponent,
+    SituacaoTarefaUpdateDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -26,9 +26,8 @@ export class EtapaEapComponent implements OnInit {
       this.etapaEap.forEach((etapaEap) => {
         etapaEap.status = etapaEap.dt_fim_vigencia == undefined ? true : false;
       });
-      this.etapaEap = this.etapaEap.filter((motivoBloqueio) => motivoBloqueio.status == true);
+      this.etapaEap = this.etapaEap.filter((etapaEap) => etapaEap.status == true);
       this.etapaEap.sort((a, b) => (a.id_etapa > b.id_etapa) ? -1 : 1);
-       
     });
   }
 

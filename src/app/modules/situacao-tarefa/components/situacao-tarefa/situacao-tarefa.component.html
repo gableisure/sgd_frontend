@@ -1,4 +1,23 @@
-<app-title-page title="Situação tarefa"></app-title-page>
+<mat-card class="container-card">
+  <div class="container-title-page">
+    <div class="title-page">
+      <p>{{ titlePage }}</p>
+    </div>
+    <button
+        mat-raised-button
+        (click)="openDialogCreate()"
+        class="create-entity"
+    >
+    
+      <i class="material-icons add">add</i>
+      Criar situação tarefa
+    </button>
+  </div>
+  <div class="container-filters">
+    <section>
+      <mat-checkbox class="example-margin" [(ngModel)]="checkedInactive" (change)="toggleShowInactive()">Mostrar inativos</mat-checkbox> 
+    </section>
+  </div>
 <div class="table-container">
     <table mat-table class="full-width-table" [dataSource]="situacaoTarefa">
       
@@ -15,6 +34,53 @@
         <th mat-header-cell *matHeaderCellDef>Situação tarefa</th>
         <td mat-cell *matCellDef="let row">
             <a>{{row.ds_situacao_tarefa}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio Column -->
+      <ng-container class="ng-container" matColumnDef="dt_inicio">
+        <th mat-header-cell *matHeaderCellDef>Data início vigência</th>
+        <td mat-cell *matCellDef="let row">
+            <p>{{ row.dt_inicio | date : 'dd/MM/yyyy' }}</p>
+        </td>
+      </ng-container>
+
+      <!-- dt_fim Column -->
+      <ng-container class="ng-container" matColumnDef="dt_fim">
+        <th mat-header-cell *matHeaderCellDef>Data fim vigência</th>
+        <td mat-cell *matCellDef="let row">
+            <div>
+              <p>{{ row.dt_fim  | date : 'dd/MM/yyyy' }}</p>
+            </div>
+        </td>
+      </ng-container>
+
+      <!-- status Column -->
+      <ng-container class="ng-container" matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let row">
+            <mat-slide-toggle *ngIf="row.status; else elseBlock" [(ngModel)]="row.status" (change)="toggleStatus(row)">Ativo</mat-slide-toggle>
+            <ng-template #elseBlock>
+              <mat-slide-toggle [(ngModel)]="row.status" (change)="toggleStatus(row)">Inativo</mat-slide-toggle> 
+            </ng-template>
+        </td>
+      </ng-container>
+
+      <!-- actions Column -->
+      <ng-container class="ng-container" matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="actions">
+            <button
+              mat-icon-button
+              matTooltip="Editar"
+              (click)="openDialogUpdate(row.id_situacao_tarefa!)"
+              class="edit"
+            >
+            
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
         </td>
       </ng-container>
 

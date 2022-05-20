@@ -12,6 +12,8 @@ export class AdminComponent implements OnInit {
     { "view_label": "Motivo bloqueio", "routerLink": "/motivobloqueio" },
     { "view_label": "Etapa EAP", "routerLink": "/etapaeap" },
     { "view_label": "Usuário", "routerLink": "/usuario" },
+    { "view_label": "Situação atividade", "routerLink": "/situacaoatividade" },
+    { "view_label": "Situação tarefa", "routerLink": "/situacaotarefa" },
   ]
 
   constructor() { }

@@ -26,9 +26,6 @@ export class PerfilUsuarioCreateDialogComponent implements OnInit {
   }
 
   createPerfilUsuario(): void {
-    const dt_inicio_vigencia = new Date;
-
-    this.perfilUsuario.dt_inicio_vigencia = this._formatDateToEn(dt_inicio_vigencia.toISOString());
     this.perfilUsuarioService.create(this.perfilUsuario).subscribe(() => {
       this.dialogRef.close();
       this.perfilUsuarioService.showMessage('Perfil do usuário criado com sucesso!');
@@ -38,16 +35,6 @@ export class PerfilUsuarioCreateDialogComponent implements OnInit {
 
   cancel(): void {
     this.dialogRef.close();
-  }
-
-  _formatDateToEn(date: string): string {
-    const date_format = new Date(Date.parse(date));
-
-    var dd = String(date_format.getDate()).padStart(2, '0');
-    var mm = String(date_format.getMonth() + 1).padStart(2, '0');
-    var yyyy = date_format.getFullYear();
-
-    return yyyy + '-' + mm + '-' + dd;
   }
 
 }
