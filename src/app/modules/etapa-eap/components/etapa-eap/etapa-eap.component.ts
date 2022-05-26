@@ -14,7 +14,7 @@ import { EtapaEapUpdateDialogComponent } from '../etapa-eap-update-dialog/etapa-
 export class EtapaEapComponent implements OnInit {
 
   titlePage = 'Etapa EAP';
-  displayedColumns = ['id_etapa', 'ds_etapa', 'dt_inicio_vigencia', 'dt_fim_vigencia', 'status', 'actions'];
+  displayedColumns = ['ds_etapa', 'dt_inicio_vigencia', 'dt_fim_vigencia', 'status', 'actions'];
   etapaEap: EtapaEap[] = [];
   checkedInactive = false;
 

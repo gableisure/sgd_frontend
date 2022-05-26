@@ -6,7 +6,7 @@
     <button
         mat-raised-button
         (click)="openDialogCreate()"
-        class="create-perfil"
+        class="create-entity"
     >
         <i class="material-icons add">add</i>
         Criar perfil
@@ -21,14 +21,6 @@
 
   <div class="table-container">
       <table mat-table class="full-width-table" [dataSource]="perfilUsuario">
-        
-        <!-- id_perfil_usuario Column -->
-        <ng-container class="ng-container" matColumnDef="id_perfil_usuario">
-          <th mat-header-cell *matHeaderCellDef>ID</th>
-          <td mat-cell *matCellDef="let row">
-              <p>{{ row.id_perfil_usuario }}</p>
-          </td>
-        </ng-container>
 
         <!-- ds_perfil_usuario Column -->
         <ng-container class="ng-container" matColumnDef="ds_perfil_usuario">
@@ -40,7 +32,7 @@
 
         <!-- dt_inicio_vigencia Column -->
         <ng-container class="ng-container" matColumnDef="dt_inicio_vigencia">
-          <th mat-header-cell *matHeaderCellDef>Data início vigência</th>
+          <th mat-header-cell *matHeaderCellDef>Data criação</th>
           <td mat-cell *matCellDef="let row">
               <p>{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</p>
           </td>
@@ -48,7 +40,7 @@
 
         <!-- dt_fim_vigencia Column -->
         <ng-container class="ng-container" matColumnDef="dt_fim_vigencia">
-          <th mat-header-cell *matHeaderCellDef>Data fim vigência</th>
+          <th mat-header-cell *matHeaderCellDef>Data inativação</th>
           <td mat-cell *matCellDef="let row">
               <div>
                 <p>{{ row.dt_fim_vigencia  | date : 'dd/MM/yyyy' }}</p>

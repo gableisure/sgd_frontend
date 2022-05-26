@@ -19,14 +19,6 @@
   </div>
   <div class="table-container">
       <table mat-table class="full-width-table" [dataSource]="situacaoAtividade">
-          
-        <!-- id_situacao_atividade Column -->
-        <ng-container class="ng-container" matColumnDef="id_situacao_atividade">
-          <th mat-header-cell *matHeaderCellDef>ID</th>
-          <td mat-cell *matCellDef="let row">
-              <a>{{row.id_situacao_atividade}}</a>
-          </td>
-        </ng-container>
 
         <!-- ds_situacao_atividade Column -->
         <ng-container class="ng-container" matColumnDef="ds_situacao_atividade">
@@ -38,7 +30,7 @@
 
         <!-- dt_inicio Column -->
         <ng-container class="ng-container" matColumnDef="dt_inicio">
-          <th mat-header-cell *matHeaderCellDef>Data início vigência</th>
+          <th mat-header-cell *matHeaderCellDef>Data criação</th>
           <td mat-cell *matCellDef="let row">
               <p>{{ row.dt_inicio | date : 'dd/MM/yyyy' }}</p>
           </td>
@@ -46,7 +38,7 @@
 
         <!-- dt_fim Column -->
         <ng-container class="ng-container" matColumnDef="dt_fim">
-          <th mat-header-cell *matHeaderCellDef>Data fim vigência</th>
+          <th mat-header-cell *matHeaderCellDef>Data inativação</th>
           <td mat-cell *matCellDef="let row">
               <div>
                 <p>{{ row.dt_fim  | date : 'dd/MM/yyyy' }}</p>

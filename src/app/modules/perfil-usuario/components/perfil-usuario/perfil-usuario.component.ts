@@ -13,7 +13,7 @@ import { PerfilUsuarioService } from './../../perfil-usuario.service';
 export class PerfilUsuarioComponent implements OnInit {
 
   titlePage = 'Perfil usuário';
-  displayedColumns = ['id_perfil_usuario', 'ds_perfil_usuario', 'dt_inicio_vigencia', 'dt_fim_vigencia', 'status', 'actions'];
+  displayedColumns = ['ds_perfil_usuario', 'dt_inicio_vigencia', 'dt_fim_vigencia', 'status', 'actions'];
   perfilUsuario: PerfilUsuario[] = [];
   checkedInactive = false;
   

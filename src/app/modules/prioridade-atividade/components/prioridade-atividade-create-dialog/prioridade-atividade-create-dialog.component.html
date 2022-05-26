@@ -2,45 +2,32 @@
     <p class="title-dialog">{{ titleDialog }}</p>
     <form>
         <div class="container-form-row">
-            <mat-label>Sigla</mat-label>
-            <div class="form-row">
-                <div class="container-icon-input">
-                    <i id="sigla-icon" class="fa-solid fa-a"></i>
-                    <!-- <i class="material-icons">description</i> -->
-                </div>
-                <input type="text" [(ngModel)]="ted.sg_ted" [ngModelOptions]="{standalone: true}" placeholder="Sigla">
-            </div>
             <mat-label>Descrição</mat-label>
             <div class="form-row">
                 <div class="container-icon-input">
-                    
                     <i class="material-icons">description</i>
                 </div>
-                <input type="text" [(ngModel)]="ted.ds_ted" [ngModelOptions]="{standalone: true}" placeholder="Descrição">
+                <input type="text" [(ngModel)]="prioridadeAtividade.ds_prioridade_atividade" [ngModelOptions]="{standalone: true}">
             </div>
         </div>
+        
         <div class="buttons-container">
             <div mat-dialog-actions class="buttons-group">
                 <button
                     mat-stroked-button
-                    (click)="cancel()"
                     class="btn-cancelar"
+                    (click)="cancel()"
                 >
-                Cancelar
+                    Cancelar
                 </button>
                 <button
                     mat-stroked-button
-                    (click)="createTed()"
                     class="btn-salvar"
+                    (click)="createPrioridadeAtividade()"
                 >
-                Salvar
+                    Salvar
                 </button>
             </div>
         </div>
     </form>
 </div>
-
-
-
-
-

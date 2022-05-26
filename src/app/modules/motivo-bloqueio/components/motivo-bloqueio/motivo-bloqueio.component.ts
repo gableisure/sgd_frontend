@@ -13,7 +13,7 @@ import { MotivoBloqueioService } from './../../motivo-bloqueio.service';
 export class MotivoBloqueioComponent implements OnInit {
 
   titlePage = 'Motivo bloqueio';
-  displayedColumns = ['id_motivo_bloqueio', 'tx_motivo_bloqueio', 'dt_inicio', 'dt_fim', 'status', 'actions'];
+  displayedColumns = ['tx_motivo_bloqueio', 'dt_inicio', 'dt_fim', 'status', 'actions'];
   motivoBloqueio: MotivoBloqueio[] = [];
   checkedInactive = false;
 

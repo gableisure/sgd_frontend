@@ -13,7 +13,7 @@ import { SituacaoTarefa } from './../../situacao-tarefa.module';
 export class SituacaoTarefaComponent implements OnInit {
 
   titlePage = 'Situação tarefa';
-  displayedColumns = ['id_situacao_tarefa', 'ds_situacao_tarefa', 'dt_inicio', 'dt_fim', 'status', 'actions'];
+  displayedColumns = ['ds_situacao_tarefa', 'dt_inicio', 'dt_fim', 'status', 'actions'];
   situacaoTarefa: SituacaoTarefa[] = [];
   checkedInactive = false;
 

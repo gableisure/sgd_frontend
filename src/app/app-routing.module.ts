@@ -14,15 +14,20 @@ import { TarefaObservadorComponent } from './modules/tarefa-observador/component
 import { TarefaComponent } from './modules/tarefa/components/tarefa/tarefa.component';
 import { TedDetailsComponent } from './modules/ted/components/ted-details/ted-details.component';
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
+import { TedComponent } from './modules/ted/components/ted/ted.component';
 import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/usuario-read.component';
 
 const routes: Routes = [
   {
-    path: "teds",
+    path: "ted1",
     component: TedReadComponent
   },
   {
-    path: "teds/teddetails/:id",
+    path: "ted",
+    component: TedComponent
+  },
+  {
+    path: "ted/teddetails/:id",
     component: TedDetailsComponent
   },
   {

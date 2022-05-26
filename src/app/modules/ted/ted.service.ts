@@ -15,10 +15,11 @@ export class TedService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   showMessage(msg: string): void {
-    this.snackBar.open(msg, 'X', {
+    this.snackBar.open(msg, 'Fechar', {
       duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top"
+      horizontalPosition: "left",
+      verticalPosition: "bottom",
+      panelClass: ['snakbar-msg-success', 'snakbar-success']
     })
   }
 
@@ -37,6 +38,7 @@ export class TedService {
   }
 
   update(ted: Ted): Observable<Ted> {
+    console.log(ted)
     const url = `${this.baseUrl}/${ted.id_ted}`;
     return this.http.put<Ted>(url, ted);
   }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TedCreateDialogComponent } from '../ted-create-dialog/ted-create-dialog.component';
-import { TedDeleteDialogComponent } from '../ted-delete-dialog/ted-delete-dialog.component';
 import { TedUpdateDialogComponent } from '../ted-update-dialog/ted-update-dialog.component';
 import { Ted } from '../../ted.module';
 import { TedService } from './../../ted.service';
@@ -41,14 +40,6 @@ export class TedReadComponent implements OnInit {
     const dialogRef = this.dialog.open(TedUpdateDialogComponent, {
       height: '300px',
       width: '500px',
-    });
-    dialogRef.componentInstance.id_ted = String(id);
-  }
-
-  openDialogDelete(id: number): void {
-    const dialogRef = this.dialog.open(TedDeleteDialogComponent, {
-      height: '160px',
-      width: '400px',
     });
     dialogRef.componentInstance.id_ted = String(id);
   }

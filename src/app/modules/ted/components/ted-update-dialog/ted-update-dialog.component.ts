@@ -15,8 +15,13 @@ export class TedUpdateDialogComponent implements OnInit {
   titleDialog: string = 'Editar TED';
 
   ted: Ted = {
-    ds_ted: ''
-  } 
+    id_ted: 0,
+    ds_ted: '',
+    sg_ted: '',
+    dt_inicio: '',
+    dt_fim: '',
+    status: true
+  }
   
   constructor(private tedService: TedService, public dialogRef: MatDialogRef<TedUpdateDialogComponent>) { }
 

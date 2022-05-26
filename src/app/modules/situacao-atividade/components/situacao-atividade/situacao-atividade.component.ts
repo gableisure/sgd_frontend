@@ -13,7 +13,7 @@ import { SituacaoAtividadeUpdateDialogComponent } from '../situacao-atividade-up
 export class SituacaoAtividadeComponent implements OnInit {
 
   titlePage = 'Situação atividade';
-  displayedColumns = ['id_situacao_atividade', 'ds_situacao_atividade', 'dt_inicio', 'dt_fim', 'status', 'actions'];
+  displayedColumns = ['ds_situacao_atividade', 'dt_inicio', 'dt_fim', 'status', 'actions'];
   situacaoAtividade: SituacaoAtividade[] = [];
   checkedInactive = false;
 
