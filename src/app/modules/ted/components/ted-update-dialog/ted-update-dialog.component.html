@@ -1,11 +1,21 @@
 <div class="container">
     <p class="title-dialog">{{ titleDialog }}</p>
     <form>
-        <div class="form-row">
-            <div class="container-icon-input">
-                <i class="material-icons">description</i>
+        <div class="container-form-row">
+            <mat-label>Sigla</mat-label>
+            <div class="form-row">
+                <div class="container-icon-input">
+                    <i id="sigla-icon" class="fa-solid fa-a"></i>
+                </div>
+                <input type="text" [(ngModel)]="ted.sg_ted" [ngModelOptions]="{standalone: true}" placeholder="Sigla">
             </div>
-            <input type="text" [(ngModel)]="ted.ds_ted" [ngModelOptions]="{standalone: true}">
+            <mat-label>Descrição</mat-label>
+            <div class="form-row">
+                <div class="container-icon-input">
+                    <i class="material-icons">description</i>
+                </div>
+                <input type="text" [(ngModel)]="ted.ds_ted" [ngModelOptions]="{standalone: true}" placeholder="Descrição">
+            </div>
         </div>
         <div class="buttons-container">
             <div mat-dialog-actions class="buttons-group">

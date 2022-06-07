@@ -39,22 +39,20 @@ export class UsuarioCreateDialogComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService, public dialogRef: MatDialogRef<UsuarioCreateDialogComponent>) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  /* createUsuario(): void {
+  createUsuario(): void {
     this.usuarioService.create(this.usuario).subscribe(() => {
       this.usuarioService.showMessage('Usuário criado com sucesso!')
       this.dialogRef.close();
       window.location.reload();
     });
-  } */
+  }
 
   cancel(): void {
     this.dialogRef.close();
     window.location.reload();
   }
-
 
   changeSelectTypeUser({ value }: MatButtonToggleChange): void {
     this.usuario['id_perfil_usuario'] = value

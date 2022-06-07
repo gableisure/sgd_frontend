@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AtividadeEtapaEap } from './atividade-etapa-eap.module';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { AtividadeEtapaEap } from './atividade-etapa-eap.module';
 })
 export class AtividadeEtapaEapService {
 
-  baseUrl = 'http://localhost:3000/atividadeetapaeap';
+  baseUrl = `${environment.baseUrlApi}/atividades-etapa`;
 
   constructor(private http: HttpClient) { }
 

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Tarefa } from './tarefa.module';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Tarefa } from './tarefa.module';
 })
 export class TarefaService {
 
-  baseUrl = 'http://localhost:3000/tarefa';
+  baseUrl = `${environment.baseUrlApi}/tarefas`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 

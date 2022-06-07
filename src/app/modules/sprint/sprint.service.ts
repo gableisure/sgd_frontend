@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Sprint } from './sprint.module';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Sprint } from './sprint.module';
 })
 export class SprintService {
 
-  baseUrl = 'http://localhost:3000/sprint';
+  baseUrl = `${environment.baseUrlApi}/sprints`;
 
   constructor(private http: HttpClient) { }
 

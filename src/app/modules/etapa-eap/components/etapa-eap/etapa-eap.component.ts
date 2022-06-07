@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { EtapaEap } from '../../etapa-eap.module';
 import { EtapaEapService } from '../../etapa-eap.service';
 import { EtapaEapCreateDialogComponent } from '../etapa-eap-create-dialog/etapa-eap-create-dialog.component';
-import { EtapaEapDeleteDialogComponent } from '../etapa-eap-delete-dialog/etapa-eap-delete-dialog.component';
 import { EtapaEapUpdateDialogComponent } from '../etapa-eap-update-dialog/etapa-eap-update-dialog.component';
 
 @Component({
@@ -25,6 +24,8 @@ export class EtapaEapComponent implements OnInit {
       this.etapaEap = etapaEap;
       this.etapaEap.forEach((etapaEap) => {
         etapaEap.status = etapaEap.dt_fim_vigencia == undefined ? true : false;
+        if (etapaEap.dt_fim_vigencia != null) etapaEap.dt_fim_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_fim_vigencia);
+        etapaEap.dt_inicio_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_inicio_vigencia);
       });
       this.etapaEap = this.etapaEap.filter((etapaEap) => etapaEap.status == true);
       this.etapaEap.sort((a, b) => (a.id_etapa > b.id_etapa) ? -1 : 1);
@@ -35,14 +36,6 @@ export class EtapaEapComponent implements OnInit {
     const dialogRef = this.dialog.open(EtapaEapUpdateDialogComponent, {
       height: '260px',
       width: '820px',
-    });
-    dialogRef.componentInstance.id_etapa = String(id);
-  }
-
-  openDialogDelete(id: number): void {
-    const dialogRef = this.dialog.open(EtapaEapDeleteDialogComponent, {
-      height: '160px',
-      width: '400px',
     });
     dialogRef.componentInstance.id_etapa = String(id);
   }
@@ -63,6 +56,8 @@ export class EtapaEapComponent implements OnInit {
         this.etapaEap = etapaEap;
         this.etapaEap.forEach((etapaEap) => {
           etapaEap.status = etapaEap.dt_fim_vigencia == undefined ? true : false;
+          if (etapaEap.dt_fim_vigencia != null) etapaEap.dt_fim_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_fim_vigencia);
+          etapaEap.dt_inicio_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_inicio_vigencia);
         });
       });
     }else{
@@ -70,9 +65,10 @@ export class EtapaEapComponent implements OnInit {
         this.etapaEap = etapaEap;
         this.etapaEap.forEach((etapaEap) => {
           etapaEap.status = etapaEap.dt_fim_vigencia == undefined ? true : false;
+          if (etapaEap.dt_fim_vigencia != null) etapaEap.dt_fim_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_fim_vigencia);
+          etapaEap.dt_inicio_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_inicio_vigencia);
         });
         this.etapaEap = this.etapaEap.filter((etapaEap) => etapaEap.status == true);
-        
       });
     }
    }
@@ -83,21 +79,15 @@ export class EtapaEapComponent implements OnInit {
     if(etapaEap.dt_fim_vigencia) {
       etapaEap.dt_fim_vigencia = null;
     }else{
-      etapaEap.dt_fim_vigencia = this._formatDateToEn(dt_fim_vigencia.toISOString());
+      etapaEap.dt_fim_vigencia = dt_fim_vigencia.toISOString();
     }
+    etapaEap.dt_inicio_vigencia = this.etapaEapService.formatDateToISODate(etapaEap.dt_inicio_vigencia);
+
     this.etapaEapService.update(etapaEap).subscribe(() => {
       this.etapaEapService.showMessage('Etapa EAP atualizada com sucesso');
     });
   }
 
-  _formatDateToEn(date: string): string {
-    const date_format = new Date(Date.parse(date));
 
-    var dd = String(date_format.getDate()).padStart(2, '0');
-    var mm = String(date_format.getMonth() + 1).padStart(2, '0');
-    var yyyy = date_format.getFullYear();
-
-    return yyyy + '-' + mm + '-' + dd;
-  }
 
 }

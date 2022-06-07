@@ -24,6 +24,8 @@ export class SituacaoAtividadeComponent implements OnInit {
       this.situacaoAtividade = situacaoAtividade;
       this.situacaoAtividade.forEach((situacaoAtividade) => {
         situacaoAtividade.status = situacaoAtividade.dt_fim == undefined ? true : false;
+        if (situacaoAtividade.dt_fim != null) situacaoAtividade.dt_fim = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_fim);
+        situacaoAtividade.dt_inicio = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_inicio);
       });
       this.situacaoAtividade = this.situacaoAtividade.filter((situacaoAtividade) => situacaoAtividade.status == true);
       this.situacaoAtividade.sort((a, b) => (a.id_situacao_atividade > b.id_situacao_atividade) ? -1 : 1);
@@ -54,6 +56,8 @@ export class SituacaoAtividadeComponent implements OnInit {
         this.situacaoAtividade = situacaoAtividade;
         this.situacaoAtividade.forEach((situacaoAtividade) => {
           situacaoAtividade.status = situacaoAtividade.dt_fim == undefined ? true : false;
+          if (situacaoAtividade.dt_fim != null) situacaoAtividade.dt_fim = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_fim);
+          situacaoAtividade.dt_inicio = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_inicio);
         });
       });
     }else{
@@ -61,6 +65,8 @@ export class SituacaoAtividadeComponent implements OnInit {
         this.situacaoAtividade = situacaoAtividade;
         this.situacaoAtividade.forEach((situacaoAtividade) => {
           situacaoAtividade.status = situacaoAtividade.dt_fim == undefined ? true : false;
+          if (situacaoAtividade.dt_fim != null) situacaoAtividade.dt_fim = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_fim);
+          situacaoAtividade.dt_inicio = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_inicio);
         });
         this.situacaoAtividade = this.situacaoAtividade.filter((situacaoAtividade) => situacaoAtividade.status == true);
       });
@@ -73,21 +79,13 @@ export class SituacaoAtividadeComponent implements OnInit {
     if(situacaoAtividade.dt_fim) {
       situacaoAtividade.dt_fim = null;
     }else{
-      situacaoAtividade.dt_fim = this._formatDateToEn(dt_fim.toISOString());
+      situacaoAtividade.dt_fim = dt_fim.toISOString();
     }
+
+    situacaoAtividade.dt_inicio = this.situacaoAtividadeService.formatDateToISODate(situacaoAtividade.dt_inicio);
     this.situacaoAtividadeService.update(situacaoAtividade).subscribe(() => {
       this.situacaoAtividadeService.showMessage('Situação da atividade atualizada com sucesso');
     });
-  }
-
-  _formatDateToEn(date: string): string {
-    const date_format = new Date(Date.parse(date));
-
-    var dd = String(date_format.getDate()).padStart(2, '0');
-    var mm = String(date_format.getMonth() + 1).padStart(2, '0');
-    var yyyy = date_format.getFullYear();
-
-    return yyyy + '-' + mm + '-' + dd;
   }
 
 }

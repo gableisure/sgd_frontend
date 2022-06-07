@@ -24,6 +24,8 @@ export class TedComponent implements OnInit {
       this.ted = ted;
       this.ted.forEach((ted) => {
         ted.status = ted.dt_fim == undefined ? true : false;
+        if (ted.dt_fim != null) ted.dt_fim = this.tedService.formatDateToISODate(ted.dt_fim);
+        ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
       });
       this.ted = this.ted.filter((ted) => ted.status == true);
       this.ted.sort((a, b) => (a.ds_ted < b.ds_ted) ? -1 : 1);
@@ -32,7 +34,7 @@ export class TedComponent implements OnInit {
 
   openDialogUpdate(id: number): void {
     const dialogRef = this.dialog.open(TedUpdateDialogComponent, {
-      height: '260px',
+      height: '350px',
       width: '500px',
     });
     dialogRef.componentInstance.id_ted = String(id);
@@ -54,6 +56,8 @@ export class TedComponent implements OnInit {
         this.ted = ted;
         this.ted.forEach((ted) => {
           ted.status = ted.dt_fim == undefined ? true : false;
+          if (ted.dt_fim != null) ted.dt_fim = this.tedService.formatDateToISODate(ted.dt_fim);
+          ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
         });
       });
     }else{
@@ -61,6 +65,8 @@ export class TedComponent implements OnInit {
         this.ted = ted;
         this.ted.forEach((ted) => {
           ted.status = ted.dt_fim == undefined ? true : false;
+          if (ted.dt_fim != null) ted.dt_fim = this.tedService.formatDateToISODate(ted.dt_fim);
+          ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
         });
         this.ted = this.ted.filter((ted) => ted.status == true);
       });
@@ -73,20 +79,12 @@ export class TedComponent implements OnInit {
     if(ted.dt_fim) {
       ted.dt_fim = null;
     }else{
-      ted.dt_fim = this._formatDateToEn(dt_fim.toISOString());
+      ted.dt_fim = dt_fim.toISOString();
     }
+    ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
     this.tedService.update(ted).subscribe(() => {
       this.tedService.showMessage('TED atualizada com sucesso');
     });
   }
 
-  _formatDateToEn(date: string): string {
-    const date_format = new Date(Date.parse(date));
-
-    var dd = String(date_format.getDate()).padStart(2, '0');
-    var mm = String(date_format.getMonth() + 1).padStart(2, '0');
-    var yyyy = date_format.getFullYear();
-
-    return yyyy + '-' + mm + '-' + dd;
-  }
 }

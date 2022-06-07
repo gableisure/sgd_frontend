@@ -33,7 +33,6 @@ import { TarefaObservadorComponent } from './modules/tarefa-observador/component
 import { TarefaComponent } from './modules/tarefa/components/tarefa/tarefa.component';
 import { PerfilUsuarioUpdateDialogComponent } from './modules/perfil-usuario/components/perfil-usuario-update-dialog/perfil-usuario-update-dialog.component';
 import { PerfilUsuarioCreateDialogComponent } from './modules/perfil-usuario/components/perfil-usuario-create-dialog/perfil-usuario-create-dialog.component';
-import { EtapaEapDeleteDialogComponent } from './modules/etapa-eap/components/etapa-eap-delete-dialog/etapa-eap-delete-dialog.component';
 import { EtapaEapUpdateDialogComponent } from './modules/etapa-eap/components/etapa-eap-update-dialog/etapa-eap-update-dialog.component';
 import { EtapaEapCreateDialogComponent } from './modules/etapa-eap/components/etapa-eap-create-dialog/etapa-eap-create-dialog.component';
 import { SituacaoAtividadeCreateDialogComponent } from './modules/situacao-atividade/components/situacao-atividade-create-dialog/situacao-atividade-create-dialog.component';
@@ -103,7 +102,6 @@ import { HomeComponent } from './core/home/home.component';
     AdminComponent,
     MotivoBloqueioCreateDialogComponent,
     MotivoBloqueioUpdateDialogComponent,
-    EtapaEapDeleteDialogComponent,
     EtapaEapUpdateDialogComponent,
     EtapaEapCreateDialogComponent,
     SituacaoAtividadeCreateDialogComponent,

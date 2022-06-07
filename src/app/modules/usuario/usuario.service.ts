@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Usuario } from './usuario.module';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Usuario } from './usuario.module';
 })
 export class UsuarioService {
 
-  baseUrl = 'http://localhost:3000/usuario';
+  baseUrl = `${environment.baseUrlApi}/usuarios`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -21,8 +22,7 @@ export class UsuarioService {
     })
   }
 
-  /* TODO */
-  /* create = (usuario: Usuario): Observable<Usuario> => this.http.post<Usuario>(this.baseUrl, usuario); */
+  create = (usuario: Usuario): Observable<Usuario> => this.http.post<Usuario>(this.baseUrl, usuario);
 
   read = (): Observable<Usuario[]> => this.http.get<Usuario[]>(this.baseUrl);
 

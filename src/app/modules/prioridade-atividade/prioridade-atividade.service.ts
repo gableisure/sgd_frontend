@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { PrioridadeAtividade } from './prioridade-atividade.module';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { PrioridadeAtividade } from './prioridade-atividade.module';
 })
 export class PrioridadeAtividadeService {
 
-  baseUrl = 'http://localhost:3000/prioridadeatividade';
+  baseUrl = `${environment.baseUrlApi}/prioridades-atividade`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -35,4 +36,7 @@ export class PrioridadeAtividadeService {
     const url = `${this.baseUrl}/${prioridadeAtividade.id_prioridade_atividade}`;
     return this.http.put<PrioridadeAtividade>(url, prioridadeAtividade);
   }
+
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
+  
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { MotivoBloqueio } from './motivo-bloqueio.module';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { MotivoBloqueio } from './motivo-bloqueio.module';
 })
 export class MotivoBloqueioService {
 
-  baseUrl = 'http://localhost:3000/motivobloqueio';
+  baseUrl = `${environment.baseUrlApi}/motivos-bloqueio`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -35,10 +36,7 @@ export class MotivoBloqueioService {
     const url = `${this.baseUrl}/${motivoBloqueio.id_motivo_bloqueio}`;
     return this.http.put<MotivoBloqueio>(url, motivoBloqueio);
   }
-
-  delete(id: string): Observable<MotivoBloqueio> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<MotivoBloqueio>(url);
-  }
   
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
+
 }

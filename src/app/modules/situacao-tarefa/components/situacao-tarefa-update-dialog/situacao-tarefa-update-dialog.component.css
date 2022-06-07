@@ -69,17 +69,3 @@ mat-label {
 .btn-cancelar {
     color: #e35e6b;
 } 
-
-.container-icon-input-date {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0;
-    border-right: 1px solid #cecece;
-    padding: 3px 3px;
-}
-
-.teste {
-    display: flex;
-    justify-content: center;
-}

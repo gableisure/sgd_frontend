@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { SituacaoTarefa } from './situacao-tarefa.module';
 
 @Injectable({
@@ -9,8 +10,7 @@ import { SituacaoTarefa } from './situacao-tarefa.module';
 })
 export class SituacaoTarefaService {
 
-  baseUrl = 'http://localhost:3000/situacaotarefa';
-
+  baseUrl = `${environment.baseUrlApi}/situacoes-tarefa`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -36,5 +36,7 @@ export class SituacaoTarefaService {
     const url = `${this.baseUrl}/${situacaoTarefa.id_situacao_tarefa}`;
     return this.http.put<SituacaoTarefa>(url, situacaoTarefa);
   }
+  
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
   
 }

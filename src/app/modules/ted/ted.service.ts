@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { Ted } from './ted.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TedDetails } from './components/ted-details/ted-details.module';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TedService {
 
-  baseUrl = 'http://localhost:3000/ted';
+  baseUrl = `${environment.baseUrlApi}/teds-unb`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -38,7 +39,6 @@ export class TedService {
   }
 
   update(ted: Ted): Observable<Ted> {
-    console.log(ted)
     const url = `${this.baseUrl}/${ted.id_ted}`;
     return this.http.put<Ted>(url, ted);
   }
@@ -47,4 +47,7 @@ export class TedService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Ted>(url);
   }
+
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
+
 }

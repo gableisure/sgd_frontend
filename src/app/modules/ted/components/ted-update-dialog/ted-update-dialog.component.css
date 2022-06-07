@@ -12,6 +12,16 @@ form {
     padding: 0 30px;
 }
 
+.container-form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-label {
+    margin-bottom: 5px;
+    color: #888;
+}
+
 .form-row {
     display: flex;
     height: 40px;
@@ -22,6 +32,7 @@ form {
     border: 1px solid #cecece;
     border-radius: 5px;    
 }
+
 .container-icon-input {
     display: flex;
     justify-content: center;
@@ -31,6 +42,7 @@ form {
     padding: 3px 10px;
     color: #cecece;
 }
+
 .form-row input {
     width: 100%;
     margin-left: 10px;
@@ -39,6 +51,10 @@ form {
     outline: none;
 }
 
+#sigla-icon {
+    width: 23px;
+    height: 20px;
+}
 
 .buttons-container {
     display: flex;
@@ -57,4 +73,4 @@ form {
 
 .btn-cancelar {
     color: #e35e6b;
-}
+} 

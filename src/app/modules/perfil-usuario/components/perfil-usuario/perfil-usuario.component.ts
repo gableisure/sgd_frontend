@@ -24,10 +24,12 @@ export class PerfilUsuarioComponent implements OnInit {
       this.perfilUsuario = perfilUsuario;
       this.perfilUsuario.forEach((perfilUsuario) => {
         perfilUsuario.status = perfilUsuario.dt_fim_vigencia == undefined ? true : false;
+        if (perfilUsuario.dt_fim_vigencia != null) perfilUsuario.dt_fim_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_fim_vigencia);
+        perfilUsuario.dt_inicio_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_inicio_vigencia);
       });
-      this.perfilUsuario = this.perfilUsuario.filter((motivoBloqueio) => motivoBloqueio.status == true);
+
+      this.perfilUsuario = this.perfilUsuario.filter((perfilUsuario) => perfilUsuario.status == true);
       this.perfilUsuario.sort((a, b) => (a.id_perfil_usuario > b.id_perfil_usuario) ? -1 : 1);
-       
     });
   }
 
@@ -50,11 +52,12 @@ export class PerfilUsuarioComponent implements OnInit {
 
   toggleShowInactive() { 
     if(this.checkedInactive) {
-      this.perfilUsuarioService.read().subscribe(perfilUsuario => this.perfilUsuario = perfilUsuario);
       this.perfilUsuarioService.read().subscribe((perfilUsuario) => {
         this.perfilUsuario = perfilUsuario;
         this.perfilUsuario.forEach((perfilUsuario) => {
           perfilUsuario.status = perfilUsuario.dt_fim_vigencia == undefined ? true : false;
+          if (perfilUsuario.dt_fim_vigencia != null) perfilUsuario.dt_fim_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_fim_vigencia);
+          perfilUsuario.dt_inicio_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_inicio_vigencia);
         });
       });
     }else{
@@ -62,34 +65,28 @@ export class PerfilUsuarioComponent implements OnInit {
         this.perfilUsuario = perfilUsuario;
         this.perfilUsuario.forEach((perfilUsuario) => {
           perfilUsuario.status = perfilUsuario.dt_fim_vigencia == undefined ? true : false;
+          if (perfilUsuario.dt_fim_vigencia != null) perfilUsuario.dt_fim_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_fim_vigencia);
+          perfilUsuario.dt_inicio_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_inicio_vigencia);
         });
         this.perfilUsuario = this.perfilUsuario.filter((perfilUsuario) => perfilUsuario.status == true);
-        
       });
     }
    }
 
   private updatePerfilUsuario = (perfilUsuario: PerfilUsuario): void => {
-    const dt_fim_vigencia = new Date;
+    const dt_fim_vigencia = new Date();
 
     if(perfilUsuario.dt_fim_vigencia) {
       perfilUsuario.dt_fim_vigencia = null;
     }else{
-      perfilUsuario.dt_fim_vigencia = this._formatDateToEn(dt_fim_vigencia.toISOString());
+      perfilUsuario.dt_fim_vigencia = dt_fim_vigencia.toISOString();
     }
+    perfilUsuario.dt_inicio_vigencia = this.perfilUsuarioService.formatDateToISODate(perfilUsuario.dt_inicio_vigencia);
+    
     this.perfilUsuarioService.update(perfilUsuario).subscribe(() => {
       this.perfilUsuarioService.showMessage('Perfil do usuário atualizado com sucesso');
     });
   }
 
-  _formatDateToEn(date: string): string {
-    const date_format = new Date(Date.parse(date));
-
-    var dd = String(date_format.getDate()).padStart(2, '0');
-    var mm = String(date_format.getMonth() + 1).padStart(2, '0');
-    var yyyy = date_format.getFullYear();
-
-    return yyyy + '-' + mm + '-' + dd;
-  }
   
 }

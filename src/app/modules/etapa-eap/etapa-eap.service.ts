@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { EtapaEap } from './etapa-eap.module';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { EtapaEap } from './etapa-eap.module';
 })
 export class EtapaEapService {
 
-  baseUrl = 'http://localhost:3000/etapaeap';
+  baseUrl = `${environment.baseUrlApi}/etapas-eap`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -41,4 +42,6 @@ export class EtapaEapService {
     return this.http.delete<EtapaEap>(url);
   }
   
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
+
 }

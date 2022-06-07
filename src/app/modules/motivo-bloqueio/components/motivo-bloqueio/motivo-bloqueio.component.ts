@@ -24,17 +24,12 @@ export class MotivoBloqueioComponent implements OnInit {
       this.motivoBloqueio = motivoBloqueio;
       this.motivoBloqueio.forEach((motivoBloqueio) => {
         motivoBloqueio.status = motivoBloqueio.dt_fim == undefined ? true : false;
+        if (motivoBloqueio.dt_fim != null) motivoBloqueio.dt_fim = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim);
+        motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
       });
+
       this.motivoBloqueio = this.motivoBloqueio.filter((motivoBloqueio) => motivoBloqueio.status == true);
       this.motivoBloqueio.sort((a, b) => (a.id_motivo_bloqueio > b.id_motivo_bloqueio) ? -1 : 1);
-      /* this.motivoBloqueio.sort((a, b) => {
-        let statusA = a.status ? 'ATIVO' : 'INATIVO';
-        let statusB = b.status ? 'ATIVO' : 'INATIVO';
-        if (statusA > statusB) return -1;
-        if (statusB > statusA) return 1;
-        return 0;
-      }); */
-       
     });
   }
 
@@ -62,6 +57,8 @@ export class MotivoBloqueioComponent implements OnInit {
         this.motivoBloqueio = motivoBloqueio;
         this.motivoBloqueio.forEach((motivoBloqueio) => {
           motivoBloqueio.status = motivoBloqueio.dt_fim == undefined ? true : false;
+          if (motivoBloqueio.dt_fim != null) motivoBloqueio.dt_fim = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim);
+          motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
         });
       });
     }else{
@@ -69,41 +66,26 @@ export class MotivoBloqueioComponent implements OnInit {
         this.motivoBloqueio = motivoBloqueio;
         this.motivoBloqueio.forEach((motivoBloqueio) => {
           motivoBloqueio.status = motivoBloqueio.dt_fim == undefined ? true : false;
+          if (motivoBloqueio.dt_fim != null) motivoBloqueio.dt_fim = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim);
+          motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
         });
         this.motivoBloqueio = this.motivoBloqueio.filter((motivoBloqueio) => motivoBloqueio.status == true);
-        /* this.motivoBloqueio.sort((a, b) => {
-          let statusA = a.status ? 'ATIVO' : 'INATIVO';
-          let statusB = b.status ? 'ATIVO' : 'INATIVO';
-          if (statusA > statusB) return -1;
-          if (statusB > statusA) return 1;
-          return 0;
-        }); */
       });
     }
    }
 
-
   private updateMotivoBloqueio = (motivoBloqueio: MotivoBloqueio): void => {
     const dt_fim = new Date;
-
+    
     if(motivoBloqueio.dt_fim) {
       motivoBloqueio.dt_fim = null;
     }else{
-      motivoBloqueio.dt_fim = this.formatDateToEn(dt_fim.toISOString());
+      motivoBloqueio.dt_fim = dt_fim.toISOString();
     }
+    motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
     this.motivoBloqueioService.update(motivoBloqueio).subscribe(() => {
       this.motivoBloqueioService.showMessage('Motivo do bloqueio atualizado com sucesso');
     });
   }
-
-  private formatDateToEn(date: string): string {
-    const date_format = new Date(Date.parse(date));
-
-    var dd = String(date_format.getDate()).padStart(2, '0');
-    var mm = String(date_format.getMonth() + 1).padStart(2, '0');
-    var yyyy = date_format.getFullYear();
-
-    return yyyy + '-' + mm + '-' + dd;
-  }
-
+  
 }
