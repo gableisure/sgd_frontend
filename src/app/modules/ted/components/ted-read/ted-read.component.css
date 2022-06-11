@@ -1,10 +1,3 @@
-/* Grid styles -------------------------------------------------*/
-/* .container {
-    background-color: rgb(233, 229, 229);
-    display: flex;
-    flex-direction: column;
-} */
-
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -13,14 +6,14 @@
     margin: 0 auto 30px; 
 }
 
-
 .card-item {
-    position:relative;
+    position: relative;
     height: 250px;
     position: relative;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 4px;
+    background-color: #fff;
 }
 
 .card-item:hover{

@@ -25,9 +25,10 @@ export class UsuarioCreateDialogComponent implements OnInit {
     id_perfil_usuario: 0,
     ds_perfil_usuario: "",
     id_ted: 0,
-    dt_inicio_cadastro: "",
-    dt_fim_cadastro: "",
-    id_motivo_bloqueio: 0
+    dt_inicio_vigencia: "",
+    dt_fim_vigencia: "",
+    id_motivo_bloqueio: 0,
+    status: true
   }
 
   perfisUsuario: PerfilUsuario[] = [

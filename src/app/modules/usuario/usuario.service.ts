@@ -30,4 +30,7 @@ export class UsuarioService {
     const url = `${this.baseUrl}/ted/${id_ted}`;
     return this.http.get<Usuario[]>(url); 
   }
+
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
+  
 }

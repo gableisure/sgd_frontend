@@ -1,57 +1,68 @@
 <mat-card class="container-card">
-  <div class="container-title-page">
-      <div class="title-page">
-        <p>Usuários</p>
-        <mat-chip-list>
-          <mat-chip class="chip">{{ usuarios.length }}</mat-chip>
-        </mat-chip-list>
-      </div>
-      
-      <button
-          mat-raised-button
-          (click)="openDialogCreate()"
-          class="create-user"
-      >
-          <i class="material-icons add">add</i>
-          Criar usuário
-      </button>
-  </div>
-  
-  <div class="container-filters"></div>
+  <mat-card-title>
+    <p>Usuários</p>
+    <!-- <button mat-icon-button (click)="openDialogCreate()">
+      <mat-icon>add</mat-icon>
+    </button> -->
+  </mat-card-title>
+
     
-  <div class="container-users" *ngFor="let usuario of usuarios; let i = index;">
-    <div class="container-item-user">
-        <div class="avatar-user">
-          <a href="#">{{usuario.nm_usuario[0]}}</a>
-        </div>
-        <div class="user-info">
-          <div class="container-info">
-            <div class="username-typeuser">
-              <a href="">
-                {{usuario.nm_usuario}}
-                
-              </a>
-              <span class="chip-type-user">{{usuario.ds_perfil_usuario}}</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="actions">
-            <button
-              mat-icon-button
-              matTooltip="Editar"
-              class="edit"
-            >
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button
-              mat-icon-button
-              matTooltip="Excluir"
-              class="delete"
-            >
-              <mat-icon>delete</mat-icon>
-            </button>
-        </div>
-    </div>
-  </div>
+  <div class="table-container">
+    <table mat-table class="full-width-table" [dataSource]="usuarios">
+
+      <!-- nm_usuario Column -->
+      <ng-container class="ng-container" matColumnDef="nm_usuario">
+        <th mat-header-cell *matHeaderCellDef>Usuário</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.nm_usuario}}</a>
+        </td>
+      </ng-container>
+
+      <!-- nr_cpf Column -->
+      <ng-container class="ng-container" matColumnDef="nr_cpf">
+        <th mat-header-cell *matHeaderCellDef>CPF</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.nr_cpf}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_inicio_vigencia Column -->
+      <ng-container class="ng-container" matColumnDef="dt_inicio_vigencia">
+        <th mat-header-cell *matHeaderCellDef>Data ativação</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_inicio_vigencia}}</a>
+        </td>
+      </ng-container>
+
+      <!-- dt_fim_vigencia Column -->
+      <ng-container class="ng-container" matColumnDef="dt_fim_vigencia">
+        <th mat-header-cell *matHeaderCellDef>Data inativação</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.dt_fim_vigencia}}</a>
+        </td>
+      </ng-container>
+
+      <!-- tx_senha_acesso Column -->
+      <!-- <ng-container class="ng-container" matColumnDef="tx_senha_acesso">
+        <th mat-header-cell *matHeaderCellDef>Senha</th>
+        <td mat-cell *matCellDef="let row">
+            <a>{{row.tx_senha_acesso}}</a>
+        </td>
+      </ng-container> -->
+
+      <!-- status Column -->
+     <!--  <ng-container class="ng-container" matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let row">
+            <mat-slide-toggle *ngIf="row.status; else elseBlock" [(ngModel)]="row.status" (change)="toggleStatus(row)">Ativo</mat-slide-toggle> 
+            <ng-template #elseBlock>
+              <mat-slide-toggle [(ngModel)]="row.status" (change)="toggleStatus(row)">Inativo</mat-slide-toggle> 
+            </ng-template>
+        </td>
+      </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
 </mat-card>

@@ -20,12 +20,12 @@ import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/
 
 const routes: Routes = [
   {
-    path: "error-page-build",
-    component: ErrorBuildPageComponent
+    path: "",
+    component: HomeComponent
   },
   {
-    path: "home",
-    component: HomeComponent
+    path: "error-page-build",
+    component: ErrorBuildPageComponent
   },
   {
     path: "ted1",

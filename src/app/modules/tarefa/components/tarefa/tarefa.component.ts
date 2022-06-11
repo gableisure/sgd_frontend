@@ -29,7 +29,6 @@ export class TarefaComponent implements OnInit {
   ngOnInit(): void {
     this.tarefaService.read().subscribe(tarefa => {
       this.tarefa = tarefa;
-      console.log(this.tarefa);
       this.tarefa.forEach(tarefa => {
         if (tarefa.dt_fim_vigencia != null) tarefa.dt_fim_vigencia = this.tarefaService.formatDateToISODate(tarefa.dt_fim_vigencia);
         if (tarefa.dt_inicio_vigencia != null) tarefa.dt_inicio_vigencia = this.tarefaService.formatDateToISODate(tarefa.dt_inicio_vigencia);
