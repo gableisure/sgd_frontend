@@ -15,8 +15,8 @@ export class MotivoBloqueioCreateDialogComponent implements OnInit {
   motivoBloqueio: MotivoBloqueio = {
     id_motivo_bloqueio: 0,
     tx_motivo_bloqueio: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     status: true
   }
 
@@ -28,7 +28,7 @@ export class MotivoBloqueioCreateDialogComponent implements OnInit {
   createMotivoBloqueio(): void {
     const dt_inicio = new Date;
 
-    this.motivoBloqueio.dt_inicio = this._formatDateToEn(dt_inicio.toISOString());
+    this.motivoBloqueio.dt_inicio_vigencia = this._formatDateToEn(dt_inicio.toISOString());
     this.motivoBloqueioService.create(this.motivoBloqueio).subscribe(() => {
       this.dialogRef.close();
       this.motivoBloqueioService.showMessage('Perfil do usuário criado com sucesso!');

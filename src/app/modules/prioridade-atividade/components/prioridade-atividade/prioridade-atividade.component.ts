@@ -23,9 +23,9 @@ export class PrioridadeAtividadeComponent implements OnInit {
     this.prioridadeAtividadeService.read().subscribe(prioridadeAtividade => {
       this.prioridadeAtividade = prioridadeAtividade;
       this.prioridadeAtividade.forEach((prioridadeAtividade) => {
-        prioridadeAtividade.status = prioridadeAtividade.dt_fim == undefined ? true : false;
-        if (prioridadeAtividade.dt_fim != null) prioridadeAtividade.dt_fim = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim);
-        prioridadeAtividade.dt_inicio = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio);
+        prioridadeAtividade.status = prioridadeAtividade.dt_fim_vigencia == undefined ? true : false;
+        if (prioridadeAtividade.dt_fim_vigencia != null) prioridadeAtividade.dt_fim_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim_vigencia);
+        prioridadeAtividade.dt_inicio_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio_vigencia);
       });
       this.prioridadeAtividade = this.prioridadeAtividade.filter((motivoBloqueio) => motivoBloqueio.status == true);
       this.prioridadeAtividade.sort((a, b) => (a.id_prioridade_atividade > b.id_prioridade_atividade) ? -1 : 1);
@@ -56,18 +56,18 @@ export class PrioridadeAtividadeComponent implements OnInit {
       this.prioridadeAtividadeService.read().subscribe((prioridadeAtividade) => {
         this.prioridadeAtividade = prioridadeAtividade;
         this.prioridadeAtividade.forEach((prioridadeAtividade) => {
-          prioridadeAtividade.status = prioridadeAtividade.dt_fim == undefined ? true : false;
-          if (prioridadeAtividade.dt_fim != null) prioridadeAtividade.dt_fim = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim);
-          prioridadeAtividade.dt_inicio = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio);
+          prioridadeAtividade.status = prioridadeAtividade.dt_fim_vigencia == undefined ? true : false;
+          if (prioridadeAtividade.dt_fim_vigencia != null) prioridadeAtividade.dt_fim_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim_vigencia);
+          prioridadeAtividade.dt_inicio_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio_vigencia);
         });
       });
     }else{
       this.prioridadeAtividadeService.read().subscribe((prioridadeAtividade) => {
         this.prioridadeAtividade = prioridadeAtividade;
         this.prioridadeAtividade.forEach((prioridadeAtividade) => {
-          prioridadeAtividade.status = prioridadeAtividade.dt_fim == undefined ? true : false;
-          if (prioridadeAtividade.dt_fim != null) prioridadeAtividade.dt_fim = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim);
-          prioridadeAtividade.dt_inicio = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio);
+          prioridadeAtividade.status = prioridadeAtividade.dt_fim_vigencia == undefined ? true : false;
+          if (prioridadeAtividade.dt_fim_vigencia != null) prioridadeAtividade.dt_fim_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim_vigencia);
+          prioridadeAtividade.dt_inicio_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio_vigencia);
         });
         this.prioridadeAtividade = this.prioridadeAtividade.filter((prioridadeAtividade) => prioridadeAtividade.status == true);
         
@@ -78,12 +78,12 @@ export class PrioridadeAtividadeComponent implements OnInit {
   private updateprioridadeAtividade = (prioridadeAtividade: PrioridadeAtividade): void => {
     const dt_fim = new Date;
 
-    if(prioridadeAtividade.dt_fim) {
-      prioridadeAtividade.dt_fim = null;
+    if(prioridadeAtividade.dt_fim_vigencia) {
+      prioridadeAtividade.dt_fim_vigencia = null;
     }else{
-      prioridadeAtividade.dt_fim = dt_fim.toISOString();
+      prioridadeAtividade.dt_fim_vigencia = dt_fim.toISOString();
     }
-    prioridadeAtividade.dt_inicio = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio);
+    prioridadeAtividade.dt_inicio_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio_vigencia);
     this.prioridadeAtividadeService.update(prioridadeAtividade).subscribe(() => {
       this.prioridadeAtividadeService.showMessage('Prioridade da atividade atualizada com sucesso');
     });

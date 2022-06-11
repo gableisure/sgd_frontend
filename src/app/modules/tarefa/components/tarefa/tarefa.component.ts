@@ -11,19 +11,15 @@ export class TarefaComponent implements OnInit {
 
   displayedColumns = [
     'id_tarefa',
-    'id_ted',
-    'id_etapa',
-    'id_atividade_etapa',
-    'id_atividade_backlog',
+    'ds_etapa',
+    'ds_atividade_etapa',
+    'ds_atividade_backlog',
     'ds_tarefa',
-    'id_tarefa_pai',
-    'id_solicitante',
-    'id_responsavel',
-    'id_situacao_tarefa',
+    'ds_situacao_tarefa',
     'nr_regra_negocio',
     'nr_historia_usuario',
-    'dt_inicio_tarefa',
-    'dt_fim_tarefa',
+    'dt_inicio_vigencia',
+    'dt_fim_vigencia',
     'dt_inclusao'
   ];
   tarefa: Tarefa[] = []
@@ -33,6 +29,13 @@ export class TarefaComponent implements OnInit {
   ngOnInit(): void {
     this.tarefaService.read().subscribe(tarefa => {
       this.tarefa = tarefa;
+      console.log(this.tarefa);
+      this.tarefa.forEach(tarefa => {
+        if (tarefa.dt_fim_vigencia != null) tarefa.dt_fim_vigencia = this.tarefaService.formatDateToISODate(tarefa.dt_fim_vigencia);
+        if (tarefa.dt_inicio_vigencia != null) tarefa.dt_inicio_vigencia = this.tarefaService.formatDateToISODate(tarefa.dt_inicio_vigencia);
+        tarefa.dt_inclusao = this.tarefaService.formatDateToISODate(tarefa.dt_inclusao);
+      });
+      
     });
   }
 

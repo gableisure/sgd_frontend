@@ -1,138 +1,96 @@
-.container-card {
-    padding: 20px 50px 50px 50px;
-}
-
-.container-title-page {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    margin-bottom: 30px;
-}
-
-.container-title-page p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #303030;
-}
-
-.title-page {
-    display: flex;
-    align-items: center;
-}
-
-mat-chip-list {
-    margin-left: 8px;
-    margin-bottom: 5px;
-}
-
-.chip {
-    background-color: #e9f3fc;
-    padding: 5px;
-    font-size: .9rem;
-    font-weight: 500;
-}
-
-button.create-ted {
-    background-color: #04591A;
-    color: #fff;
-}
-
-.edit {
-    color: #888;
-}
-
-.delete {
-    color: #888;
-}
-
-.container-item-ted {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    margin: 10px 0;
-}
-
-.avatar-ted {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    border-radius: 5px;
-    border: none;
-}
-
-.avatar-ted a {
-    text-decoration: none;
-    color: #212121;
-}
-
-.ted-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
-    margin-right: 20px;
-}
-
-.ted-info a {
-    font-size: 1rem;
-    margin: 0;
-    color: #212121;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-
-.ted-info a:hover {
-    text-decoration: underline;
-}
-
-.container-info > p {
-    font-size: .8rem;
-    margin: 0;
-    color: #666;
-}
-
-.container-info {
+/* Grid styles -------------------------------------------------*/
+/* .container {
+    background-color: rgb(233, 229, 229);
     display: flex;
     flex-direction: column;
-    font-size: .5rem;
-}
-
-.container-info a {
-    font-size: 1rem;
-}
-
-.info i {
-    font-size: medium;
-    color: #666;
-    margin-right: 3px;
-}
-
-.info {
-    display: flex;
-    align-items: center;
-    border-radius: 3px;
-    margin-left: 2rem;
-}
-
-.info p {
-    color: #666;
-    margin: 0;
-    margin-right: 12px;
-}
-
-.info p:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-/* .actions {
-    width: 14%;
-    margin-left: 20px;
 } */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 30px; 
+}
+
+
+.card-item {
+    position:relative;
+    height: 250px;
+    position: relative;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.card-item:hover{
+    top:-3px;
+    cursor: pointer;
+}
+
+.sigla-ted {
+    margin-top: 5px;
+}
+
+.sigla-ted h4 {
+    font-size: 23px;
+    line-height: 38px;
+    font-weight: 500;
+    margin: 0;
+    color: #777;
+}
+
+.descricao-ted p {
+    height: 100%;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+
+.content-ted span {
+    font-size: 0.7rem;
+}
+
+.descricao-ted  {
+    height: 150px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+
+.info-ted {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.id-ted {
+    margin-right: 5px;
+}
+
+.usurios, .atividades {
+    display: flex;
+    margin: 0 5px;
+}
+
+
+.info-ted i {
+    transform: scale(0.7);
+}
+
+.card-item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-header {
+    height: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.card-content {
+    padding: 2px 16px;
+}

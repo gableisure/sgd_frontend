@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
     { "view_label": "Situação atividade", "routerLink": "/situacaoatividade" },
     { "view_label": "Situação tarefa", "routerLink": "/situacaotarefa" },
     { "view_label": "Prioridade atividade", "routerLink": "/prioridadeatividade" },
-    { "view_label": "TED", "routerLink": "/ted" },
+    { "view_label": "TED", "routerLink": "/ted" }
   ]
 
   constructor() { }

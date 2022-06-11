@@ -17,8 +17,8 @@ export class MotivoBloqueioUpdateDialogComponent implements OnInit {
   motivoBloqueio: MotivoBloqueio = {
     id_motivo_bloqueio: 0,
     tx_motivo_bloqueio: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     status: true
   }
   

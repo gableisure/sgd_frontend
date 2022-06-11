@@ -1,22 +1,14 @@
 <mat-card class="container-card">
-  <div class="container-title-page">
-    <div class="title-page">
-      <p>{{ titlePage }}</p>
-    </div>
-    <button
-        mat-raised-button
-        (click)="openDialogCreate()"
-        class="button-create"
-    >
-    
-        <i class="material-icons add">add</i>
-        Criar etapa
+  <mat-card-title>
+    <p>Etapa EAP</p>
+    <button mat-icon-button (click)="openDialogCreate()">
+      <mat-icon>add</mat-icon>
     </button>
-  </div>
+  </mat-card-title>
 
   <div class="container-filters">
     <section>
-      <mat-checkbox class="example-margin" [(ngModel)]="checkedInactive" (change)="toggleShowInactive()">Mostrar inativos</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedInactive" (change)="toggleShowInactive()">Mostrar inativos</mat-checkbox>
     </section>
   </div>
 

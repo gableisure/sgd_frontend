@@ -34,4 +34,5 @@ export class TarefaService {
     return this.http.put<Tarefa>(url, tarefa);
   }
   
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
 }

@@ -15,8 +15,9 @@ export class TedCreateDialogComponent implements OnInit {
     id_ted: 0,
     ds_ted: '',
     sg_ted: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
+    tb_usuario: [],
     status: true
   }
 

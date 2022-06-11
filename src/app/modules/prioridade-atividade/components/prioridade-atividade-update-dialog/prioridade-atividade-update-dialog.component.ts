@@ -17,8 +17,8 @@ export class PrioridadeAtividadeUpdateDialogComponent implements OnInit {
   prioridadeAtividade: PrioridadeAtividade = {
     id_prioridade_atividade: 0,
     ds_prioridade_atividade: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     status: true
   }
  

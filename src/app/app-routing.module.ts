@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorBuildPageComponent } from './core/error-build/components/error-build-page/error-build-page.component';
+import { HomeComponent } from './core/home/home.component';
 import { AdminComponent } from './modules/admin/components/admin/admin.component';
 import { AtividadeBacklogComponent } from './modules/atividade-backlog/components/atividade-backlog/atividade-backlog.component';
 import { AtividadeEtapaEapComponent } from './modules/atividade-etapa-eap/components/atividade-etapa-eap/atividade-etapa-eap.component';
@@ -12,12 +14,19 @@ import { SituacaoTarefaComponent } from './modules/situacao-tarefa/components/si
 import { SprintComponent } from './modules/sprint/components/sprint/sprint.component';
 import { TarefaObservadorComponent } from './modules/tarefa-observador/components/tarefa-observador/tarefa-observador.component';
 import { TarefaComponent } from './modules/tarefa/components/tarefa/tarefa.component';
-import { TedDetailsComponent } from './modules/ted/components/ted-details/ted-details.component';
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
 import { TedComponent } from './modules/ted/components/ted/ted.component';
 import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/usuario-read.component';
 
 const routes: Routes = [
+  {
+    path: "error-page-build",
+    component: ErrorBuildPageComponent
+  },
+  {
+    path: "home",
+    component: HomeComponent
+  },
   {
     path: "ted1",
     component: TedReadComponent
@@ -25,10 +34,6 @@ const routes: Routes = [
   {
     path: "ted",
     component: TedComponent
-  },
-  {
-    path: "ted/teddetails/:id",
-    component: TedDetailsComponent
   },
   {
     path: "motivobloqueio",
@@ -71,7 +76,7 @@ const routes: Routes = [
     component: TarefaObservadorComponent
   },
   {
-    path: "tarefa",
+    path: "tarefas",
     component: TarefaComponent
   },
   {

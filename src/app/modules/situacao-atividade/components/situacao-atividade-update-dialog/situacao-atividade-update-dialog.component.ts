@@ -17,8 +17,8 @@ export class SituacaoAtividadeUpdateDialogComponent implements OnInit {
   situacaoAtividade: SituacaoAtividade = {
     id_situacao_atividade: 0,
     ds_situacao_atividade: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     status: true
   }
  

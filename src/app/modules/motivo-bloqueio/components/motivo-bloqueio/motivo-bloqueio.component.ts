@@ -13,7 +13,7 @@ import { MotivoBloqueioService } from './../../motivo-bloqueio.service';
 export class MotivoBloqueioComponent implements OnInit {
 
   titlePage = 'Motivo bloqueio';
-  displayedColumns = ['tx_motivo_bloqueio', 'dt_inicio', 'dt_fim', 'status', 'actions'];
+  displayedColumns = ['tx_motivo_bloqueio', 'dt_inicio_vigencia', 'dt_fim_vigencia', 'status', 'actions'];
   motivoBloqueio: MotivoBloqueio[] = [];
   checkedInactive = false;
 
@@ -23,9 +23,9 @@ export class MotivoBloqueioComponent implements OnInit {
     this.motivoBloqueioService.read().subscribe(motivoBloqueio => {
       this.motivoBloqueio = motivoBloqueio;
       this.motivoBloqueio.forEach((motivoBloqueio) => {
-        motivoBloqueio.status = motivoBloqueio.dt_fim == undefined ? true : false;
-        if (motivoBloqueio.dt_fim != null) motivoBloqueio.dt_fim = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim);
-        motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
+        motivoBloqueio.status = motivoBloqueio.dt_fim_vigencia == undefined ? true : false;
+        if (motivoBloqueio.dt_fim_vigencia != null) motivoBloqueio.dt_fim_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim_vigencia);
+        motivoBloqueio.dt_inicio_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio_vigencia);
       });
 
       this.motivoBloqueio = this.motivoBloqueio.filter((motivoBloqueio) => motivoBloqueio.status == true);
@@ -56,18 +56,18 @@ export class MotivoBloqueioComponent implements OnInit {
       this.motivoBloqueioService.read().subscribe((motivoBloqueio) => {
         this.motivoBloqueio = motivoBloqueio;
         this.motivoBloqueio.forEach((motivoBloqueio) => {
-          motivoBloqueio.status = motivoBloqueio.dt_fim == undefined ? true : false;
-          if (motivoBloqueio.dt_fim != null) motivoBloqueio.dt_fim = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim);
-          motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
+          motivoBloqueio.status = motivoBloqueio.dt_fim_vigencia == undefined ? true : false;
+          if (motivoBloqueio.dt_fim_vigencia != null) motivoBloqueio.dt_fim_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim_vigencia);
+          motivoBloqueio.dt_inicio_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio_vigencia);
         });
       });
     }else{
       this.motivoBloqueioService.read().subscribe((motivoBloqueio) => {
         this.motivoBloqueio = motivoBloqueio;
         this.motivoBloqueio.forEach((motivoBloqueio) => {
-          motivoBloqueio.status = motivoBloqueio.dt_fim == undefined ? true : false;
-          if (motivoBloqueio.dt_fim != null) motivoBloqueio.dt_fim = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim);
-          motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
+          motivoBloqueio.status = motivoBloqueio.dt_fim_vigencia == undefined ? true : false;
+          if (motivoBloqueio.dt_fim_vigencia != null) motivoBloqueio.dt_fim_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_fim_vigencia);
+          motivoBloqueio.dt_inicio_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio_vigencia);
         });
         this.motivoBloqueio = this.motivoBloqueio.filter((motivoBloqueio) => motivoBloqueio.status == true);
       });
@@ -75,14 +75,14 @@ export class MotivoBloqueioComponent implements OnInit {
    }
 
   private updateMotivoBloqueio = (motivoBloqueio: MotivoBloqueio): void => {
-    const dt_fim = new Date;
+    const dt_fim_vigencia = new Date;
     
-    if(motivoBloqueio.dt_fim) {
-      motivoBloqueio.dt_fim = null;
+    if(motivoBloqueio.dt_fim_vigencia) {
+      motivoBloqueio.dt_fim_vigencia = null;
     }else{
-      motivoBloqueio.dt_fim = dt_fim.toISOString();
+      motivoBloqueio.dt_fim_vigencia = dt_fim_vigencia.toISOString();
     }
-    motivoBloqueio.dt_inicio = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio);
+    motivoBloqueio.dt_inicio_vigencia = this.motivoBloqueioService.formatDateToISODate(motivoBloqueio.dt_inicio_vigencia);
     this.motivoBloqueioService.update(motivoBloqueio).subscribe(() => {
       this.motivoBloqueioService.showMessage('Motivo do bloqueio atualizado com sucesso');
     });

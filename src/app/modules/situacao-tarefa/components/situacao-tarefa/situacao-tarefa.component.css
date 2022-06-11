@@ -1,28 +1,23 @@
 .container-card {
-    padding: 20px 50px 50px 50px;
+    margin: 0;
+    padding: 0;
 }
 
-.container-title-page {
+.full-width-table {
+    padding: 0 20px 40px 20px;
+}
+
+mat-card-title {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    margin-bottom: 30px;
+    align-items: flex-end;
+    background-color: #eee;
+    padding: 10px 20px;
+    color: #444;
 }
 
-.container-title-page p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #303030;
-}
-
-.title-page {
-    display: flex;
-    align-items: center;
-}
-
-button.create-entity {
-    background-color: #04591A;
-    color: #fff;
+mat-card-title p {
+    font-size: 1.3rem;
 }
 
 .edit {
@@ -34,7 +29,7 @@ button.create-entity {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 1rem;
     padding-bottom: 15px;
-    border-bottom: 1px solid #cecece;
+    margin-left: 1.4rem;
+    margin-top: 1.4rem;
 }

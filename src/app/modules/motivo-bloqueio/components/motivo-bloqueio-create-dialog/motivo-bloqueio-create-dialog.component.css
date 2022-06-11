@@ -4,6 +4,10 @@
     color: #303030;
 }
 
+.input-full-width {
+    width: 100%;
+}
+
 form {
     display: flex;
     flex-direction: column;

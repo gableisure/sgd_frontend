@@ -17,8 +17,8 @@ export class SituacaoTarefaUpdateDialogComponent implements OnInit {
   situacaoTarefa: SituacaoTarefa = {
     id_situacao_tarefa: 0,
     ds_situacao_tarefa: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     status: true
   }
  

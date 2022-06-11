@@ -1,8 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body { 
     height: 100% !important;
     
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box;}
+body { margin: 0; font-family: Roboto, sans-serif;}
 
 table {
     width: 100%;
@@ -38,13 +42,17 @@ table {
     color: #888;
 }
 
-.container-filters {
+/* .container-filters {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 1rem;
     padding-bottom: 15px;
-    border-bottom: 1px solid #cecece;
-}
+} */
 
+tr:nth-child(even) {background: #f8f8f8}
+
+.input-full-width {
+    width: 100%;
+}

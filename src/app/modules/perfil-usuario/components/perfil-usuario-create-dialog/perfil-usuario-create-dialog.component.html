@@ -1,16 +1,10 @@
 <div class="container">
     <p class="title-dialog">{{ titleDialog }}</p>
     <form>
-        <div class="container-form-row">
+        <mat-form-field class="input-full-width" appearance="fill">
             <mat-label>Descrição</mat-label>
-            <div class="form-row">
-                <div class="container-icon-input">
-                    <i class="material-icons">description</i>
-                </div>
-                <input type="text" [(ngModel)]="perfilUsuario.ds_perfil_usuario" [ngModelOptions]="{standalone: true}">
-            </div>
-        </div>
-        
+            <input matInput [(ngModel)]="perfilUsuario.ds_perfil_usuario" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
         <div class="buttons-container">
             <div mat-dialog-actions class="buttons-group">
                 <button

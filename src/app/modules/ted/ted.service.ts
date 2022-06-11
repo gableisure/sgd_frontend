@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ted } from './ted.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TedDetails } from './components/ted-details/ted-details.module';
 import { environment } from 'src/environments/environment';
+import { Usuario } from 'src/app/modules/usuario/usuario.module';
+import { Tarefa } from '../tarefa/tarefa.module';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ import { environment } from 'src/environments/environment';
 export class TedService {
 
   baseUrl = `${environment.baseUrlApi}/teds-unb`;
+  baseUrlUsuario = `${environment.baseUrlApi}/usuarios/ted`;
+  baseUrlTarefas = `${environment.baseUrlApi}/tarefas`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -33,10 +36,12 @@ export class TedService {
     return this.http.get<Ted>(url);
   }
 
-  getTedDetailsById(id: string): Observable<TedDetails[]> {
-    const url = `${this.baseUrl}/teddetails/${id}`;
-    return this.http.get<TedDetails[]>(url);
+  getUsuariosByIdTed(id: number): Observable<Usuario[]> {
+    const url = `${this.baseUrlUsuario}/${id}`;
+    return this.http.get<Usuario[]>(url);
   }
+
+  getAllTarefas = (): Observable<Tarefa[]> => this.http.get<Tarefa[]>(this.baseUrl);
 
   update(ted: Ted): Observable<Ted> {
     const url = `${this.baseUrl}/${ted.id_ted}`;

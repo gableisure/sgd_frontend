@@ -1,5 +1,17 @@
 .container-card {
-    padding: 20px 50px 50px 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.full-width-list {
+    padding: 10px 20px 20px 20px;
+}
+
+mat-card-title {
+    background-color: #eee;
+    padding: 10px 20px;
+    color: #444;
+    font-size: 1.3rem;
 }
 
 .content-title {

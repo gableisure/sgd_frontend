@@ -14,7 +14,6 @@ import { TedComponent } from './modules/ted/components/ted/ted.component';
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
 import { TedCreateDialogComponent } from './modules/ted/components/ted-create-dialog/ted-create-dialog.component';
 import { TedUpdateDialogComponent } from './modules/ted/components/ted-update-dialog/ted-update-dialog.component';
-import { TedDetailsComponent } from './modules/ted/components/ted-details/ted-details.component';
 import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/usuario-read.component';
 import { UsuarioCreateDialogComponent } from './modules/usuario/components/usuario-create-dialog/usuario-create-dialog.component';
 import { TarefaDetailsDialogComponent } from './modules/tarefa/components/tarefa-details-dialog/tarefa-details-dialog.component';
@@ -71,6 +70,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './core/home/home.component';
+import { ErrorBuildPageComponent } from './core/error-build/components/error-build-page/error-build-page.component';
 
 
 @NgModule({
@@ -81,7 +81,6 @@ import { HomeComponent } from './core/home/home.component';
     TedReadComponent,
     TedCreateDialogComponent,
     TedUpdateDialogComponent,
-    TedDetailsComponent,
     TitlePageComponent,
     UsuarioReadComponent,
     UsuarioCreateDialogComponent,
@@ -110,7 +109,8 @@ import { HomeComponent } from './core/home/home.component';
     SituacaoTarefaUpdateDialogComponent,
     PrioridadeAtividadeUpdateDialogComponent,
     PrioridadeAtividadeCreateDialogComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorBuildPageComponent
   ],
   imports: [
     BrowserModule,

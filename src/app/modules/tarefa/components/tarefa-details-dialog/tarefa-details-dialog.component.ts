@@ -20,23 +20,14 @@ export class TarefaDetailsDialogComponent implements OnInit {
     ds_ted: '',
     id_etapa: 0,
     ds_etapa: '',
-    id_atividade_etapa: 0,
-    ds_atividade_etapa: '',
-    id_atividade_backlog: 0,
-    ds_atividade_backlog: '',
     ds_tarefa: '',
-    id_tarefa_pai: 0,
-    id_solicitante: 0,
-    solicitante: '',
-    id_responsavel: 0,
-    responsavel: '',
-    id_situacao_tarefa: 0,
-    ds_situacao_tarefa: '',
+    tb_situacao_tarefa: '',
+    tb_atividade_backlog: '',
     nr_regra_negocio: '',
     nr_historia_usuario: '',
     tx_observacao: '',
-    dt_inicio_tarefa: '',
-    dt_fim_tarefa: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     dt_inclusao: ''
   }
   
@@ -56,7 +47,7 @@ export class TarefaDetailsDialogComponent implements OnInit {
     
   }
 
-  updateSituacaoTarefa(id_tarefa: number, situacaoTarefa: SituacaoTarefa): void {
+  /* updateSituacaoTarefa(id_tarefa: number, situacaoTarefa: SituacaoTarefa): void {
     this.tarefaService.readById(String(id_tarefa)).subscribe(tarefa => {
       this.tarefa = tarefa;
       this.tarefa.id_situacao_tarefa = situacaoTarefa.id_situacao_tarefa;
@@ -65,7 +56,7 @@ export class TarefaDetailsDialogComponent implements OnInit {
         window.location.reload();
       })
     });
-  }
+  } */
 
   closeDialog(): void {
     this.dialogRef.close();

@@ -4,6 +4,7 @@ import { Ted } from '../../ted.module';
 import { TedService } from '../../ted.service';
 import { TedCreateDialogComponent } from '../ted-create-dialog/ted-create-dialog.component';
 import { TedUpdateDialogComponent } from '../ted-update-dialog/ted-update-dialog.component';
+import { Usuario } from 'src/app/modules/usuario/usuario.module';
 
 @Component({
   selector: 'app-ted',
@@ -13,9 +14,10 @@ import { TedUpdateDialogComponent } from '../ted-update-dialog/ted-update-dialog
 export class TedComponent implements OnInit {
 
   titlePage = 'TEDs';
-  displayedColumns = ['sg_ted', 'ds_ted', 'dt_inicio', 'dt_fim', 'status', 'actions'];
+  displayedColumns = ['sg_ted', 'ds_ted', 'dt_inicio_vigencia', 'dt_fim_vigencia', 'status', 'actions'];
   ted: Ted[] = [];
   checkedInactive = false;
+  usuario: Usuario[] = [];
 
   constructor(private tedService: TedService, public dialog: MatDialog) { }
 
@@ -23,9 +25,9 @@ export class TedComponent implements OnInit {
     this.tedService.read().subscribe(ted => {
       this.ted = ted;
       this.ted.forEach((ted) => {
-        ted.status = ted.dt_fim == undefined ? true : false;
-        if (ted.dt_fim != null) ted.dt_fim = this.tedService.formatDateToISODate(ted.dt_fim);
-        ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
+        ted.status = ted.dt_fim_vigencia == undefined ? true : false;
+        if (ted.dt_fim_vigencia != null) ted.dt_fim_vigencia = this.tedService.formatDateToISODate(ted.dt_fim_vigencia);
+        ted.dt_inicio_vigencia = this.tedService.formatDateToISODate(ted.dt_inicio_vigencia);
       });
       this.ted = this.ted.filter((ted) => ted.status == true);
       this.ted.sort((a, b) => (a.ds_ted < b.ds_ted) ? -1 : 1);
@@ -34,7 +36,7 @@ export class TedComponent implements OnInit {
 
   openDialogUpdate(id: number): void {
     const dialogRef = this.dialog.open(TedUpdateDialogComponent, {
-      height: '350px',
+      height: '320px',
       width: '500px',
     });
     dialogRef.componentInstance.id_ted = String(id);
@@ -42,7 +44,7 @@ export class TedComponent implements OnInit {
 
   openDialogCreate(): void {
     this.dialog.open(TedCreateDialogComponent, {
-      height: '350px',
+      height: '320px',
       width: '500px',
     });
   }
@@ -55,18 +57,18 @@ export class TedComponent implements OnInit {
       this.tedService.read().subscribe((ted) => {
         this.ted = ted;
         this.ted.forEach((ted) => {
-          ted.status = ted.dt_fim == undefined ? true : false;
-          if (ted.dt_fim != null) ted.dt_fim = this.tedService.formatDateToISODate(ted.dt_fim);
-          ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
+          ted.status = ted.dt_fim_vigencia == undefined ? true : false;
+          if (ted.dt_fim_vigencia != null) ted.dt_fim_vigencia = this.tedService.formatDateToISODate(ted.dt_fim_vigencia);
+          ted.dt_inicio_vigencia = this.tedService.formatDateToISODate(ted.dt_inicio_vigencia);
         });
       });
     }else{
       this.tedService.read().subscribe((ted) => {
         this.ted = ted;
         this.ted.forEach((ted) => {
-          ted.status = ted.dt_fim == undefined ? true : false;
-          if (ted.dt_fim != null) ted.dt_fim = this.tedService.formatDateToISODate(ted.dt_fim);
-          ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
+          ted.status = ted.dt_fim_vigencia == undefined ? true : false;
+          if (ted.dt_fim_vigencia != null) ted.dt_fim_vigencia = this.tedService.formatDateToISODate(ted.dt_fim_vigencia);
+          ted.dt_inicio_vigencia = this.tedService.formatDateToISODate(ted.dt_inicio_vigencia);
         });
         this.ted = this.ted.filter((ted) => ted.status == true);
       });
@@ -74,17 +76,18 @@ export class TedComponent implements OnInit {
    }
 
    private updateTed = (ted: Ted): void => {
-    const dt_fim = new Date;
+    const dt_fim_vigencia = new Date;
 
-    if(ted.dt_fim) {
-      ted.dt_fim = null;
+    if(ted.dt_fim_vigencia) {
+      ted.dt_fim_vigencia = null;
     }else{
-      ted.dt_fim = dt_fim.toISOString();
+      ted.dt_fim_vigencia = dt_fim_vigencia.toISOString();
     }
-    ted.dt_inicio = this.tedService.formatDateToISODate(ted.dt_inicio);
+    ted.dt_inicio_vigencia = this.tedService.formatDateToISODate(ted.dt_inicio_vigencia);
     this.tedService.update(ted).subscribe(() => {
       this.tedService.showMessage('TED atualizada com sucesso');
     });
   }
 
+  
 }

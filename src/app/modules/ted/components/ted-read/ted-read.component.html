@@ -1,31 +1,36 @@
-<mat-card class="container-card">
-  <div class="container-title-page">
-    <div class="title-page">
-      <p>TEDs</p>
-      <mat-chip-list>
-        <mat-chip class="chip">{{ teds.length }}</mat-chip>
-      </mat-chip-list>
-    </div>
-  </div>
-    
-  <div *ngFor="let ted of teds; let i = index;">
-    <div class="container-item-ted">
-      <div class="avatar-ted" [style.background-color]="colorsAvatar[i]">
-        <a [routerLink]="['/teds/teddetails/', ted.id_ted]">{{ted.ds_ted[0]}}</a>
-      </div>
-      <div class="ted-info">
-        <div class="container-info">
-          <a [routerLink]="['/teds/teddetails/', ted.id_ted]">
-            {{ted.ds_ted}}
-          </a>
-        </div>
-        <div class="info">
-          <i class="material-icons">people</i>
-          <p matTooltip="Usuários">0</p>
-          <i class="material-icons">assignment</i>
-          <p matTooltip="Atividades">0</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</mat-card>
+<div class="container">
+    <app-title-page title="Meus projetos"></app-title-page>
+    <section class="cards">
+        <ng-container *ngFor="let ted of teds; let i = index;">
+          <div class="card-item" routerLink="/tarefas">
+              <div class="card-header" [style.background-color]="tedsTheme[i]"></div>
+              <div class="card-content">
+                  <div class="sigla-ted">
+                      <h4>{{ ted.sg_ted }}</h4>
+                  </div>
+                  <div class="content-ted">
+                      <div class="descricao-ted">
+                          <p>{{ ted.ds_ted }}</p>
+                      </div>
+
+                      <div class="info-ted">
+                          <div class="id-ted">
+                              <span>ID: {{ ted.id_ted }}</span>
+                          </div>
+                          
+                          <div class="usurios">
+                                <i class="material-icons">people</i>
+                                <span matTooltip="Usuários">{{ ted.tb_usuario.length }}</span>
+                          </div>
+                          <!-- <div class="atividades">
+                              <i class="material-icons">assignment</i>
+                              <span matTooltip="Atividades">{{ ted.tb_usuario.length }}</span>
+                          </div> -->
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </ng-container>
+  </section>
+</div>

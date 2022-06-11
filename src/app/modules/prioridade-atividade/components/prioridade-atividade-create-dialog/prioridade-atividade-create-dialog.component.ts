@@ -15,8 +15,8 @@ export class PrioridadeAtividadeCreateDialogComponent implements OnInit {
   prioridadeAtividade: PrioridadeAtividade = {
     id_prioridade_atividade: 0,
     ds_prioridade_atividade: '',
-    dt_inicio: '',
-    dt_fim: '',
+    dt_inicio_vigencia: '',
+    dt_fim_vigencia: '',
     status: true
     /* TODO: Testar a ideia da linha debaixo na linha de cima */
     /* labelPosition: 'before' | 'after' = 'after'; */

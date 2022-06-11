@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ted } from 'src/app/modules/ted/ted.module';
+import { TedService } from 'src/app/modules/ted/ted.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  teds: Ted[] = [];
+  
+  
+  constructor(private tedService: TedService) { }
 
   ngOnInit(): void {
+    this.tedService.read().subscribe(teds => {
+      this.teds = teds;
+    });
   }
 
 }

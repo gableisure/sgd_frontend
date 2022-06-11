@@ -5,7 +5,7 @@ import { TedUpdateDialogComponent } from '../ted-update-dialog/ted-update-dialog
 import { Ted } from '../../ted.module';
 import { TedService } from './../../ted.service';
 import { Usuario } from 'src/app/modules/usuario/usuario.module';
-import { UsuarioService } from './../../../usuario/usuario.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-ted-read',
@@ -15,18 +15,16 @@ import { UsuarioService } from './../../../usuario/usuario.service';
 export class TedReadComponent implements OnInit {
 
   teds: Ted[] = [];
-  colorsAvatar: string[] = ['#edffb3', '#bfe3c3', '#dbedc2', '#fff2d4', '#e9f3fc', '#a1c1be', '#f3f4e5', '#e2e3d9', '#bbdec6', '#dad8a7', '#f7f3cf', '#5ac7aa'];
-  pesquisadoresTed: Usuario[] = [];
-  usuarios: Usuario[] = []
+  tedsTheme = environment.teds.tedsTheme;
+  usuario: Usuario[] = [];
   
-  constructor(private tedService: TedService, private usuarioService: UsuarioService, public dialog: MatDialog) { }
+  constructor(private tedService: TedService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.tedService.read().subscribe(teds => {
       this.teds = teds;
+      this.teds.sort((a, b) => (a.sg_ted < b.sg_ted) ? -1 : 1);
     });
-
-    
   }
 
   openDialogCreate(): void {
@@ -44,11 +42,8 @@ export class TedReadComponent implements OnInit {
     dialogRef.componentInstance.id_ted = String(id);
   }
 
-  /* getUsersByIdTed(id_ted: number): number {
-    this.usuarioService.getUsersByIdTed(String(id_ted)).subscribe(usuarios => {
-      this.usuarios = usuarios;
-    })
-    return this.usuarios.length;
-  } */
+  getUsuariosByIdTed = (idTed: number) => {
+    return 'usuario'
+  }
   
 }

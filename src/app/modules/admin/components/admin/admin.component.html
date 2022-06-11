@@ -1,10 +1,8 @@
 <mat-card class="container-card">
+    <mat-card-title>Editar</mat-card-title>
     <div class="container">
-        <div class="content-title">
-            <p>Editar</p>
-        </div>
         <div class="content-list">
-            <mat-selection-list #tabelasbasicas [multiple]="false">
+            <mat-selection-list class="full-width-list" #tabelasbasicas [multiple]="false">
                 <mat-list-option *ngFor="let option of matListOptions" routerLink={{option.routerLink}}>
                     <div class="container-list-option">
                         <i class="material-icons">apps</i>
