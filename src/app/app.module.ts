@@ -72,6 +72,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 import { ErrorBuildPageComponent } from './core/error-build/components/error-build-page/error-build-page.component';
+import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 
 
 @NgModule({
@@ -111,7 +112,8 @@ import { ErrorBuildPageComponent } from './core/error-build/components/error-bui
     PrioridadeAtividadeUpdateDialogComponent,
     PrioridadeAtividadeCreateDialogComponent,
     HomeComponent,
-    ErrorBuildPageComponent
+    ErrorBuildPageComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

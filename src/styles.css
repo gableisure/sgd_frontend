@@ -12,6 +12,10 @@ table {
     width: 100%;
 }
 
+.mat-form-field-underline, .mat-form-field-ripple {
+    background-color: #04591A !important;
+}
+
 .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
     background-color: #04591A;
 }
@@ -41,6 +45,26 @@ table {
 .edit {
     color: #888;
 }
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.buttons-group {
+    padding-right: 13px;
+}
+
+.btn-salvar {
+    background-color: #04591A;
+    color: #fff;
+}
+
+.btn-cancelar {
+    color: #04591A;
+    border: #04591A;
+} 
 
 /* .container-filters {
     display: flex;

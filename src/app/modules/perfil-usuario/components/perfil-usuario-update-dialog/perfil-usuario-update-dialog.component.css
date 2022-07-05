@@ -50,37 +50,3 @@ mat-label {
     border: none;
     outline: none;
 }
-
-.buttons-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.buttons-group {
-    padding-right: 13px;
-}
-
-.btn-salvar {
-    background-color: #04591A;
-    color: #fff;
-}
-
-.btn-cancelar {
-    color: #e35e6b;
-} 
-
-
-.container-icon-input-date {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0;
-    border-right: 1px solid #cecece;
-    padding: 3px 3px;
-}
-
-.teste {
-    display: flex;
-    justify-content: center;
-}

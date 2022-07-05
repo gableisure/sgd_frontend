@@ -1,0 +1,19 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <ul class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a routerLink="/" class="breadcrumb-link" title="Página inicial">
+            <i class="material-icons">home</i>
+        </a>
+        <i class="material-icons">keyboard_arrow_right</i>
+      </li>
+  
+      <li
+        *ngFor="let breadcrumb of breadcrumbs$ | async"
+        class="breadcrumb__item"
+        aria-current="page"
+      >
+        {{ breadcrumb.texto }}
+      </li>
+    </ul>
+  </nav>
+  

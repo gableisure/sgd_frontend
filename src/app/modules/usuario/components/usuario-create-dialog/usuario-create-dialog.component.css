@@ -84,23 +84,3 @@ mat-button-toggle-group {
 mat-button-toggle-group, mat-button-toggle {
     width: 100%;
 }
-
-.buttons-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.buttons-group {
-    padding-right: 13px;
-}
-
-.btn-salvar {
-    background-color: #04591A;
-    color: #fff;
-}
-
-.btn-cancelar {
-    color: #e35e6b;
-}
-
