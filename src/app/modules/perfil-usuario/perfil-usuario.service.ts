@@ -10,7 +10,7 @@ import { PerfilUsuario } from './perfil-usuario.module';
 })
 export class PerfilUsuarioService {
 
-  baseUrl = `${environment.baseUrlApi}/perfis-usuarios`;
+  baseUrl = `${environment.baseUrlApi}/perfis-usuario`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
