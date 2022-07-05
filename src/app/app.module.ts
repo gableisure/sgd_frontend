@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from './core/header/header.component';
 import { TitlePageComponent } from './core/title-page/title-page.component';
+import { HomeComponent } from './core/home/home.component';
 import { AdminComponent } from './modules/admin/components/admin/admin.component';
 import { TedComponent } from './modules/ted/components/ted/ted.component';
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
@@ -69,7 +70,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HomeComponent } from './core/home/home.component';
+
 import { ErrorBuildPageComponent } from './core/error-build/components/error-build-page/error-build-page.component';
 
 
