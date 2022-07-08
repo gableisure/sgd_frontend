@@ -19,7 +19,9 @@ export class PrioridadeAtividadeUpdateDialogComponent implements OnInit {
     ds_prioridade_atividade: '',
     dt_inicio_vigencia: '',
     dt_fim_vigencia: '',
-    status: true
+    status: true,
+    nome_icone: "",
+    classe_icone: ""
   }
  
   constructor(private prioridadeAtividadeService: PrioridadeAtividadeService, public dialogRef: MatDialogRef<PrioridadeAtividadeUpdateDialogComponent>) { }

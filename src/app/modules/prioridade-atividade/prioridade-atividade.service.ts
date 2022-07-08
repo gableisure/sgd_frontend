@@ -38,5 +38,5 @@ export class PrioridadeAtividadeService {
   }
 
   formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
-  
+
 }

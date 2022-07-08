@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* background-color: #f1f1f1; */
+
+
+    /* RESPONSIVE STYLE */
+   /*  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    grid-gap: 70px;
+    max-width: 1000px; */
+}
+
+h4 {
+    color: #172b4d;
+    font-size: 20px;
+}
+
+.form {
+    width: 100%;
+}
+
+.container-form {
+    width: 50%;
+}
+
+.container-form-atividade {
+    margin-top: 19px;
+}
+
+mat-form-field {
+    width: 100%;
+    
+}
+
+mat-label{
+    color: #555;
+}
+
+::ng-deep .mat-select-panel{
+    max-width: 900px !important;
+}
+
+.form-field mat-form-field {
+    width: 100%;
+}
+
+.container-option-situacao-atividade {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.icon-prioridade-atividade-alta {
+    color: green;
+}
+
+.icon-prioridade-atividade-media {
+    color: rgb(236, 180, 75)
+}
+
+.icon-prioridade-atividade-baixa {
+    color: rgba(0, 0, 255, 0.623);
+}

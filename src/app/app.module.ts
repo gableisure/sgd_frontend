@@ -41,6 +41,7 @@ import { SituacaoTarefaCreateDialogComponent } from './modules/situacao-tarefa/c
 import { SituacaoTarefaUpdateDialogComponent } from './modules/situacao-tarefa/components/situacao-tarefa-update-dialog/situacao-tarefa-update-dialog.component';
 import { PrioridadeAtividadeUpdateDialogComponent } from './modules/prioridade-atividade/components/prioridade-atividade-update-dialog/prioridade-atividade-update-dialog.component';
 import { PrioridadeAtividadeCreateDialogComponent } from './modules/prioridade-atividade/components/prioridade-atividade-create-dialog/prioridade-atividade-create-dialog.component';
+import { AtividadeBacklogCreateDialogComponent } from './modules/atividade-backlog/components/atividade-backlog-create-dialog/atividade-backlog-create-dialog.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -73,6 +74,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { ErrorBuildPageComponent } from './core/error-build/components/error-build-page/error-build-page.component';
 import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
+import { TedDetalheComponent } from './shared/components/ted-detalhe/ted-detalhe.component';
+
 
 
 @NgModule({
@@ -113,7 +116,9 @@ import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.c
     PrioridadeAtividadeCreateDialogComponent,
     HomeComponent,
     ErrorBuildPageComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    TedDetalheComponent,
+    AtividadeBacklogCreateDialogComponent
   ],
   imports: [
     BrowserModule,

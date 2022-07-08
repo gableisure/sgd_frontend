@@ -17,11 +17,12 @@ import { TarefaComponent } from './modules/tarefa/components/tarefa/tarefa.compo
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
 import { TedComponent } from './modules/ted/components/ted/ted.component';
 import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/usuario-read.component';
+import { TedDetalheComponent } from './shared/components/ted-detalhe/ted-detalhe.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent
+    component: TedDetalheComponent
   },
   {
     path: "error-page-build",
@@ -87,6 +88,10 @@ const routes: Routes = [
     path: "usuario",
     component: UsuarioReadComponent
   },
+  /* {
+    path: "ted-detalhe",
+    component: TedDetalheComponent
+  } */
   
 ];
 

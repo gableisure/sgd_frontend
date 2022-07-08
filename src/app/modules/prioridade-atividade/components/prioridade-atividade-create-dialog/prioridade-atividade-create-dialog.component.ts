@@ -17,7 +17,9 @@ export class PrioridadeAtividadeCreateDialogComponent implements OnInit {
     ds_prioridade_atividade: '',
     dt_inicio_vigencia: '',
     dt_fim_vigencia: '',
-    status: true
+    status: true,
+    nome_icone: "",
+    classe_icone: ""
     /* TODO: Testar a ideia da linha debaixo na linha de cima */
     /* labelPosition: 'before' | 'after' = 'after'; */
   }

@@ -1,0 +1,174 @@
+<div class="container">
+    <!-- <div class="container-left">
+        <form class="formulario">
+            <div class="form-row-atividade">
+                <div class="form-field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Atividade</mat-label>
+                        <input matInput type="text" [(ngModel)]="valoresFormulario.ds_atividade_etapa" [ngModelOptions]="{standalone: true}"/>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+            <div class="form-row-descricao">
+                <div class="form-field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Descrição</mat-label>
+                        <textarea matInput [(ngModel)]="valoresFormulario.ds_detalhe_atividade" [ngModelOptions]="{standalone: true}"></textarea>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button (click)="salvarAtividade()">Salvar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-right">
+        <button mat-button [matMenuTriggerFor]="menuEtapaEAP">
+            Etapa EAP
+        </button>
+        <mat-menu #menuEtapaEAP="matMenu">
+            <button
+                mat-menu-item *ngFor="let etapa of etapaEap"
+                (click)="onChangeEtapaEap(etapa.id_etapa)"
+            >
+                {{ etapa.ds_etapa }}
+            </button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="menuAtividadeEtapaEAP">
+            Atividade Etapa EAP
+        </button>
+        <mat-menu #menuAtividadeEtapaEAP="matMenu">
+            <button
+                mat-menu-item
+                *ngFor="let atividadeEtapa of atividadeEtapaEap"
+                (click)="valoresFormulario.id_atividade_etapa = atividadeEtapa.id_atividade_etapa"
+            >
+                {{ atividadeEtapa.ds_atividade_etapa }}
+            </button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="menuSituacaoAtividade">
+            Situação Atividade
+        </button>
+        <mat-menu #menuSituacaoAtividade="matMenu">
+            <button
+                mat-menu-item
+                *ngFor="let situacao of situacaoAtividade"
+                (click)="valoresFormulario.id_situacao_atividade = situacao.id_situacao_atividade"
+            >
+                {{ situacao.ds_situacao_atividade }}
+            </button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="menuPrioridadeAtividade">
+            Prioridade Atividade
+        </button>
+        <mat-menu #menuPrioridadeAtividade="matMenu">
+            <button
+                mat-menu-item
+                *ngFor="let prioridade of prioridadeAtividade"
+                (click)="valoresFormulario.id_prioridade_atividade = prioridade.id_prioridade_atividade"
+            >
+                {{ prioridade.ds_prioridade_atividade }}
+            </button>
+        </mat-menu>
+
+       
+
+    </div> -->
+
+    <h4>Criar uma atividade</h4>
+    <form class="form">
+
+        <div class="container-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Etapa EAP</mat-label>
+                <mat-select (selectionChange)="onChangeEtapaEap($event.value)">
+                    <mat-option *ngFor="let etapa of etapaEap" [value]="etapa.id_etapa">{{ etapa.ds_etapa }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="container-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Atividade Etapa EAP</mat-label>
+                <mat-select>
+                    <mat-option
+                        *ngFor="let atividadeEtapa of atividadeEtapaEap"
+                        [value]="atividadeEtapa.id_atividade_etapa"
+                        (click)="valoresFormulario.id_atividade_etapa = atividadeEtapa.id_atividade_etapa"
+                    >{{ atividadeEtapa.ds_atividade_etapa }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="container-form-atividade">
+            <mat-form-field appearance="outline">
+                <mat-label>Atividade</mat-label>
+                <input matInput type="text" [(ngModel)]="valoresFormulario.ds_atividade_etapa" [ngModelOptions]="{standalone: true}"/>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Resumo</mat-label>
+                <textarea matInput [(ngModel)]="valoresFormulario.ds_detalhe_atividade" [ngModelOptions]="{standalone: true}"></textarea>
+            </mat-form-field>
+        </div>
+        
+           
+        <div class="container-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Situação Atividade</mat-label>
+                <mat-select>
+                    <mat-option
+                        *ngFor="let situacao of situacaoAtividade"
+                        [value]="situacao.id_situacao_atividade"
+                        (click)="valoresFormulario.id_situacao_atividade = situacao.id_situacao_atividade"
+                    >
+                        {{ situacao.ds_situacao_atividade }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="container-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Prioridade Atividade</mat-label>
+                <mat-select>
+                    <mat-option
+                        *ngFor="let prioridade of prioridadeAtividade"
+                        [value]="prioridade.id_prioridade_atividade"
+                        (click)="valoresFormulario.id_prioridade_atividade = prioridade.id_prioridade_atividade"
+                    >
+                        <div class="container-option-situacao-atividade">
+                            <i class="material-icons" [class]="prioridade.classe_icone">{{ prioridade.nome_icone }}</i>{{ prioridade.ds_prioridade_atividade }}
+                        </div>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="container-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Sprint</mat-label>
+                <mat-select>
+                    <mat-option
+                        *ngFor="let sptr of sprint"
+                        [value]="sptr.id_sprint"
+                        (click)="valoresFormulario.id_sprint = sptr.id_sprint"
+                    >
+                        {{ sptr.id_sprint }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+    <p>
+        <button mat-raised-button (click)="salvarAtividade()">Salvar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </p>
+    
+    
+    
+</div>

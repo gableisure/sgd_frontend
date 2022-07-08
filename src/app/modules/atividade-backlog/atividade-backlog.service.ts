@@ -13,6 +13,8 @@ export class AtividadeBacklogService {
 
   constructor(private http: HttpClient) { }
 
+  create = (atividadeBacklog: AtividadeBacklog): Observable<AtividadeBacklog> => this.http.post<AtividadeBacklog>(this.baseUrl, atividadeBacklog);
+
   read = (): Observable<AtividadeBacklog[]> => this.http.get<AtividadeBacklog[]>(this.baseUrl);
   
 }
