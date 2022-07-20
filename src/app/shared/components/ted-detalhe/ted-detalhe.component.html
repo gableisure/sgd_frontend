@@ -32,14 +32,44 @@
                         
                         <div class="column-atividade">
                             <div class="container-date">
-                                <div class="content-date">
+                               <!--  <div class="content-date">
                                     <div class="container-label-date">
                                         <mat-icon>schedule</mat-icon>
                                         <h3 id="label-date">Data de Início</h3>
                                     </div>
                                     <span id="value-date">{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</span>
-                                    
                                 </div>
+                                <div class="content-date">
+                                    <div class="container-label-date">
+                                        <mat-icon>schedule</mat-icon>
+                                        <h3 id="label-date">Data de Entrega</h3>
+                                    </div>
+                                    <span id="value-date">{{ row.dt_fim_vigencia | date : 'dd/MM/yyyy' }}</span>
+                                </div> -->
+                                <table class="content-date">
+                                    <tr>
+                                        <th>
+                                            <div class="container-label-date">
+                                                <mat-icon>schedule</mat-icon>
+                                                <h3 id="label-date">Data de Início</h3>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="container-label-date">
+                                                <mat-icon>schedule</mat-icon>
+                                                <h3 id="label-date">Data de Entrega</h3>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span id="value-date">{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</span>
+                                        </td>
+                                        <td>
+                                            <span id="value-date" *ngIf="row.dt_fim_vigencia != null">{{ row.dt_fim_vigencia | date : 'dd/MM/yyyy' }}</span>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             
                             <div class="descricao-atividade">
