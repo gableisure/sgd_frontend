@@ -32,20 +32,6 @@
                         
                         <div class="column-atividade">
                             <div class="container-date">
-                               <!--  <div class="content-date">
-                                    <div class="container-label-date">
-                                        <mat-icon>schedule</mat-icon>
-                                        <h3 id="label-date">Data de Início</h3>
-                                    </div>
-                                    <span id="value-date">{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</span>
-                                </div>
-                                <div class="content-date">
-                                    <div class="container-label-date">
-                                        <mat-icon>schedule</mat-icon>
-                                        <h3 id="label-date">Data de Entrega</h3>
-                                    </div>
-                                    <span id="value-date">{{ row.dt_fim_vigencia | date : 'dd/MM/yyyy' }}</span>
-                                </div> -->
                                 <table class="content-date">
                                     <tr>
                                         <th>
@@ -88,7 +74,27 @@
                     <ng-container class="ng-container" matColumnDef="situacao">
                       <th mat-header-cell *matHeaderCellDef>Situação</th>
                       <td mat-cell *matCellDef="let row">
-                          <a>{{row.tb_situacao_atividade.ds_situacao_atividade}}</a>
+                        <button
+                            mat-button
+                            [matMenuTriggerFor]="menu"
+                            class="btn-situacao"
+                        >
+                            <span [(class)]="row.tb_situacao_atividade.classe"></span>
+                            <span>{{row.tb_situacao_atividade.ds_situacao_atividade}}</span>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button
+                                mat-menu-item
+                                *ngFor="let situacao of situacoesAtividade"
+                                (click)="selectedSituacao(situacao.id_situacao_atividade, row)"
+                            >
+                                <div class="container-button-menu">
+                                    <span [class]="situacao.classe"></span>
+                                    <span>{{situacao.ds_situacao_atividade}}</span>
+                                </div>
+                            </button>
+                           
+                        </mat-menu>
                       </td>
                     </ng-container>
               
@@ -96,7 +102,27 @@
                     <ng-container class="ng-container" matColumnDef="prioridade">
                       <th mat-header-cell *matHeaderCellDef>Prioridade</th>
                       <td mat-cell *matCellDef="let row">
-                          <a>{{row.tb_prioridade_atividade.ds_prioridade_atividade}}</a>
+                          <button
+                            mat-button
+                            [matMenuTriggerFor]="menu"
+                            class="btn-prioridade"
+                        >
+                            <i class="material-icons" [class]="row.tb_prioridade_atividade.classe">{{ row.tb_prioridade_atividade.nome_icone }}</i>
+                            {{ row.tb_prioridade_atividade.ds_prioridade_atividade }}
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button
+                                mat-menu-item
+                                *ngFor="let prioridade of prioridadesAtividade"
+                            >
+                                <div class="container-button-menu-prioridade">
+                                    <i class="material-icons" [class]="prioridade.classe">{{ prioridade.nome_icone }}</i>
+                                    {{ prioridade.ds_prioridade_atividade }}
+                                    
+                                </div>
+                            </button>
+                           
+                        </mat-menu>
                       </td>
                     </ng-container>
               

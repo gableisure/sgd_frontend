@@ -4,5 +4,5 @@ export interface SituacaoAtividade {
     dt_inicio_vigencia: string;
     dt_fim_vigencia: string | null;
     status: boolean;
-    icone: string;
+    classe: string;
 }

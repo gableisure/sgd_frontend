@@ -27,9 +27,8 @@ export class PrioridadeAtividadeComponent implements OnInit {
         if (prioridadeAtividade.dt_fim_vigencia != null) prioridadeAtividade.dt_fim_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_fim_vigencia);
         prioridadeAtividade.dt_inicio_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio_vigencia);
       });
-      this.prioridadeAtividade = this.prioridadeAtividade.filter((motivoBloqueio) => motivoBloqueio.status == true);
+      this.prioridadeAtividade = this.prioridadeAtividade.filter((prioridadeAtividade) => prioridadeAtividade.status == true);
       this.prioridadeAtividade.sort((a, b) => (a.id_prioridade_atividade > b.id_prioridade_atividade) ? -1 : 1);
-       
     });
   }
 

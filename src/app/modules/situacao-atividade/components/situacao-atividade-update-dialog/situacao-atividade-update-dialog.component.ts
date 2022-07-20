@@ -16,11 +16,11 @@ export class SituacaoAtividadeUpdateDialogComponent implements OnInit {
 
   situacaoAtividade: SituacaoAtividade = {
     id_situacao_atividade: 0,
-    ds_situacao_atividade: '',
-    dt_inicio_vigencia: '',
-    dt_fim_vigencia: '',
+    ds_situacao_atividade: "",
+    dt_inicio_vigencia: "",
+    dt_fim_vigencia: "",
     status: true,
-    icone: ''
+    classe: ""
   }
  
   constructor(private situacaoAtividadeService: SituacaoAtividadeService, public dialogRef: MatDialogRef<SituacaoAtividadeUpdateDialogComponent>) { }

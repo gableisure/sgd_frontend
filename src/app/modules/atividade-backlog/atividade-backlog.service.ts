@@ -17,4 +17,9 @@ export class AtividadeBacklogService {
 
   read = (): Observable<any[]> => this.http.get<any[]>(this.baseUrl);
 
+  update(atividadeBacklog: any): Observable<any> {
+    const url = `${this.baseUrl}/${atividadeBacklog.id_atividade}`;
+    return this.http.put<any>(url, atividadeBacklog);
+  }
+
 }

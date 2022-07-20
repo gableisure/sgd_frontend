@@ -61,18 +61,6 @@ export class AtividadeBacklogCreateDialogComponent implements OnInit {
     this.prioridadeAtividadeService.read().subscribe(prioridadeAtividade => {
       this.prioridadeAtividade = prioridadeAtividade;
       this.prioridadeAtividade.forEach((prioridadeAtividade) => {
-        if(prioridadeAtividade.ds_prioridade_atividade == "Alta") {
-          prioridadeAtividade.nome_icone = "keyboard_arrow_up";
-          prioridadeAtividade.classe_icone = "icon-prioridade-atividade-alta";
-        }else if(prioridadeAtividade.ds_prioridade_atividade == "Média") {
-          prioridadeAtividade.nome_icone = "drag_handle";
-          prioridadeAtividade.classe_icone = "icon-prioridade-atividade-media";
-        }else if(prioridadeAtividade.ds_prioridade_atividade == "Baixa") {
-          prioridadeAtividade.nome_icone = "keyboard_arrow_down";
-          prioridadeAtividade.classe_icone = "icon-prioridade-atividade-baixa";
-        }
-      });
-      this.prioridadeAtividade.forEach((prioridadeAtividade) => {
         prioridadeAtividade.status = prioridadeAtividade.dt_fim_vigencia == undefined ? true : false;
         if (prioridadeAtividade.dt_fim_vigencia != null) prioridadeAtividade.dt_fim_vigencia = this.etapaEapService.formatDateToISODate(prioridadeAtividade.dt_fim_vigencia);
         prioridadeAtividade.dt_inicio_vigencia = this.prioridadeAtividadeService.formatDateToISODate(prioridadeAtividade.dt_inicio_vigencia);
@@ -83,7 +71,6 @@ export class AtividadeBacklogCreateDialogComponent implements OnInit {
     
     this.sprintService.read().subscribe(sprint => {
       this.sprint = sprint;
-      
     });
 
   }
