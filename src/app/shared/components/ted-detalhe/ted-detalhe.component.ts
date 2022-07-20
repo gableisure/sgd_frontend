@@ -9,6 +9,8 @@ import { TedDetalheService } from './ted-detalhe.service';
 import { AtividadeBacklog } from '../../../modules/atividade-backlog/atividade-backlog.module';
 import { PrioridadeAtividade } from 'src/app/modules/prioridade-atividade/prioridade-atividade.module';
 import { PrioridadeAtividadeService } from 'src/app/modules/prioridade-atividade/prioridade-atividade.service';
+import { SprintService } from 'src/app/modules/sprint/sprint.service';
+import { Sprint } from 'src/app/modules/sprint/sprint.module';
 
 @Component({
   selector: 'app-ted-detalhe',
@@ -23,6 +25,7 @@ export class TedDetalheComponent implements OnInit {
   atividadesBacklog: any = [];
   situacoesAtividade: SituacaoAtividade[] = [];
   prioridadesAtividade: PrioridadeAtividade[] = [];
+  sprints: Sprint[] = [];
 
   displayedColumns = [
     'atividade',
@@ -38,6 +41,7 @@ export class TedDetalheComponent implements OnInit {
     private atividadeBacklogService: AtividadeBacklogService,
     private situacaoAtividadeService: SituacaoAtividadeService,
     private prioridadeAtividadeService: PrioridadeAtividadeService,
+    private sprintService: SprintService,
   ) { }
 
   ngOnInit(): void {
@@ -111,12 +115,41 @@ export class TedDetalheComponent implements OnInit {
       console.log(this.prioridadesAtividade)
     });
 
+    /* Carrega dados tb_sprint */
+    this.sprintService.read().subscribe(sprints => {
+      this.sprints = sprints;
+      console.log(this.sprints)
+    });
+    
   }
+
 
   selectedSituacao(id_situacao_atividade: number, atividadeBacklog: any): void{
     const body = {
       id_atividade: atividadeBacklog.id_atividade,
       id_situacao_atividade: id_situacao_atividade
+    }
+
+    this.atividadeBacklogService.update(body).subscribe(() => {
+      window.location.reload();
+    });
+  }
+
+  selectedPrioridade(id_prioridade_atividade: number, atividadeBacklog: any): void{
+    const body = {
+      id_atividade: atividadeBacklog.id_atividade,
+      id_prioridade_atividade: id_prioridade_atividade
+    }
+
+    this.atividadeBacklogService.update(body).subscribe(() => {
+      window.location.reload();
+    });
+  }
+
+  selectedSprint(id_sprint: number, atividadeBacklog: any): void{
+    const body = {
+      id_atividade: atividadeBacklog.id_atividade,
+      id_sprint: id_sprint
     }
 
     this.atividadeBacklogService.update(body).subscribe(() => {
