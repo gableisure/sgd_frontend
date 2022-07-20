@@ -4,6 +4,6 @@ export interface PrioridadeAtividade {
     dt_inicio_vigencia: string;
     dt_fim_vigencia: string | null;
     status: boolean;
+    classe: string;
     nome_icone: string;
-    classe_icone: string;
 }

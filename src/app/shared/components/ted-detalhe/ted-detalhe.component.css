@@ -1,4 +1,4 @@
-h1, h2, h3, a, p {
+h1, h2, h3, a, p, span {
     margin: 0;
     padding: 0;
 }
@@ -139,4 +139,49 @@ mat-divider {
 
 .content-date #value-date:hover {
     background-color: #d3d2d2;
+}
+
+.icon-situacao {
+    border-radius: 50%;
+    padding: 0px 8px;
+}
+
+.icon-situacao.finalizada {
+    background-color: #61bd4f;
+}
+
+.icon-situacao.em-andamento {
+    background-color: #0079bf;
+}
+
+.icon-situacao.em-homologacao {
+    background-color: #ff9f1a;
+}
+
+.icon-situacao.bloqueada {
+    background-color: #eb5a46;
+}
+
+.btn-situacao span, .container-button-menu span {
+    margin: 0 3px;
+}
+
+.icon-prioridade-atividade-alta {
+    color: #eb5a46;
+}
+
+.icon-prioridade-atividade-media {
+    color: #ff9f1a;
+}
+
+.icon-prioridade-atividade-baixa {
+    color: #0079bf;
+}
+
+.container-button-menu-prioridade {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5px;
 }
