@@ -15,6 +15,6 @@ export class AtividadeBacklogService {
 
   create = (atividadeBacklog: AtividadeBacklog): Observable<AtividadeBacklog> => this.http.post<AtividadeBacklog>(this.baseUrl, atividadeBacklog);
 
-  read = (): Observable<AtividadeBacklog[]> => this.http.get<AtividadeBacklog[]>(this.baseUrl);
-  
+  read = (): Observable<any[]> => this.http.get<any[]>(this.baseUrl);
+
 }

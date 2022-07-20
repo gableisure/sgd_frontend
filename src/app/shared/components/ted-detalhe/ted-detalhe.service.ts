@@ -11,8 +11,8 @@ import { environment } from 'src/environments/environment';
 })
 export class TedDetalheService {
 
-  baseUrlEtapaEap = `${environment.baseUrlApi}/etapas-eap`;
-  baseUrlAtividadeEtapaEap = `${environment.baseUrlApi}/atividades-etapa`;
+  private _baseUrlEtapaEap = `${environment.baseUrlApi}/etapas-eap`;
+  private _baseUrlAtividadeEtapaEap = `${environment.baseUrlApi}/atividades-etapa`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -25,9 +25,11 @@ export class TedDetalheService {
     })
   }
 
-  readAtividadeEtapaEapByIdEtapa(idEtapa: string): Observable<AtividadeEtapaEap[]> {
-    const url = `${this.baseUrlAtividadeEtapaEap}/etapa/${idEtapa}`;
-    return this.http.get<AtividadeEtapaEap[]>(url);
+  readAtividadeEtapaEapByIdEtapa(idEtapa: string): Observable<any[]> {
+    const url = `${this._baseUrlAtividadeEtapaEap}/etapa/${idEtapa}`;
+    return this.http.get<any[]>(url);
   }
+  
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
   
 }

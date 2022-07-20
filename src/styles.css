@@ -61,6 +61,12 @@ table {
     color: #fff;
 }
 
+/* TODO: Aplicar essa classe para todos os botões verdes */
+.btn-success {
+    background-color: #04591A;
+    color: #fff;
+}
+
 .btn-cancelar {
     color: #04591A;
     border: #04591A;

@@ -88,10 +88,10 @@ const routes: Routes = [
     path: "usuario",
     component: UsuarioReadComponent
   },
-  /* {
-    path: "ted-detalhe",
+  {
+    path: "ted-detalhe/:idTed",
     component: TedDetalheComponent
-  } */
+  }
   
 ];
 

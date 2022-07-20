@@ -2,7 +2,7 @@
     <app-title-page title="Meus projetos"></app-title-page>
     <section class="cards">
         <ng-container *ngFor="let ted of teds; let i = index;">
-          <div class="card-item" routerLink="/error-page-build">
+          <div class="card-item" routerLink="/ted-detalhe/{{ted.id_ted}}">
               <div class="card-header" [style.background-color]="tedsTheme[i]"></div>
               <div class="card-content">
                   <div class="sigla-ted">

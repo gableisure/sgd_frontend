@@ -1,1 +1,87 @@
-<button mat-raised-button (click)="openDialogCreate()">Criar Atividade</button>
+<div class="container">
+    <div class="container-title">
+        <div class="content-title-ted">
+            <h1>{{ titleTed }}</h1>
+            <span>ID TED: {{ idTed }}</span>
+        </div>
+        
+        <button
+            mat-stroked-button
+            class="btn-criar-atividade"
+            (click)="openDialogCreate()"
+            matTooltip="Criar Atividade"
+        >
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="content-atividades">
+        <mat-card class="card-atividades">
+            <mat-card-subtitle>Atividades</mat-card-subtitle>
+            <mat-card-content>
+                <table mat-table class="full-width-table" [dataSource]="atividadesBacklog">
+              
+                    <!-- atividade Column -->
+                    <ng-container class="ng-container" matColumnDef="atividade">
+                        <th mat-header-cell *matHeaderCellDef>Atividade</th>
+                        <td
+                            mat-cell
+                            *matCellDef="let row"
+                            id="column-atividade"
+                        >
+                        
+                        <div class="column-atividade">
+                            <div class="container-date">
+                                <div class="content-date">
+                                    <div class="container-label-date">
+                                        <mat-icon>schedule</mat-icon>
+                                        <h3 id="label-date">Data de Início</h3>
+                                    </div>
+                                    <span id="value-date">{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</span>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="descricao-atividade">
+                                <h2>
+                                    <a routerLink="/error-page-build">{{row.ds_atividade_etapa}}</a>
+                                </h2>
+                                <span>{{row.ds_detalhe_atividade}}</span>
+                            </div>
+                        </div>
+                        
+                          
+                      </td>
+                    </ng-container>
+                    
+                    <!-- situacao Column -->
+                    <ng-container class="ng-container" matColumnDef="situacao">
+                      <th mat-header-cell *matHeaderCellDef>Situação</th>
+                      <td mat-cell *matCellDef="let row">
+                          <a>{{row.tb_situacao_atividade.ds_situacao_atividade}}</a>
+                      </td>
+                    </ng-container>
+              
+                    <!-- prioridade Column -->
+                    <ng-container class="ng-container" matColumnDef="prioridade">
+                      <th mat-header-cell *matHeaderCellDef>Prioridade</th>
+                      <td mat-cell *matCellDef="let row">
+                          <a>{{row.tb_prioridade_atividade.ds_prioridade_atividade}}</a>
+                      </td>
+                    </ng-container>
+              
+                    <!-- sprint Column -->
+                    <ng-container class="ng-container" matColumnDef="sprint">
+                      <th mat-header-cell *matHeaderCellDef>Sprint</th>
+                      <td mat-cell *matCellDef="let row">
+                          <a>{{row.id_sprint}}</a>
+                      </td>
+                    </ng-container>
+              
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
