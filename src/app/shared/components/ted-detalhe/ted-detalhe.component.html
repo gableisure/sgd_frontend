@@ -2,7 +2,19 @@
     <div class="container-title">
         <div class="content-title-ted">
             <h1>{{ titleTed }}</h1>
-            <span>ID TED: {{ idTed }}</span>
+            <div class="container-info-ted">
+                <div class="content-info">
+                    <span>ID TED: {{ idTed }}</span>
+                </div>
+                <div matTooltip="Atividades" class="content-info">
+                    <i class="material-icons">assignment</i>
+                    <span>{{ atividadesBacklog.length }}</span>
+                </div>
+                <div matTooltip="Pesquisadores" class="content-info">
+                    <i class="material-icons">people</i>
+                    <span>{{ usuarios.length }}</span>
+                </div>
+            </div>
         </div>
         
         <button
@@ -14,7 +26,18 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
+
+    <div class="progress">
+        <div
+            *ngFor="let item of dashboardSituacaoAtividade"
+            matTooltip="{{item.label}} {{item.percent}}%"
+            [style]="item.style"
+        ></div>
+
+    </div>
+    
     <mat-divider></mat-divider>
+
     <div class="content-atividades">
         <mat-card class="card-atividades">
             <mat-card-subtitle>Atividades</mat-card-subtitle>

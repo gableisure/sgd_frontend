@@ -26,8 +26,8 @@ export class UsuarioService {
 
   read = (): Observable<Usuario[]> => this.http.get<Usuario[]>(this.baseUrl);
 
-  getUsersByIdTed(id_ted: string): Observable<Usuario[]> {
-    const url = `${this.baseUrl}/ted/${id_ted}`;
+  getUsersByIdTed(idTed: string): Observable<Usuario[]> {
+    const url = `${this.baseUrl}/ted/${idTed}`;
     return this.http.get<Usuario[]>(url); 
   }
 
