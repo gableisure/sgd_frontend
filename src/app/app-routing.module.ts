@@ -17,12 +17,13 @@ import { TarefaComponent } from './modules/tarefa/components/tarefa/tarefa.compo
 import { TedReadComponent } from './modules/ted/components/ted-read/ted-read.component';
 import { TedComponent } from './modules/ted/components/ted/ted.component';
 import { UsuarioReadComponent } from './modules/usuario/components/usuario-read/usuario-read.component';
+import { AtividadeBacklogDetalheComponent } from './shared/components/atividade-backlog-detalhe/atividade-backlog-detalhe.component';
 import { TedDetalheComponent } from './shared/components/ted-detalhe/ted-detalhe.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: TedDetalheComponent
+    component: HomeComponent
   },
   {
     path: "error-page-build",
@@ -65,8 +66,12 @@ const routes: Routes = [
     component: AtividadeEtapaEapComponent
   },
   {
-    path: "atividadebacklog",
+    path: "atividade-backlog",
     component: AtividadeBacklogComponent
+  },
+  {
+    path: "atividade-backlog-detalhe",
+    component: AtividadeBacklogDetalheComponent
   },
   {
     path: "situacaotarefa",
@@ -89,9 +94,13 @@ const routes: Routes = [
     component: UsuarioReadComponent
   },
   {
+    path: "ted-detalhe",
+    component: TedDetalheComponent
+  },
+  /* {
     path: "ted-detalhe/:idTed",
     component: TedDetalheComponent
-  }
+  } */
   
 ];
 

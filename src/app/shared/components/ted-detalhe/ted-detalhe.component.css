@@ -25,7 +25,6 @@ th, td, tr {
 }
 
 .container {
-
 }
 
 .container-title {
@@ -53,13 +52,69 @@ th, td, tr {
     font-weight: 400;
 }
 
+.container-info-ted {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.container-info-ted i {
+    transform: scale(0.7);
+}
+
+.container-info-ted .content-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+}
+
 .btn-criar-atividade {
     color: #04591A;
     border: 1px solid #04591A;
 }
 
+.container-sem-atividade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.container-sem-atividade h1 {
+    color: #999;
+    font-size: 1.7rem;
+}
+
+.progress {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.progress div {
+    padding: 4px;
+}
+
+.progress div:last-child {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.progress div:first-child {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
 mat-divider {
     margin: 1.5rem 0;
+}
+
+.card-atividades {
+    border-top: 3px solid #04591A;
 }
 
 #column-atividade {

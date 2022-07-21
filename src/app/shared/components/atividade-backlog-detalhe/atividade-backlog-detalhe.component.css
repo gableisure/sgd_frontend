@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    height: 100%;
+}
+
+.container-atividade {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    row-gap: 20px;
+    padding: 0px 15px 15px 15px;
+}
+
+.container-descricao-atividade {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.container-descricao-atividade input {
+    border: none;
+    background: transparent;
+    color: #172b4d;
+    font-size: 1rem;
+}
+
+.container-descricao-tarefa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.content-descricao-tarefa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.content-descricao-tarefa input {
+    width: 100%;
+    padding: 10px 15px;
+    background: transparent;
+    color: #172b4d;
+    font-size: .8rem;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+}
+
+.content-descricao-tarefa .user-avatar {
+    background-color: #e9e9e9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+}
+
+.content-descricao-tarefa .user-avatar mat-icon {
+    transform: scale(.7);
+}
+
+.container-descricao-atividade textarea {
+    width: 100%;
+    background-color: #e4e0e0;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
+
+.container-tarefa {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    column-gap: 30px;
+}
+
+.container-tarefa p {
+    color: #172b4d;
+    font-weight: 500;
+}

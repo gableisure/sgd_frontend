@@ -2,7 +2,19 @@
     <div class="container-title">
         <div class="content-title-ted">
             <h1>{{ titleTed }}</h1>
-            <span>ID TED: {{ idTed }}</span>
+            <div class="container-info-ted">
+                <div class="content-info">
+                    <span>ID TED: {{ idTed }}</span>
+                </div>
+                <div matTooltip="Atividades" class="content-info">
+                    <i class="material-icons">assignment</i>
+                    <span>{{ atividadesBacklog.length }}</span>
+                </div>
+                <div matTooltip="Pesquisadores" class="content-info">
+                    <i class="material-icons">people</i>
+                    <span>{{ usuarios.length }}</span>
+                </div>
+            </div>
         </div>
         
         <button
@@ -14,8 +26,22 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
+
+    <div class="progress" *ngIf="atividadesBacklog.length > 0">
+        <div
+            *ngFor="let item of dashboardSituacaoAtividade"
+            matTooltip="{{item.label}} {{item.percent}}%"
+            [style]="item.style"
+        ></div>
+
+    </div>
+    
     <mat-divider></mat-divider>
-    <div class="content-atividades">
+
+    <div class="container-sem-atividade" *ngIf="atividadesBacklog.length == 0">
+        <h1>Não há atividades</h1>
+    </div>
+    <div class="content-atividades" *ngIf="atividadesBacklog.length > 0">
         <mat-card class="card-atividades">
             <mat-card-subtitle>Atividades</mat-card-subtitle>
             <mat-card-content>
@@ -29,44 +55,41 @@
                             *matCellDef="let row"
                             id="column-atividade"
                         >
-                        
-                        <div class="column-atividade">
-                            <div class="container-date">
-                                <table class="content-date">
-                                    <tr>
-                                        <th>
-                                            <div class="container-label-date">
-                                                <mat-icon>schedule</mat-icon>
-                                                <h3 id="label-date">Data de Início</h3>
-                                            </div>
-                                        </th>
-                                        <th>
-                                            <div class="container-label-date">
-                                                <mat-icon>schedule</mat-icon>
-                                                <h3 id="label-date">Data de Entrega</h3>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span id="value-date">{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</span>
-                                        </td>
-                                        <td>
-                                            <span id="value-date" *ngIf="row.dt_fim_vigencia != null">{{ row.dt_fim_vigencia | date : 'dd/MM/yyyy' }}</span>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <div class="column-atividade">
+                                <div class="container-date">
+                                    <table class="content-date">
+                                        <tr>
+                                            <th>
+                                                <div class="container-label-date">
+                                                    <mat-icon>schedule</mat-icon>
+                                                    <h3 id="label-date">Data de Início</h3>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="container-label-date">
+                                                    <mat-icon>schedule</mat-icon>
+                                                    <h3 id="label-date">Data de Entrega</h3>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span id="value-date">{{ row.dt_inicio_vigencia | date : 'dd/MM/yyyy' }}</span>
+                                            </td>
+                                            <td>
+                                                <span id="value-date" *ngIf="row.dt_fim_vigencia != null">{{ row.dt_fim_vigencia | date : 'dd/MM/yyyy' }}</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <div class="descricao-atividade">
+                                    <h2>
+                                        <a routerLink="/atividade-backlog-detalhe">{{row.ds_atividade_etapa}}</a>
+                                    </h2>
+                                    <span>{{row.ds_detalhe_atividade}}</span>
+                                </div>
                             </div>
-                            
-                            <div class="descricao-atividade">
-                                <h2>
-                                    <a routerLink="/error-page-build">{{row.ds_atividade_etapa}}</a>
-                                </h2>
-                                <span>{{row.ds_detalhe_atividade}}</span>
-                            </div>
-                        </div>
-                        
-                          
                       </td>
                     </ng-container>
                     
