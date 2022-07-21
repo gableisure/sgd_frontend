@@ -22,7 +22,7 @@ import { TedDetalheComponent } from './shared/components/ted-detalhe/ted-detalhe
 const routes: Routes = [
   {
     path: "",
-    component: TedDetalheComponent
+    component: HomeComponent
   },
   {
     path: "error-page-build",
@@ -89,9 +89,13 @@ const routes: Routes = [
     component: UsuarioReadComponent
   },
   {
+    path: "ted-detalhe",
+    component: TedDetalheComponent
+  },
+  /* {
     path: "ted-detalhe/:idTed",
     component: TedDetalheComponent
-  }
+  } */
   
 ];
 

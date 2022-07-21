@@ -77,6 +77,19 @@ th, td, tr {
     border: 1px solid #04591A;
 }
 
+.container-sem-atividade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    
+}
+
+.container-sem-atividade h1 {
+    color: #999;
+    font-size: 1.7rem;
+}
+
 .progress {
     display: flex;
     flex-direction: row;

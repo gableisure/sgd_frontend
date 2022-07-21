@@ -29,6 +29,7 @@ export class TedDetalheComponent implements OnInit {
   sprints: Sprint[] = [];
   usuarios: Usuario[] = [];
 
+  /* TODO: Solução temporária */
   countFinalizada: number = 0;
   countAndamento: number = 0;
   countHomologacao: number = 0;
@@ -45,25 +46,28 @@ export class TedDetalheComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
     private tedDetalheService: TedDetalheService,
     private atividadeBacklogService: AtividadeBacklogService,
     private situacaoAtividadeService: SituacaoAtividadeService,
     private prioridadeAtividadeService: PrioridadeAtividadeService,
     private sprintService: SprintService,
     private usuarioService: UsuarioService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.idTed = this.activatedRoute.snapshot.params["idTed"];
+    this.route.queryParams.subscribe(params => {
+      this.idTed = params["idTed"];
+      this.titleTed = params["dsTed"];
+    });
     this._carregarDadosAPI();
+    
   }
 
   private _carregarDadosAPI(): void {
     /* Carrega dados tb_atividade_backlog */
     this.atividadeBacklogService.read().subscribe(atividadesBacklog => {
       this.atividadesBacklog = atividadesBacklog;
-      this.titleTed =  this.atividadesBacklog[0].tb_sprint.tb_ted_unb.ds_ted;
 
       /* Filtra as atividades pelo id da TED */
       this.atividadesBacklog = this.atividadesBacklog.filter((atividadeBacklog: any) => atividadeBacklog.tb_sprint.tb_ted_unb.id_ted == this.idTed);
@@ -125,7 +129,7 @@ export class TedDetalheComponent implements OnInit {
       ];
 
       /* Ordena as situações das atividades do dashboard em ordem decrescente de quantidade por tipo de situação */
-      this.dashboardSituacaoAtividade.sort((a: any, b: any) => (a.percent > b.percent) ? -1 : 1);
+      this.dashboardSituacaoAtividade.sort((a: any, b: any) => (Number(a.percent) > Number(b.percent)) ? -1 : 1);
 
       /* Ordena as atividades em ordem decrescente de data de início */
       this.atividadesBacklog.sort((a: any, b: any) => (a.dt_inicio_vigencia > b.dt_inicio_vigencia) ? -1 : 1);
@@ -177,13 +181,14 @@ export class TedDetalheComponent implements OnInit {
     
   }
 
-
   selectedSituacao(id_situacao_atividade: number, atividadeBacklog: any): void{
     const body = {
       id_atividade: atividadeBacklog.id_atividade,
       id_situacao_atividade: id_situacao_atividade
     }
     this.atividadeBacklogService.update(body).subscribe(() => {
+      /* Ordena as situações das atividades do dashboard em ordem decrescente de quantidade por tipo de situação */
+      this.dashboardSituacaoAtividade.sort((a: any, b: any) => (Number(a.percent) > Number(b.percent)) ? -1 : 1);
       window.location.reload();
     });
   }

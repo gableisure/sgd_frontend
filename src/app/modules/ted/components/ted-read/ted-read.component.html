@@ -2,7 +2,9 @@
     <app-title-page title="Meus projetos"></app-title-page>
     <section class="cards">
         <ng-container *ngFor="let ted of teds; let i = index;">
-          <div class="card-item" routerLink="/ted-detalhe/{{ted.id_ted}}">
+            
+          <!-- <div class="card-item" routerLink="/ted-detalhe/{{ted.id_ted}}"> -->
+          <div class="card-item" (click)="navigateToTedDetalhe(ted)">
               <div class="card-header" [style.background-color]="tedsTheme[i]"></div>
               <div class="card-content">
                   <div class="sigla-ted">
@@ -17,15 +19,6 @@
                           <div class="id-ted">
                               <span>ID: {{ ted.id_ted }}</span>
                           </div>
-                          
-                          <div class="usurios">
-                                <i class="material-icons">people</i>
-                                <span matTooltip="Usuários">{{ ted.tb_usuario.length }}</span>
-                          </div>
-                          <!-- <div class="atividades">
-                              <i class="material-icons">assignment</i>
-                              <span matTooltip="Atividades">{{ ted.tb_usuario.length }}</span>
-                          </div> -->
                       </div>
 
                   </div>
