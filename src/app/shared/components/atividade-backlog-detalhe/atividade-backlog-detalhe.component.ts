@@ -20,4 +20,7 @@ export class AtividadeBacklogDetalheComponent implements OnInit {
     });
   }
 
+  /* Comentário para testar a funcionalidade do gitmoji */
+
+
 }
