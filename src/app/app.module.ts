@@ -75,6 +75,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ErrorBuildPageComponent } from './core/error-build/components/error-build-page/error-build-page.component';
 import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 import { TedDetalheComponent } from './shared/components/ted-detalhe/ted-detalhe.component';
+import { AtividadeBacklogDetalheComponent } from './shared/components/atividade-backlog-detalhe/atividade-backlog-detalhe.component';
 
 
 
@@ -118,7 +119,8 @@ import { TedDetalheComponent } from './shared/components/ted-detalhe/ted-detalhe
     ErrorBuildPageComponent,
     BreadcrumbComponent,
     TedDetalheComponent,
-    AtividadeBacklogCreateDialogComponent
+    AtividadeBacklogCreateDialogComponent,
+    AtividadeBacklogDetalheComponent
   ],
   imports: [
     BrowserModule,

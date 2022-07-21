@@ -1,0 +1,35 @@
+.container-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-title-ted {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    row-gap: 5px;
+    background-color: #cecece;
+}
+
+.content-title-ted h1 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.content-title-ted h1:hover {
+    background-color: #a0a0a0;
+}
+
+.content-title-ted span {
+    font-size: .9rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.btn-criar-atividade {
+    color: #04591A;
+    border: 1px solid #04591A;
+}

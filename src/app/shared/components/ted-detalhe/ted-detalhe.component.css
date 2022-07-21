@@ -63,14 +63,12 @@ th, td, tr {
     transform: scale(0.7);
 }
 
-
 .container-info-ted .content-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #666;
 }
-
 
 .btn-criar-atividade {
     color: #04591A;
@@ -82,7 +80,6 @@ th, td, tr {
     justify-content: center;
     align-items: center;
     height: 100px;
-    
 }
 
 .container-sem-atividade h1 {
