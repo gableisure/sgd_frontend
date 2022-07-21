@@ -1,17 +1,38 @@
 <div class="container">
-    <div class="container-title">
-        <div class="content-title-ted">
-            <h1>Descrição da atividade</h1>
+    <section class="container-atividade">
+        <div class="container-descricao-atividade">
+            <input
+                type="text"
+                value="DESCRIÇÃO DA ATIVIDADE E TALS ..."
+            >
+            <textarea
+                matInput
+                rows="3"
+                placeholder="Adicione uma descrição mais detalhada..."
+                value="Descrição mais detalhada da atividade"
+                placeholder="Descrição mais detalhada da atividade..."
+            ></textarea>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="container-tarefa">
+            <div class="container-descricao-tarefa">
+                <p>Tarefas</p>
+                <div class="content-descricao-tarefa">
+                    <span
+                        matTooltip="Admin"
+                        class="user-avatar">
+                        <mat-icon>person_outline</mat-icon>
+                    </span>
+                    
+                    <input
+                        type="text"
+                        class="input-descricao-tarefa"
+                        placeholder="Adicione uma tarefa..."
+                    >
+                </div>
+            </div>
             
         </div>
-        
-        <button
-            mat-stroked-button
-            class="btn-criar-atividade"
-            matTooltip="Criar Atividade"
-        >
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
-
+    </section>
+    
 </div>
