@@ -70,7 +70,7 @@ const routes: Routes = [
     component: AtividadeBacklogComponent
   },
   {
-    path: "atividade-backlog-detalhe",
+    path: "atividade-backlog-detalhe/:idAtividade",
     component: AtividadeBacklogDetalheComponent
   },
   {
@@ -94,13 +94,10 @@ const routes: Routes = [
     component: UsuarioReadComponent
   },
   {
-    path: "ted-detalhe",
-    component: TedDetalheComponent
-  },
-  /* {
     path: "ted-detalhe/:idTed",
     component: TedDetalheComponent
-  } */
+  },
+ 
   
 ];
 
