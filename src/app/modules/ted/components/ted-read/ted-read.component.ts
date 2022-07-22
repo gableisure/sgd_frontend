@@ -28,10 +28,6 @@ export class TedReadComponent implements OnInit {
     });
   }
 
-  navigateToTedDetalhe(ted: Ted): void {
-    this.router.navigate(['/ted-detalhe'], { queryParams: { idTed: ted.id_ted,  dsTed: ted.ds_ted} });
-  }
-
   openDialogCreate(): void {
     this.dialog.open(TedCreateDialogComponent, {
       height: '250px',

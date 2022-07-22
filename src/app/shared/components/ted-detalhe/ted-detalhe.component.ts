@@ -12,6 +12,7 @@ import { SprintService } from 'src/app/modules/sprint/sprint.service';
 import { Sprint } from 'src/app/modules/sprint/sprint.module';
 import { UsuarioService } from 'src/app/modules/usuario/usuario.service';
 import { Usuario } from 'src/app/modules/usuario/usuario.module';
+import { TedService } from 'src/app/modules/ted/ted.service';
 
 @Component({
   selector: 'app-ted-detalhe',
@@ -20,7 +21,7 @@ import { Usuario } from 'src/app/modules/usuario/usuario.module';
 })
 export class TedDetalheComponent implements OnInit {
   
-  idTed: string = "";
+  idTed: string = "1";
   titleTed: string = "";
 
   atividadesBacklog: any = [];
@@ -51,88 +52,96 @@ export class TedDetalheComponent implements OnInit {
     private situacaoAtividadeService: SituacaoAtividadeService,
     private prioridadeAtividadeService: PrioridadeAtividadeService,
     private sprintService: SprintService,
+    private tedService: TedService,
     private usuarioService: UsuarioService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.idTed = params["idTed"];
-      this.titleTed = params["dsTed"];
     });
     this._carregarDadosAPI();
     
   }
 
   private _carregarDadosAPI(): void {
+    this.tedService.readById(this.idTed).subscribe(ted => {
+      this.titleTed = ted.ds_ted;
+    });
     /* Carrega dados tb_atividade_backlog */
     this.atividadeBacklogService.read().subscribe(atividadesBacklog => {
       this.atividadesBacklog = atividadesBacklog;
 
-      /* Filtra as atividades pelo id da TED */
-      this.atividadesBacklog = this.atividadesBacklog.filter((atividadeBacklog: any) => atividadeBacklog.tb_sprint.tb_ted_unb.id_ted == this.idTed);
+      
+        /* Filtra as atividades pelo id da TED */
+        this.atividadesBacklog = this.atividadesBacklog.filter((atividadeBacklog: any) => atividadeBacklog.tb_sprint.tb_ted_unb.id_ted == this.idTed);
+        if(this.atividadesBacklog.length > 0) {
+          /* Recebe o nome da TED */
+          this.titleTed = this.atividadesBacklog[0].tb_sprint.tb_ted_unb.ds_ted;
 
-      /* Pecorre todas as atividades a ajusta o formata a data para o formato brasileiro */
-      this.atividadesBacklog.forEach((atividadeBacklog: any) => {
-        atividadeBacklog.dt_inicio_vigencia = this.tedDetalheService.formatDateToISODate(atividadeBacklog.dt_inicio_vigencia);
-        if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Finalizada") {
-          atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao finalizada";
-          this.countFinalizada += 1;
-        }
-        if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Em andamento") {
-          atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao em-andamento";
-          this.countAndamento += 1;
-        }
-        if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Em homologação") {
-          atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao em-homologacao";
-          this.countHomologacao += 1;
-        }
-        if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Bloqueada") {
-          atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao bloqueada";
-          this.countBloqueada += 1;
-        }
+          /* Pecorre todas as atividades a ajusta o formata a data para o formato brasileiro */
+          this.atividadesBacklog.forEach((atividadeBacklog: any) => {
+            atividadeBacklog.dt_inicio_vigencia = this.tedDetalheService.formatDateToISODate(atividadeBacklog.dt_inicio_vigencia);
+            if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Finalizada") {
+              atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao finalizada";
+              this.countFinalizada += 1;
+            }
+            if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Em andamento") {
+              atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao em-andamento";
+              this.countAndamento += 1;
+            }
+            if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Em homologação") {
+              atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao em-homologacao";
+              this.countHomologacao += 1;
+            }
+            if(atividadeBacklog.tb_situacao_atividade.ds_situacao_atividade == "Bloqueada") {
+              atividadeBacklog.tb_situacao_atividade.classe = "icon-situacao bloqueada";
+              this.countBloqueada += 1;
+            }
 
-        if(atividadeBacklog.tb_prioridade_atividade.ds_prioridade_atividade == "Alta") {
-          atividadeBacklog.tb_prioridade_atividade.nome_icone = "keyboard_arrow_up";
-          atividadeBacklog.tb_prioridade_atividade.classe = "icon-prioridade-atividade-alta";
-        }else if(atividadeBacklog.tb_prioridade_atividade.ds_prioridade_atividade == "Média") {
-          atividadeBacklog.tb_prioridade_atividade.nome_icone = "drag_handle";
-          atividadeBacklog.tb_prioridade_atividade.classe = "icon-prioridade-atividade-media";
-        }else if(atividadeBacklog.tb_prioridade_atividade.ds_prioridade_atividade == "Baixa") {
-          atividadeBacklog.tb_prioridade_atividade.nome_icone = "keyboard_arrow_down";
-          atividadeBacklog.tb_prioridade_atividade.classe = "icon-prioridade-atividade-baixa";
+            if(atividadeBacklog.tb_prioridade_atividade.ds_prioridade_atividade == "Alta") {
+              atividadeBacklog.tb_prioridade_atividade.nome_icone = "keyboard_arrow_up";
+              atividadeBacklog.tb_prioridade_atividade.classe = "icon-prioridade-atividade-alta";
+            }else if(atividadeBacklog.tb_prioridade_atividade.ds_prioridade_atividade == "Média") {
+              atividadeBacklog.tb_prioridade_atividade.nome_icone = "drag_handle";
+              atividadeBacklog.tb_prioridade_atividade.classe = "icon-prioridade-atividade-media";
+            }else if(atividadeBacklog.tb_prioridade_atividade.ds_prioridade_atividade == "Baixa") {
+              atividadeBacklog.tb_prioridade_atividade.nome_icone = "keyboard_arrow_down";
+              atividadeBacklog.tb_prioridade_atividade.classe = "icon-prioridade-atividade-baixa";
+            }
+          });
+
+          /* TODO: Esta é uma solução temporária. Implementar uma solução melhor! */
+          this.dashboardSituacaoAtividade = [
+            {
+              label: "Finalizada",
+              percent: ((this.countFinalizada * 100) / this.atividadesBacklog.length).toFixed(2),
+              style: `width: ${((this.countFinalizada * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#61bd4f'};`
+            },
+            {
+              label: "Em andamento",
+              percent: ((this.countAndamento * 100) / this.atividadesBacklog.length).toFixed(2),
+              style: `width: ${((this.countAndamento * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#0079bf'};`
+            },
+            {
+              label: "Em homologação",
+              percent: ((this.countHomologacao * 100) / this.atividadesBacklog.length).toFixed(2),
+              style: `width: ${((this.countHomologacao * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#ff9f1a'};`
+            },
+            {
+              label: "Bloqueada",
+              percent: ((this.countBloqueada * 100) / this.atividadesBacklog.length).toFixed(2),
+              style: `width: ${((this.countBloqueada * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#eb5a46'};`
+            }
+          ];
+
+          /* Ordena as situações das atividades do dashboard em ordem decrescente de quantidade por tipo de situação */
+          this.dashboardSituacaoAtividade.sort((a: any, b: any) => (Number(a.percent) > Number(b.percent)) ? -1 : 1);
+
+          /* Ordena as atividades em ordem decrescente de data de início */
+          this.atividadesBacklog.sort((a: any, b: any) => (a.dt_inicio_vigencia > b.dt_inicio_vigencia) ? -1 : 1);
         }
-      });
-
-      /* TODO: Esta é uma solução temporária. Implementar uma solução melhor! */
-      this.dashboardSituacaoAtividade = [
-        {
-          label: "Finalizada",
-          percent: ((this.countFinalizada * 100) / this.atividadesBacklog.length).toFixed(2),
-          style: `width: ${((this.countFinalizada * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#61bd4f'};`
-        },
-        {
-          label: "Em andamento",
-          percent: ((this.countAndamento * 100) / this.atividadesBacklog.length).toFixed(2),
-          style: `width: ${((this.countAndamento * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#0079bf'};`
-        },
-        {
-          label: "Em homologação",
-          percent: ((this.countHomologacao * 100) / this.atividadesBacklog.length).toFixed(2),
-          style: `width: ${((this.countHomologacao * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#ff9f1a'};`
-        },
-        {
-          label: "Bloqueada",
-          percent: ((this.countBloqueada * 100) / this.atividadesBacklog.length).toFixed(2),
-          style: `width: ${((this.countBloqueada * 100) / this.atividadesBacklog.length).toFixed(2)}%; background-color: ${'#eb5a46'};`
-        }
-      ];
-
-      /* Ordena as situações das atividades do dashboard em ordem decrescente de quantidade por tipo de situação */
-      this.dashboardSituacaoAtividade.sort((a: any, b: any) => (Number(a.percent) > Number(b.percent)) ? -1 : 1);
-
-      /* Ordena as atividades em ordem decrescente de data de início */
-      this.atividadesBacklog.sort((a: any, b: any) => (a.dt_inicio_vigencia > b.dt_inicio_vigencia) ? -1 : 1);
       
     });
 

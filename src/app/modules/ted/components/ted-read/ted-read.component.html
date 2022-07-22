@@ -3,8 +3,7 @@
     <section class="cards">
         <ng-container *ngFor="let ted of teds; let i = index;">
             
-          <!-- <div class="card-item" routerLink="/ted-detalhe/{{ted.id_ted}}"> -->
-          <div class="card-item" (click)="navigateToTedDetalhe(ted)">
+          <div class="card-item" routerLink="/ted-detalhe/{{ted.id_ted}}">
               <div class="card-header" [style.background-color]="tedsTheme[i]"></div>
               <div class="card-content">
                   <div class="sigla-ted">

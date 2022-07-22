@@ -3,13 +3,13 @@
         <div class="container-descricao-atividade">
             <input
                 type="text"
-                value="DESCRIÇÃO DA ATIVIDADE E TALS ..."
+                [value]="atividadeBacklog.ds_atividade_etapa"
             >
             <textarea
                 matInput
                 rows="3"
                 placeholder="Adicione uma descrição mais detalhada..."
-                value="Descrição mais detalhada da atividade"
+                [value]="atividadeBacklog.ds_detalhe_atividade"
                 placeholder="Descrição mais detalhada da atividade..."
             ></textarea>
         </div>
@@ -38,6 +38,7 @@
                             <button
                             mat-stroked-button
                             class="btn-cancelar"
+                            (click)="isActiveBtnGroup = false"
                         >
                             Cancelar
                         </button>
