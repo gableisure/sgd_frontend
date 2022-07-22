@@ -11,6 +11,8 @@ export class AtividadeBacklogDetalheComponent implements OnInit {
   idAtividade: string = "";
   dsAtividade: string = "";
 
+  isActiveBtnGroup: boolean = false;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {

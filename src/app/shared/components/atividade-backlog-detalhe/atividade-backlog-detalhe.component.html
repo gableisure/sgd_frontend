@@ -18,17 +18,37 @@
             <div class="container-descricao-tarefa">
                 <p>Tarefas</p>
                 <div class="content-descricao-tarefa">
-                    <span
-                        matTooltip="Admin"
-                        class="user-avatar">
-                        <mat-icon>person_outline</mat-icon>
-                    </span>
+                    <div class="container-avatar">
+                        <span
+                            matTooltip="Admin"
+                            class="user-avatar">
+                            <mat-icon>person_outline</mat-icon>
+                        </span>
+                    </div>
                     
-                    <input
-                        type="text"
-                        class="input-descricao-tarefa"
-                        placeholder="Adicione uma tarefa..."
-                    >
+                    <div class="container-input-tarefa" style="width: 100%">
+                        <input
+                            type="text"
+                            class="input-descricao-tarefa"
+                            placeholder="Adicione uma tarefa..."
+                            (click)="isActiveBtnGroup = !isActiveBtnGroup"
+                        >
+                        
+                        <div *ngIf="isActiveBtnGroup" class="btn-group">
+                            <button
+                            mat-stroked-button
+                            class="btn-cancelar"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            mat-stroked-button
+                            class="btn-salvar"
+                        >
+                            Salvar
+                        </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
