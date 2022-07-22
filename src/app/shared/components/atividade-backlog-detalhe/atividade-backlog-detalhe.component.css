@@ -27,9 +27,16 @@
 
 .container-descricao-atividade input {
     border: none;
+    border-radius: 4px;
     background: transparent;
+    padding: 5px 15px 5px 0px;
     color: #172b4d;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.container-descricao-atividade input:hover {
+    border: 1px solid #999;
 }
 
 .container-descricao-tarefa {
@@ -42,7 +49,7 @@
 .content-descricao-tarefa {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 10px;
 }
 
@@ -56,13 +63,33 @@
     border-radius: 4px;
 }
 
+.content-descricao-tarefa input:hover {
+    border: 1px solid #999;
+}
+
 .content-descricao-tarefa .user-avatar {
-    background-color: #e9e9e9;
+    background-color: #ece9e9;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 6px;
+}
+.container-avatar {
+}
+
+.container-input-tarefa {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-input-tarefa .btn-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 5px;
+    margin: 15px 0;
 }
 
 .content-descricao-tarefa .user-avatar mat-icon {
@@ -71,11 +98,20 @@
 
 .container-descricao-atividade textarea {
     width: 100%;
-    background-color: #e4e0e0;
+    background-color: #ece9e9;
     border: none;
     border-radius: 4px;
     padding: 10px 15px;
 }
+
+.container-descricao-atividade textarea:hover {
+    border: 1px solid #999;
+}
+
+/* NOT WORKING */
+/* .container-descricao-atividade textarea:active {
+    border: 1px solid #999;
+} */
 
 .container-tarefa {
     display: flex;
