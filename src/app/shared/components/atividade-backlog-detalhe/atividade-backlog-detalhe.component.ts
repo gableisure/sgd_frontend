@@ -15,7 +15,8 @@ export class AtividadeBacklogDetalheComponent implements OnInit {
   tarefas: any[] = [];
   atividadeBacklog: any;
 
-  isActiveBtnGroup: boolean = false;
+  isActiveBtnGroupAddTarefa: boolean = false;
+  isActiveBtnGroupActionsTarefa: boolean = false;
 
   constructor(
     private tarefaService: TarefaService,
@@ -39,7 +40,10 @@ export class AtividadeBacklogDetalheComponent implements OnInit {
     this.tarefaService.read().subscribe(tarefas => {
       this.tarefas = tarefas;
       this.tarefas = this.tarefas.filter((tarefa: any) => tarefa.id_atividade == this.idAtividade);
-      console.log(this.tarefas)
+      this.tarefas.sort((a: any, b: any) => (a.dt_inclusao > b.dt_inclusao) ? -1 : 1);
+      this.tarefas.forEach((tarefa) => {
+        tarefa.dt_inclusao = this.tarefaService.formatDateToISODate(tarefa.dt_inclusao);
+      });
     });
 
     

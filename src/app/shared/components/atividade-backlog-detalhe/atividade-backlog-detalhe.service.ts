@@ -6,4 +6,6 @@ import { Injectable } from '@angular/core';
 export class AtividadeBacklogDetalheService {
 
   constructor() { }
+
+  formatDateToISODate = (date: string) => new Date(date).toISOString().substring(0, 10);
 }
