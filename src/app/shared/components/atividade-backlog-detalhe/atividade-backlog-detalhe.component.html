@@ -33,22 +33,11 @@
                             placeholder="Adicione uma tarefa..."
                             (click)="isActiveBtnGroupAddTarefa = !isActiveBtnGroupAddTarefa"
                         >
-                        
-                        <div *ngIf="isActiveBtnGroupAddTarefa" class="btn-group">
-                            <button
-                                mat-stroked-button
-                                class="btn-cancelar"
-                                (click)="isActiveBtnGroupAddTarefa = false"
-                            >
-                                Cancelar
-                            </button>
-                            <button
-                                mat-stroked-button
-                                class="btn-salvar"
-                            >
-                                Salvar
-                            </button>
+                        <div *ngIf="isActiveBtnGroupAddTarefa" class="container-btn-group-actions">
+                            <span (click)="isActiveBtnGroupAddTarefa = false">Cancelar</span>
+                            <span>Salvar</span>
                         </div>
+                        
                     </div>
                     
                 </div>
@@ -76,12 +65,10 @@
                             (click)="isActiveBtnGroupActionsTarefa = !isActiveBtnGroupActionsTarefa"
                         >
                         <div *ngIf="isActiveBtnGroupActionsTarefa" class="container-btn-group-actions">
-                            <!-- *ngIf="isActiveBtnGroupActionsTarefa" class="btn-group" -->
                             <span (click)="isActiveBtnGroupActionsTarefa = false">Cancelar</span>
                             <span>Salvar</span>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             

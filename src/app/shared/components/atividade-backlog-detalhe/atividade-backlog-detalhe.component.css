@@ -138,6 +138,7 @@ p {
     flex-direction: row;
     align-items: flex-start;
     column-gap: 10px;
+    
 }
 
 .content-descricao-tarefa input {
