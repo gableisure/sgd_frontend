@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     <img src="https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo_roxa.png" alt="Logo">
   </a>
 
-  <h3 align="center">Template Rocketseat Advanced</h3>
+  <h3 align="center">Sistema de Gerenciamento de Demandas</h3>
 </p>
 
 ## Development server
