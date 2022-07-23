@@ -1,4 +1,4 @@
-<h3 align="center">Sistema de Gerenciamento de Demandas</h3>
+<h3 align="center">Sistema de Gerenciamento de Demandas - SGD</h3>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
