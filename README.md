@@ -2,13 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
-<p align="center">
-  <a href="https://rocketseat.com.br">
-    <img src="https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo_roxa.png" alt="Logo">
-  </a>
-
-  <h3 align="center">Sistema de Gerenciamento de Demandas</h3>
-</p>
+<h3 align="center">Sistema de Gerenciamento de Demandas</h3>
 
 ## Development server
 
