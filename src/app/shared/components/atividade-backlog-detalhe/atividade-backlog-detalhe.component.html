@@ -17,7 +17,7 @@
         <div class="container-tarefa">
             <div class="container-descricao-tarefa">
                 <p>Tarefas</p>
-                <div class="content-descricao-tarefa">
+                <div class="content-add-tarefa">
                     <div class="container-avatar">
                         <span
                             matTooltip="Admin"
@@ -36,20 +36,47 @@
                         
                         <div *ngIf="isActiveBtnGroup" class="btn-group">
                             <button
-                            mat-stroked-button
-                            class="btn-cancelar"
-                            (click)="isActiveBtnGroup = false"
-                        >
-                            Cancelar
-                        </button>
-                        <button
-                            mat-stroked-button
-                            class="btn-salvar"
-                        >
-                            Salvar
-                        </button>
+                                mat-stroked-button
+                                class="btn-cancelar"
+                                (click)="isActiveBtnGroup = false"
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                mat-stroked-button
+                                class="btn-salvar"
+                            >
+                                Salvar
+                            </button>
                         </div>
                     </div>
+                    
+                </div>
+                <!-- TODO: o estilo está sendo definido como inline temporáriamente. Implementar estrutura de estilo para este caso -->
+                <div style="margin-top: 20px;"></div>
+                <div *ngFor="let tarefa of tarefas" class="content-descricao-tarefa" style="margin: 10px 0px;">
+                    <div class="container-avatar">
+                        <span
+                            matTooltip="Admin"
+                            class="user-avatar">
+                            <mat-icon>person_outline</mat-icon>
+                        </span>
+                    </div>
+                    
+                    <div  class="container-input-tarefa" style="width: 100%">
+                        <div class="info-tarefa">
+                            <p>Admin</p>
+                            <p>{{ tarefa.dt_inclusao | date : 'dd/MM/yyyy' }}</p>
+                        </div>
+                        
+                        <input
+                            type="text"
+                            [value]="tarefa.ds_tarefa"
+                            class="input-descricao-tarefa"
+                            placeholder="Adicione uma tarefa..."
+                        >
+                    </div>
+                    
                 </div>
             </div>
             
