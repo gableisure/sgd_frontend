@@ -31,14 +31,14 @@
                             type="text"
                             class="input-descricao-tarefa"
                             placeholder="Adicione uma tarefa..."
-                            (click)="isActiveBtnGroup = !isActiveBtnGroup"
+                            (click)="isActiveBtnGroupAddTarefa = !isActiveBtnGroupAddTarefa"
                         >
                         
-                        <div *ngIf="isActiveBtnGroup" class="btn-group">
+                        <div *ngIf="isActiveBtnGroupAddTarefa" class="btn-group">
                             <button
                                 mat-stroked-button
                                 class="btn-cancelar"
-                                (click)="isActiveBtnGroup = false"
+                                (click)="isActiveBtnGroupAddTarefa = false"
                             >
                                 Cancelar
                             </button>
@@ -73,8 +73,13 @@
                             type="text"
                             [value]="tarefa.ds_tarefa"
                             class="input-descricao-tarefa"
-                            placeholder="Adicione uma tarefa..."
+                            (click)="isActiveBtnGroupActionsTarefa = !isActiveBtnGroupActionsTarefa"
                         >
+                        <div *ngIf="isActiveBtnGroupActionsTarefa" class="container-btn-group-actions">
+                            <!-- *ngIf="isActiveBtnGroupActionsTarefa" class="btn-group" -->
+                            <span (click)="isActiveBtnGroupActionsTarefa = false">Cancelar</span>
+                            <span>Salvar</span>
+                        </div>
                     </div>
                     
                 </div>

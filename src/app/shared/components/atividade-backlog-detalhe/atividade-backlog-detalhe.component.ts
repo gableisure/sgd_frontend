@@ -15,7 +15,8 @@ export class AtividadeBacklogDetalheComponent implements OnInit {
   tarefas: any[] = [];
   atividadeBacklog: any;
 
-  isActiveBtnGroup: boolean = false;
+  isActiveBtnGroupAddTarefa: boolean = false;
+  isActiveBtnGroupActionsTarefa: boolean = false;
 
   constructor(
     private tarefaService: TarefaService,

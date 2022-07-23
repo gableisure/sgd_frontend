@@ -177,3 +177,18 @@ p {
 .info-tarefa p {
     color: #666;
 }
+
+.container-btn-group-actions {
+    /* background-color: #dddada; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.container-btn-group-actions span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
