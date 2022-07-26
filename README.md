@@ -44,5 +44,5 @@ Execute o projeto com o seguinte comando:
 npm start
 ```
 
-Por padrão, o Angular irá executar o servidor em **http://localhost:4200/**
+Por padrão, o Angular irá executar o servidor em `http://localhost:4200/`
 
