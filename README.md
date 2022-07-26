@@ -2,27 +2,47 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
+## Sobre o Projeto
 
-## Development server
+Este projeto visa a construção de um sistema para gerenciar demandas internas do Laboratório Latitude da UnB. A proposta do sistema é unificar todas as atividades e tarefas executadas pelos pesquisadores/colaboradores das TEDs gerenciadas pelo Laboratório.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Começando
 
-## Code scaffolding
+Para implantar o projeto em seu ambiente local, siga os passos abaixo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Pré-requisitos
 
-## Build
+Primeiramente, é necessário a instalação do Nodejs, NPM e GIT para executar o projeto.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Clonando o projeto
 
-## Running unit tests
+Para clonar o projeto o projeto em seu ambiente local execute o seguinte comando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+git clone https://github.com/gableisure/sgd_frontend.git
+```
 
-## Running end-to-end tests
+### Instalando Dependências do Projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Primeiro acesse o diretório raiz com o seguinte comando:
 
-## Further help
+```sh
+cd sgd_frontend
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Instale as dependências do projeto com o seguinte comando:
+
+```sh
+npm install
+```
+
+### Executando o Projeto
+
+Execute o projeto com o seguinte comando:
+
+```sh
+npm start
+```
+
+Por padrão, o Angular irá executar o servidor em **http://localhost:4200/**
+
